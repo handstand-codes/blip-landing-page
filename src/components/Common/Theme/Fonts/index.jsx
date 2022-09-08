@@ -1,14 +1,15 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-import fkDisplayRegularWOFF from "~assets/fonts/fk-display-regular.woff";
-import fkGroteskMonospacedWOFF from "~assets/fonts/fk-grotesk-monospaced.woff";
-import fkGroteskRegularWOFF from "~assets/fonts/fk-grotesk-regular.woff";
+import ppNeueMontrealBoldWOFF from "~assets/fonts/pp-neue-montreal-bold.woff";
+import ppNeueMontrealBoldWOFF2 from "~assets/fonts/pp-neue-montreal-bold.woff2";
+import ppNeueMontrealMediumWOFF from "~assets/fonts/pp-neue-montreal-medium.woff";
+import ppNeueMontrealMediumWOFF2 from "~assets/fonts/pp-neue-montreal-medium.woff2";
 import { breakpoint } from "~utils/css.js";
 
 const SANS_FALLBACKS = `"Helvetica Neue", "Helvetica", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`;
 
-const FK_DISPLAY_REGULAR_TEXT_GROUP = `"Fk Display Regular", ${SANS_FALLBACKS}`;
-const FK_GROTESK_REGULAR_TEXT_GROUP = `"Fk Grotesk Regular", ${SANS_FALLBACKS}`;
+const PP_NEUE_MONTREAL_ID = `PP Neue Montreal`;
+const PP_NEUE_MONTREAL_TEXT_GROUP = `"${PP_NEUE_MONTREAL_ID}", ${SANS_FALLBACKS}`;
 
 /** ============================================================================
  * @component
@@ -18,38 +19,36 @@ const Fonts = () => (
   <Global
     styles={css`
       @font-face {
-        font-family: "Fk Grotesk Regular";
-        src: url(${fkGroteskRegularWOFF}) format("woff");
+        font-family: "${PP_NEUE_MONTREAL_ID}";
+        src: url(${ppNeueMontrealMediumWOFF2}) format("woff2"),
+          url(${ppNeueMontrealMediumWOFF}) format("woff");
         font-display: block;
         font-weight: normal;
         font-style: normal;
       }
 
       @font-face {
-        font-family: "Fk Grotesk Monospaced";
-        src: url(${fkGroteskMonospacedWOFF}) format("woff");
+        font-family: "${PP_NEUE_MONTREAL_ID}";
+        src: url(${ppNeueMontrealBoldWOFF2}) format("woff2"),
+          url(${ppNeueMontrealBoldWOFF}) format("woff");
         font-display: block;
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      @font-face {
-        font-family: "Fk Display Regular";
-        src: url(${fkDisplayRegularWOFF}) format("woff");
-        font-display: block;
-        font-weight: normal;
+        font-weight: 900;
         font-style: normal;
       }
 
       // common //
+      .d1,
       .h1,
       .h2,
       .h3,
+      .h4,
+      .h5,
+      .h6,
       .b1,
       .b2,
       .button-text,
       .caption {
-        font-family: ${FK_GROTESK_REGULAR_TEXT_GROUP};
+        font-family: ${PP_NEUE_MONTREAL_TEXT_GROUP};
         font-weight: normal;
       }
 
@@ -71,8 +70,8 @@ const Fonts = () => (
       // headings //
 
       .h1 {
-        font-size: 28px;
-        line-height: 115%;
+        font-size: 68px;
+        line-height: 68px;
         letter-spacing: -0.01em;
       }
       .h2 {
@@ -88,9 +87,9 @@ const Fonts = () => (
       // body //
 
       .b1 {
-        font-size: 16px;
-        line-height: 130%;
-        letter-spacing: 0.004em;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: 0.01em;
       }
 
       .b2 {
@@ -102,9 +101,10 @@ const Fonts = () => (
       // other //
 
       .button-text {
+        font-weight: bold;
         font-size: 16px;
-        line-height: 130%;
-        letter-spacing: 0.004em;
+        line-height: 16px;
+        letter-spacing: 0.01em;
       }
 
       .caption {

@@ -9,11 +9,6 @@ export default {
       type: `string`
     },
     {
-      name: `subtitle`,
-      title: `Subtitle`,
-      type: `string`
-    },
-    {
       name: `slug`,
       title: `URL`,
       type: `slug`,
@@ -22,21 +17,9 @@ export default {
       }
     },
     {
-      name: `slices`,
-      title: `Slices`,
-      type: `array`,
-      of: [
-        { type: `anchorPoint` },
-        { type: `banner` },
-        { type: `buttonBar` },
-        { type: `colourGrid` },
-        { type: `featuredProducts` },
-        { type: `fontInspector` },
-        { type: `fontList` },
-        { type: `imageBanner` },
-        { type: `media` },
-        { type: `twoColsText` }
-      ]
+      name: `pagebuilder`,
+      title: `Pagebuilder`,
+      type: `pagebuilder`
     },
     {
       name: `seo`,

@@ -2,55 +2,48 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import { Header, Menu, Sidebar, SEO, NoJs, Theme } from "~components";
-import { breakpoint } from "~utils/css.js";
+import {
+  Footer,
+  Header,
+  HeightDetector,
+  Menu,
+  SEO,
+  NoJs,
+  Theme
+} from "~components";
 
 /** ============================================================================
  * @css
  */
-const Container = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-`;
 
 const Main = styled.main`
   width: 100%;
   position: relative;
-  padding: 32px 32px 208px;
-  background-color: var(--color-black);
-  overflow: hidden;
-
-  ${breakpoint(`large-tablet`)} {
-    width: calc(100% - 268px);
-    padding-top: 0;
-    padding-left: 16px;
-  }
+  padding-top: 53px;
 `;
 
 /** ============================================================================
  * @component Core template wrapper.
  */
-const Layout = ({ children, className, seo, location, menu }) => (
+const Layout = ({ children, className, seo, location }) => (
   <>
-    <Container>
-      <Theme />
+    <NoJs />
 
-      <Header />
+    <HeightDetector />
 
-      {menu && <Menu data={menu} />}
-      {menu && <Sidebar data={menu} />}
+    <Theme />
 
-      <NoJs />
+    <Menu />
 
-      <Main className={className}>
-        <SEO {...seo} location={location} />
+    <Header />
 
-        {children}
-      </Main>
-    </Container>
+    <Main className={className}>
+      <SEO {...seo} location={location} />
 
-    {/* <Footer /> */}
+      {children}
+    </Main>
+
+    <Footer />
   </>
 );
 

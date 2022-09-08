@@ -1,16 +1,23 @@
 {
   "root": true,
-  "project": {
-    "name": "lam-brand-guidelines"
-  },
   "api": {
-    "projectId": "xxfl06t9",
+    "projectId": "ili2wj7x",
     "dataset": "production"
   },
-  "plugins": ["@sanity/base", "@sanity/default-layout", "@sanity/default-login", "@sanity/desk-tool"],
+  "project": {
+    "name": "loungeface"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [
@@ -21,10 +28,6 @@
     {
       "name": "part:@sanity/desk-tool/structure",
       "path": "./deskStructure.js"
-    },
-    { 
-      "implements": "part:@sanity/base/document-actions/resolver", 
-      "path": "./resolveDocumentActions.js" 
     }
   ]
 }

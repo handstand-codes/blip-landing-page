@@ -2,10 +2,12 @@
 
 import React from "react";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 import { useApp, useScroll } from "~hooks";
-import { Link } from "~components";
-import { breakpoint } from "~utils/css";
+import { Grid } from "~components";
 
+import { ReactComponent as Account } from "~assets/svg/account.svg";
+import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/wordmark.svg";
 
 /** ============================================================================
@@ -13,105 +15,21 @@ import { ReactComponent as Wordmark } from "~assets/svg/logos/wordmark.svg";
  */
 const Container = styled.header`
   width: 100%;
+  height: 53px;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
-  position: fixed;
-  transition: background 0.3s var(--cubic-easing),
-    color 0.3s var(--cubic-easing), opacity 0.3s var(--cubic-easing),
-    transform 0.5s var(--cubic-easing);
-
-  opacity: ${({ scrollingDown }) => (scrollingDown ? 0 : 1)};
-  pointer-events: ${({ scrollingDown }) => (scrollingDown ? `none` : `auto`)};
-  transform: ${({ scrollingDown }) =>
-    scrollingDown ? `translate3d(0, -1rem, 0)` : `translate3d(0, 0, 0)`};
-
-  z-index: ${({ clipped }) => (clipped ? 50 : 40)};
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-
-  ${breakpoint(`large-tablet`)} {
-    display: none;
-  }
-`;
-
-const LogoContainer = styled.div`
-  width: 100%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  margin-top: ${({ marginTop }) => marginTop || `0`};
-
-  & > a {
-    & > svg {
-      height: ${({ height }) => height || `1.5rem`};
-    }
-  }
-`;
-
-const ButtonContainer = styled.button`
-  display: block;
-  position: relative;
-`;
-
-const ButtonWrapper = styled.div`
-  display: block;
-  width: 3rem;
-  height: 3rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -1rem;
-  margin-right: -1rem;
-`;
-
-const HamburgerTop = styled.div`
-  transition: transform 0.3s var(--cubic-easing);
-  transform: ${({ menuActive }) =>
-    `translate3d(0, ${menuActive ? `5px` : 0}, 0) rotate(${
-      menuActive ? `-45deg` : `0`
-    })`};
-  display: block;
-  width: 21px;
-  height: 1px;
-  margin: 2px 0;
-  background: var(--color-white);
-`;
-
-const HamburgerMiddle = styled.div`
-  transition: transform 0.3s var(--cubic-easing);
-  transform: ${({ menuActive }) => `scaleX(${menuActive ? 0 : 1})`};
-  display: block;
-  width: 21px;
-  height: 1px;
-  margin: 2px 0;
-  background: var(--color-white);
-`;
-
-const HamburgerBottom = styled.div`
-  transition: transform 0.3s var(--cubic-easing);
-  transform: ${({ menuActive }) =>
-    `translate3d(0, ${menuActive ? `-5px` : 0}, 0) rotate(${
-      menuActive ? `45deg` : `0`
-    })`};
-  display: block;
-  width: 21px;
-  height: 1px;
-  margin: 2px 0;
-  background: var(--color-white);
+  z-index: 40;
+  background: var(--color-classic-black);
+  color: var(--color-white);
 `;
 
 /** ============================================================================
  * @component
  * Global nav.
  */
-const Header = ({ clipped = false, color = `white` }) => {
+const Header = () => {
   const { menuActive, setMenuActive } = useApp();
 
   const { scrollingDown } = useScroll();
@@ -119,20 +37,65 @@ const Header = ({ clipped = false, color = `white` }) => {
   //
 
   return (
-    <Container clipped={clipped} scrollingDown={scrollingDown}>
-      <LogoContainer>
-        <Link to="/">
-          <Wordmark fill="white" />
-        </Link>
-      </LogoContainer>
+    <Container scrollingDown={scrollingDown}>
+      <Grid
+        css={css`
+          height: 100%;
+          align-items: center;
+        `}
+      >
+        <div
+          css={css`
+            grid-column: span 3 / span 3;
+          `}
+        >
+          <Wordmark
+            css={css`
+              height: 16px;
+            `}
+            fill="white"
+          />
+        </div>
 
-      <ButtonContainer type="button" onClick={() => setMenuActive(!menuActive)}>
-        <ButtonWrapper>
-          <HamburgerTop menuActive={menuActive} />
-          <HamburgerMiddle menuActive={menuActive} />
-          <HamburgerBottom menuActive={menuActive} />
-        </ButtonWrapper>
-      </ButtonContainer>
+        <div
+          css={css`
+            grid-column: span 6 / span 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            font-weight: bold;
+          `}
+        >
+          <p className="b1">SHOP</p>
+          <p className="b1">ABOUT</p>
+          <p className="b1">CONTACT</p>
+        </div>
+
+        <div
+          css={css`
+            grid-column: span 3 / span 3;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+          `}
+        >
+          <Account
+            css={css`
+              height: 20px;
+              margin-right: 1rem;
+            `}
+            fill="white"
+          />
+
+          <Cart
+            css={css`
+              height: 20px;
+            `}
+            fill="white"
+          />
+        </div>
+      </Grid>
     </Container>
   );
 };

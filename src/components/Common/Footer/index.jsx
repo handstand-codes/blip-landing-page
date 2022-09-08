@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { Grid, Link } from '~components';
-import { breakpoint } from '~utils/css.js';
+import React from "react";
+import styled from "@emotion/styled";
+import { Grid, Link } from "~components";
+import { breakpoint } from "~utils/css.js";
 
 const Container = styled.footer`
-  background: var(--color-black-90);
+  background: var(--color-classic-black);
   color: var(--color-white);
   padding: 34px 0;
 `;
@@ -13,7 +13,7 @@ const Copyright = styled.p`
   grid-column: span 24;
   margin-top: 209px;
 
-  ${breakpoint('tablet', 'max')} {
+  ${breakpoint(`tablet`, `max`)} {
     margin-top: 64px;
   }
 `;
@@ -36,7 +36,7 @@ const Newsletter = styled.article`
     margin: 0;
   }
 
-  ${breakpoint('tablet', 'max')} {
+  ${breakpoint(`tablet`, `max`)} {
     margin-bottom: 64px;
     grid-column: span 24;
   }
@@ -47,12 +47,12 @@ const SiteMap = styled.article`
   display: flex;
   justify-content: space-around;
 
-  ${breakpoint('tablet', 'max')} {
+  ${breakpoint(`tablet`, `max`)} {
     grid-column: span 24;
     justify-content: space-between;
   }
 
-  ${breakpoint('large-mobile', 'max')} {
+  ${breakpoint(`large-mobile`, `max`)} {
     flex-direction: column;
     gap: 64px;
   }

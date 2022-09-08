@@ -2,7 +2,13 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 
 export const COLORS = {
+  "sick-lime": `#E2FF2E`,
+  "darling-mauve": `#B8B4FF`,
+  sunkiss: `#FFCC01`,
+  "classic-black": `#141414`,
+  //
   transparent: `transparent`,
+  black: `#000000`,
   "black-100": `#000000`,
   "black-90": `#1E1E1E`,
   "black-70": `#323232`,
