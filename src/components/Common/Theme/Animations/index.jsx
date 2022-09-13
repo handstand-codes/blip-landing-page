@@ -1,6 +1,8 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
 
+export const cubicEasing = [0.215, 0.61, 0.355, 1];
+
 const Animations = () => (
   <Global
     styles={[
