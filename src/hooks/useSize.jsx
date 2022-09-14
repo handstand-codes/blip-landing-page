@@ -1,16 +1,24 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import useResizeObserver from "@react-hook/resize-observer";
 
-const useSize = (target) => {
+const useSize = () => {
+  const ref = useRef();
   const [size, setSize] = useState();
+  const [boundingRect, setBoundingRect] = useState();
 
   useLayoutEffect(() => {
-    setSize(target.current.getBoundingClientRect());
-  }, [target]);
+    if (ref?.current) return;
+
+    setSize(ref.current.getBoundingClientRect());
+    setBoundingRect(ref.current.getBoundingClientRect());
+  }, [ref]);
 
   // Where the magic happens
-  useResizeObserver(target, (entry) => setSize(entry.contentRect));
-  return size;
+  useResizeObserver(ref, (entry) => {
+    setSize(entry.contentRect);
+    setBoundingRect(ref.current.getBoundingClientRect());
+  });
+  return [ref, size, boundingRect];
 };
 
 export default useSize;

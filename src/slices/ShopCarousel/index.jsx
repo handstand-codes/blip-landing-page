@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Button, Image } from "~components";
+import { Button, Image, ImageSwitcher } from "~components";
+import { useSize } from "~hooks";
 import { breakpoint } from "~utils/css";
 
-import sample1 from "~assets/images/TEST-home-default.jpg";
+import sample from "~assets/images/TEST-home-default.jpg";
 
 /** ============================================================================
  * @css
@@ -95,6 +96,8 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
 
   const [activeSlide, setActiveSlide] = useState(0);
 
+  const [containerRef, containerBoundingRect] = useSize();
+
   // ---------------------------------------------------------------------------
   // variables
 
@@ -128,7 +131,15 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
       </Sidebar>
 
       <Media>
-        <Figure>
+        <Figure ref={containerRef}>
+          {/* <ImageSwitcher
+            id="test-image-switcher"
+            imageUrl="/images/webgl/TEST-home-default.jpg"
+            resolution={{
+              x: containerBoundingRect?.width || 0,
+              y: containerBoundingRect?.height || 0
+            }}
+          /> */}
           <Image
             css={css`
               width: 100%;
@@ -137,7 +148,7 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
               display: block;
               object-fit: cover;
             `}
-            image={sample1}
+            image={sample}
           />
         </Figure>
 

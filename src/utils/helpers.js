@@ -33,3 +33,6 @@ export function splitStringToParagraphs(string, className) {
 
   return jsx;
 }
+
+export const getFallbackImageSrc = (image) =>
+  image?.asset?.gatsbyImageData?.images?.fallback?.src || null;
