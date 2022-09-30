@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { Button, Image, ImageSwitcher } from "~components";
+import { Button, Image, ImageSwitcher, ObjectInspector } from "~components";
 import { useSize } from "~hooks";
 import { breakpoint } from "~utils/css";
 
@@ -22,6 +22,19 @@ const Container = styled.section`
 
   ${breakpoint(`large-tablet`)} {
     height: 47.1vw;
+  }
+`;
+
+const ObjectContainer = styled.section`
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  padding: 0;
+  background: var(--color-classic-black);
+
+  ${breakpoint(`large-tablet`)} {
+    height: 60vw;
   }
 `;
 
@@ -114,25 +127,26 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
   // render
 
   return (
-    <Container
-      background={backgroundColour?.hex || `#ffffff`}
-      color={fontColour?.hex || `#000000`}
-    >
-      <Sidebar>
-        <h2
-          css={css`
-            height: 130px;
-            font-weight: bold;
-          `}
-          className="h1"
-        >
-          FACE
-        </h2>
-      </Sidebar>
+    <>
+      <Container
+        background={backgroundColour?.hex || `#ffffff`}
+        color={fontColour?.hex || `#000000`}
+      >
+        <Sidebar>
+          <h2
+            css={css`
+              height: 130px;
+              font-weight: bold;
+            `}
+            className="h1"
+          >
+            FACE
+          </h2>
+        </Sidebar>
 
-      <Media>
-        <Figure ref={containerRef}>
-          {/* <ImageSwitcher
+        <Media>
+          <Figure ref={containerRef}>
+            {/* <ImageSwitcher
             id="test-image-switcher"
             imageUrl="/images/webgl/TEST-home-default.jpg"
             resolution={{
@@ -140,51 +154,58 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
               y: containerBoundingRect?.height || 0
             }}
           /> */}
-          <Image
-            css={css`
-              width: 100%;
-              height: 100%;
-              position: relative;
-              display: block;
-              object-fit: cover;
-            `}
-            image={sample}
-          />
-        </Figure>
+            <Image
+              css={css`
+                width: 100%;
+                height: 100%;
+                position: relative;
+                display: block;
+                object-fit: cover;
+              `}
+              image={sample}
+            />
+          </Figure>
 
-        <TitleOverlay>
-          <h1
-            css={css`
-              height: 130px;
-              font-weight: bold;
-            `}
-            className="h1"
-          >
-            MEETINGS WITH
-            <br />
-            YOUR BOSS.
-          </h1>
-        </TitleOverlay>
+          <TitleOverlay>
+            <h1
+              css={css`
+                height: 130px;
+                font-weight: bold;
+              `}
+              className="h1"
+            >
+              MEETINGS WITH
+              <br />
+              YOUR BOSS.
+            </h1>
+          </TitleOverlay>
 
-        <TextOverlay>
-          <p className="b1">
-            Makeup you can rely on. So you can face whatever life has to throw
-            at you.
-          </p>
+          <TextOverlay>
+            <p className="b1">
+              Makeup you can rely on. So you can face whatever life has to throw
+              at you.
+            </p>
 
-          <Button
-            css={css`
-              margin-top: 1.5rem;
-              border: 1px solid var(--color-sick-lime);
-            `}
-            color="sick-lime"
-            onClick={() => {}}
-          >
-            <span className="button-text">SHOP NOW</span>
-          </Button>
-        </TextOverlay>
-      </Media>
-    </Container>
+            <Button
+              css={css`
+                margin-top: 1.5rem;
+                border: 1px solid var(--color-sick-lime);
+              `}
+              color="sick-lime"
+              onClick={() => {}}
+            >
+              <span className="button-text">SHOP NOW</span>
+            </Button>
+          </TextOverlay>
+        </Media>
+      </Container>
+
+      {/* 3D testing area */}
+
+      <ObjectContainer>
+        <ObjectInspector />
+      </ObjectContainer>
+    </>
   );
 };
 
