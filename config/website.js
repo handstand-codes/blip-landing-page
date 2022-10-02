@@ -6,7 +6,7 @@ module.exports = {
   siteLanguage: `en`, // Language Tag on <html> element
   banner: `/open-graph.jpg`, // Default OpenGraph image
   ogLanguage: `en_AU`, // Facebook Language
-  socialLinks: [], // Array of social links (facebook, insta, etc)
+  socialLinks: [``], // Array of social links (facebook, insta, etc)
   // JSONLD / Manifest
   icon: `src/images/icon.png`, // Used for manifest favicon, splash screen, and icon generation
   shortName: `Loungeface`, // shortname for manifest. MUST be shorter than 12 characters
