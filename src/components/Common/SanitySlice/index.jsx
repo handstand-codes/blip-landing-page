@@ -5,8 +5,6 @@ import * as Slices from "~slices";
 const SanitySlice = (props) => {
   const { data } = props;
 
-  console.log(data);
-
   const { _type: sliceType } = data;
 
   if (!sliceType) {

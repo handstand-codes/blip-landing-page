@@ -40,6 +40,7 @@ import textContent from "./objects/textContent";
 import pagebuilder from "./slices/_pagebuilder";
 //
 import articleTextSlice from "./slices/articleText";
+import colourBannerSlice from "./slices/colourBanner";
 import shopCarouselSlice from "./slices/shopCarousel";
 
 // Schema
@@ -84,6 +85,7 @@ export default createSchema({
 
     pagebuilder,
     articleTextSlice,
+    colourBannerSlice,
     shopCarouselSlice
   ])
 });

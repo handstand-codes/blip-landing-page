@@ -7,7 +7,11 @@ export default {
       name: `slices`,
       title: `Slices`,
       type: `array`,
-      of: [{ type: `articleTextSlice` }, { type: `shopCarouselSlice` }]
+      of: [
+        { type: `articleTextSlice` },
+        { type: `colourBannerSlice` },
+        { type: `shopCarouselSlice` }
+      ]
     }
   ]
 };

@@ -27,7 +27,7 @@ const FourOhFour = ({ location }) => (
     `}
   >
     <Container>
-      <h2 className="h1">This page doesn't exist.</h2>
+      <h2 className="h1">This page doesn‘t exist.</h2>
       <Button to="/" title="Back to home">
         <span>Back to home</span>
       </Button>
