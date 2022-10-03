@@ -54,69 +54,87 @@ const Fonts = () => (
 
       // display //
       .d1 {
-        font-size: 200px;
-        line-height: 100%;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 90%;
         letter-spacing: -0.02em;
         text-transform: uppercase;
       }
 
       .d2 {
-        font-size: 100px;
-        line-height: 100%;
+        font-weight: 700;
+        font-size: 62px;
+        line-height: 90%;
         letter-spacing: -0.02em;
         text-transform: uppercase;
       }
 
       // headings //
-
       .h1 {
-        font-size: 68px;
-        line-height: 68px;
-        letter-spacing: -0.01em;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 110%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
       }
+
       .h2 {
-        font-size: 24px;
-        line-height: 120%;
-        letter-spacing: -0.005em;
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 110%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
       }
+
       .h3 {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 110%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+      }
+
+      .h4 {
+        font-weight: 700;
         font-size: 20px;
-        line-height: 120%;
+        line-height: 110%;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
       }
 
       // body //
-
       .b1 {
+        font-weight: 500;
         font-size: 20px;
-        line-height: 24px;
+        line-height: 110%;
         letter-spacing: 0.01em;
       }
 
       .b2 {
-        font-size: 14px;
-        line-height: 120%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 110%;
         letter-spacing: 0.01em;
       }
 
       // other //
-
-      .button-text {
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 16px;
-        letter-spacing: 0.01em;
+      .caption {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 120%;
+        letter-spacing: 0.02em;
+        /* font-feature-settings: "zero" on; */
       }
 
-      .caption {
-        font-size: 9px;
+      .button-text {
+        font-weight: 700;
+        font-size: 20px;
         line-height: 100%;
-        letter-spacing: 0.09em;
+        letter-spacing: 0.01em;
         text-transform: uppercase;
-        font-feature-settings: "zero" on;
       }
 
       // breakpoints (ASC) //
-
       ${breakpoint(`large-desktop`, `max`)} {
         .d1 {
           font-size: 100px;
