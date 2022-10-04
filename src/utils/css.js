@@ -1,5 +1,7 @@
+/**
+ * Todo - delete this file as supersceded by 'styles/breakpoints.modules.scss'
+ */
 /* eslint-disable import/prefer-default-export */
-
 export const BREAKPOINTS = {
   giant: `2200px`,
   "large-desktop": `1600px`,

@@ -106,7 +106,7 @@ const sanityPlugins = () => {
  * SEO plugins
  */
 const seoPlugins = () => {
-  const plugins = [];
+  const plugins = [`gatsby-plugin-sass`];
 
   plugins.push(`gatsby-plugin-react-helmet`);
   plugins.push({
