@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { useApp, useScroll } from "~hooks";
 import { Link } from "~components";
@@ -12,15 +12,31 @@ import * as styles from "./Header.module.scss";
  * @component
  * Global nav.
  */
-const Header = () => {
-  const { menuActive, setMenuActive } = useApp();
+const Header = ({ isTransparentAtPageTop }) => {
+  const [isTransparent, setIsTransparent] = useState(false);
 
-  const { scrollingDown } = useScroll();
+  const { menuActive, setMenuActive } = useApp();
+  const { scrollY } = useScroll();
+
+  const checkIfTransparent = () => {
+    if (!isTransparentAtPageTop) return;
+    const TRANSPARENCY_SCROLL_MARGIN = 80;
+    setIsTransparent(scrollY < TRANSPARENCY_SCROLL_MARGIN);
+  };
+
+  useEffect(() => {
+    checkIfTransparent();
+  }, [scrollY]);
 
   return (
     <div className={styles.container}>
       <div className={styles.fixedContainer}>
-        <header className={styles.header__bar} scrollingDown={scrollingDown}>
+        <header
+          className={[
+            styles.header__bar,
+            isTransparent ? styles.header__bar___transparent : null
+          ].join(` `)}
+        >
           <Link to="/" onClick={() => setMenuActive(false)}>
             <Wordmark
               css={css`

@@ -29,6 +29,11 @@ $HEADER_HEIGHT: 52px;
     align-items: center;
     padding: 0 16px;
     user-select: none;
+    transition: background-color 0.3s;
+
+    &___transparent {
+      background: transparent;
+    }
   }
 
   &__desktopNav {
