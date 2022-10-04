@@ -3,23 +3,24 @@
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { useApp, useScroll } from "~hooks";
-import { Link } from "~components";
+import { Link, WidthContainer } from "~components";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
-import * as styles from "./Header.module.scss";
+import * as style from "./Header.module.scss";
 
 /** ============================================================================
  * @component
  * Global nav.
  */
-const Header = ({ isTransparentAtPageTop }) => {
+const Header = () => {
   const [isTransparent, setIsTransparent] = useState(false);
+  const [hasLoadedPathname, setHasLoadedPathname] = useState(false);
 
-  const { menuActive, setMenuActive } = useApp();
+  const { pathname, menuActive, setMenuActive } = useApp();
   const { scrollY } = useScroll();
 
   const checkIfTransparent = () => {
-    if (!isTransparentAtPageTop) return;
+    if (pathname !== `/`) return;
     const TRANSPARENCY_SCROLL_MARGIN = 80;
     setIsTransparent(scrollY < TRANSPARENCY_SCROLL_MARGIN);
   };
@@ -28,106 +29,125 @@ const Header = ({ isTransparentAtPageTop }) => {
     checkIfTransparent();
   }, [scrollY]);
 
+  useEffect(() => {
+    if (!pathname || hasLoadedPathname) {
+      return;
+    }
+    checkIfTransparent();
+    setHasLoadedPathname(true);
+  }, [pathname]);
+
   return (
-    <div className={styles.container}>
-      <div className={styles.fixedContainer}>
+    <div
+      className={[
+        style.container,
+        hasLoadedPathname ? style.container__visible : null
+      ].join(` `)}
+    >
+      <div className={style.fixedContainer}>
         <header
           className={[
-            styles.header__bar,
-            isTransparent ? styles.header__bar___transparent : null
+            style.header__bar,
+            isTransparent ? style.header__bar___transparent : null
           ].join(` `)}
         >
-          <Link to="/" onClick={() => setMenuActive(false)}>
-            <Wordmark
-              css={css`
-                height: 16px;
-                display: block;
-              `}
-              fill="white"
-            />
-          </Link>
-
-          <nav className={styles.header__desktopNav}>
-            <ul>
-              <li className="button-text">
-                <Link to="/">Shop</Link>
-              </li>
-              <li className="button-text">
-                <Link to="/">About</Link>
-              </li>
-              <li className="button-text">
-                <Link to="/">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <div className={styles.header__mobileIcons}>
-            <button type="button">
-              <div className={styles.header__mobileIcons__icon}>
-                <Cart
+          <WidthContainer>
+            <div className={style.header__content}>
+              <Link to="/" onClick={() => setMenuActive(false)}>
+                <Wordmark
                   css={css`
-                    height: 24px;
+                    height: 16px;
+                    display: block;
                   `}
                   fill="white"
                 />
-              </div>
-              <span
-                className={[styles.header__desktopMenuItem, `button-text`].join(
-                  ` `
-                )}
-              >
-                Cart
-              </span>
-            </button>
+              </Link>
 
-            <button
-              type="button"
-              onClick={() => setMenuActive((prev) => !prev)}
-            >
-              <div className={styles.header__mobileIcons__icon}>
-                <div className={styles.header__hamburger}>
-                  <div
-                    className={[
-                      styles.header__hamburger__line,
-                      menuActive
-                        ? styles.header__hamburger__line__active1
-                        : null
-                    ].join(` `)}
-                  />
-                  <div
-                    className={[
-                      styles.header__hamburger__line,
-                      menuActive
-                        ? styles.header__hamburger__line__active2
-                        : null
-                    ].join(` `)}
-                  />
-                  <div
-                    className={[
-                      styles.header__hamburger__line,
-                      menuActive
-                        ? styles.header__hamburger__line__active3
-                        : null
-                    ].join(` `)}
-                  />
-                </div>
-              </div>
+              <nav className={style.header__desktopNav}>
+                <ul>
+                  <li className="button-text">
+                    <Link to="/">Shop</Link>
+                  </li>
+                  <li className="button-text">
+                    <Link to="/">About</Link>
+                  </li>
+                  <li className="button-text">
+                    <Link to="/">Contact</Link>
+                  </li>
+                </ul>
+              </nav>
 
-              <span
-                className={[styles.header__desktopMenuItem, `button-text`].join(
-                  ` `
-                )}
-              >
-                Menu
-              </span>
-            </button>
-          </div>
+              <div className={style.header__mobileIcons}>
+                <button type="button">
+                  <div className={style.header__mobileIcons__icon}>
+                    <Cart
+                      css={css`
+                        height: 24px;
+                      `}
+                      fill="white"
+                    />
+                  </div>
+                  <span
+                    className={[
+                      style.header__desktopMenuItem,
+                      `button-text`
+                    ].join(` `)}
+                  >
+                    Cart
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setMenuActive((prev) => !prev)}
+                >
+                  <div className={style.header__mobileIcons__icon}>
+                    <div className={style.header__hamburger}>
+                      <div
+                        className={[
+                          style.header__hamburger__line,
+                          menuActive
+                            ? style.header__hamburger__line__active1
+                            : null
+                        ].join(` `)}
+                      />
+                      <div
+                        className={[
+                          style.header__hamburger__line,
+                          menuActive
+                            ? style.header__hamburger__line__active2
+                            : null
+                        ].join(` `)}
+                      />
+                      <div
+                        className={[
+                          style.header__hamburger__line,
+                          menuActive
+                            ? style.header__hamburger__line__active3
+                            : null
+                        ].join(` `)}
+                      />
+                    </div>
+                  </div>
+
+                  <span
+                    className={[
+                      style.header__desktopMenuItem,
+                      `button-text`
+                    ].join(` `)}
+                  >
+                    Menu
+                  </span>
+                </button>
+              </div>
+            </div>
+          </WidthContainer>
         </header>
 
         <nav
           className={[
-            styles.mobileMenu,
-            menuActive ? styles.mobileMenu__active : ``
+            style.mobileMenu,
+            menuActive ? style.mobileMenu__active : ``
           ].join(` `)}
         >
           <ul>

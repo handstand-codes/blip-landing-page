@@ -1,12 +1,18 @@
 @import "~styles/breakpoints.module.scss";
 
 $HEADER_HEIGHT: 52px;
+$BREAKPOINT: $large-tablet;
 
 .container {
   width: 100%;
+  display: none;
   margin-top: $HEADER_HEIGHT;
-  @media only screen and (min-width: $large-tablet) {
+  @media only screen and (min-width: $BREAKPOINT) {
     margin-top: 0;
+  }
+
+  &__visible {
+    display: block;
   }
 }
 
@@ -24,22 +30,27 @@ $HEADER_HEIGHT: 52px;
     height: $HEADER_HEIGHT;
     background: var(--color-classic-black);
     color: var(--color-white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 16px;
     user-select: none;
     transition: background-color 0.3s;
 
     &___transparent {
-      background: transparent;
+      @media only screen and (min-width: $BREAKPOINT) {
+        background: transparent;
+      }
     }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
   }
 
   &__desktopNav {
     display: none;
 
-    @media (min-width: $large-tablet) {
+    @media (min-width: $BREAKPOINT) {
       display: block;
     }
 
@@ -59,7 +70,7 @@ $HEADER_HEIGHT: 52px;
 
   &__desktopMenuItem {
     display: none;
-    @media (min-width: $large-tablet) {
+    @media (min-width: $BREAKPOINT) {
       display: inline;
     }
   }
@@ -70,7 +81,7 @@ $HEADER_HEIGHT: 52px;
     gap: 24px;
 
     &__icon {
-      @media (min-width: $large-tablet) {
+      @media (min-width: $BREAKPOINT) {
         display: none;
       }
     }

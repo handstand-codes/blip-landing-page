@@ -35,7 +35,7 @@ const Layout = ({ children, className, seo, location }) => (
 
     <Menu />
 
-    <Header isTransparentAtPageTop={location.pathname === `/`} />
+    <Header />
 
     <Main className={className}>
       <SEO {...seo} location={location} />

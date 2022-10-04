@@ -1,0 +1,11 @@
+@import "~styles/breakpoints.module.scss";
+
+.container {
+  max-width: 1920px;
+  margin: auto;
+  height: 100%;
+  padding: 0 1rem;
+  @media only screen and (min-width: $large-tablet) {
+    padding: 0 2.5rem;
+  }
+}
