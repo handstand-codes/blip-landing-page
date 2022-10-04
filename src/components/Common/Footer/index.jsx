@@ -1,95 +1,77 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { Grid, Link } from "~components";
-import { breakpoint } from "~utils/css.js";
-
-const Container = styled.footer`
-  background: var(--color-classic-black);
-  color: var(--color-white);
-  padding: 34px 0;
-`;
-
-const Copyright = styled.p`
-  grid-column: span 24;
-  margin-top: 209px;
-
-  ${breakpoint(`tablet`, `max`)} {
-    margin-top: 64px;
-  }
-`;
-
-const LinkWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-
-  & > a {
-    color: var(--color-white);
-  }
-`;
-
-const Newsletter = styled.article`
-  grid-column: span 12;
-  flex-direction: column;
-
-  & > p {
-    margin: 0;
-  }
-
-  ${breakpoint(`tablet`, `max`)} {
-    margin-bottom: 64px;
-    grid-column: span 24;
-  }
-`;
-
-const SiteMap = styled.article`
-  grid-column: span 12;
-  display: flex;
-  justify-content: space-around;
-
-  ${breakpoint(`tablet`, `max`)} {
-    grid-column: span 24;
-    justify-content: space-between;
-  }
-
-  ${breakpoint(`large-mobile`, `max`)} {
-    flex-direction: column;
-    gap: 64px;
-  }
-`;
+import { Link, WidthContainer } from "~components";
+import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
+import { css } from "@emotion/react";
+import * as styles from "./Footer.module.scss";
 
 const Footer = () => (
-  <Container className="b1">
-    <Grid>
-      <Newsletter>
-        <p>Sign up for Newsletters</p>
-      </Newsletter>
-
-      <SiteMap>
-        <LinkWrapper>
-          <Link to="/">Section</Link>
-          <Link to="/">Section</Link>
-          <Link to="/">Section</Link>
-          <Link to="/">Section</Link>
-        </LinkWrapper>
-
-        <LinkWrapper>
-          <Link to="/">About</Link>
-          <Link to="/">Shipping and Returns</Link>
-          <Link to="/">Privacy</Link>
-          <Link to="/">Terms & Conditions</Link>
-        </LinkWrapper>
-
-        <LinkWrapper>
-          <Link to="/">Social Media</Link>
-          <Link to="/">Social Media</Link>
-          <Link to="/">Social Media</Link>
-        </LinkWrapper>
-      </SiteMap>
-
-      <Copyright>© Love & Money {new Date().getFullYear()}</Copyright>
-    </Grid>
-  </Container>
+  <footer className={styles.footer}>
+    <WidthContainer>
+      {/* This is flex on desktop */}
+      <div className={styles.content}>
+        <div className={styles.newsletter}>
+          <form>
+            <label className="b1">
+              Sign up for Newsletters
+              <input
+                className={styles.newsletter__input}
+                type="text"
+                placeholder="Your email here"
+              />
+            </label>
+          </form>
+        </div>
+        <nav className={styles.nav}>
+          <ul className={styles.nav__ul}>
+            <li className="b1">
+              <Link to="/">FAQs</Link>
+            </li>
+            <li className="b1">
+              <Link to="/">About</Link>
+            </li>
+            <li className="b1">
+              <Link to="/">Contact</Link>
+            </li>
+          </ul>
+          <ul className={styles.nav__ul}>
+            <li className="b1">
+              <Link to="/">Privacy Policy</Link>
+            </li>
+            <li className="b1">
+              <Link to="/">Terms of Use</Link>
+            </li>
+          </ul>
+          <ul className={styles.nav__ul}>
+            <li className="b1">
+              <Link to="/">Facebook</Link>
+            </li>
+            <li className="b1">
+              <Link to="/">Instagram</Link>
+            </li>
+            <li className="b1">
+              <Link to="/">YouTube</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className={styles.logo}>
+        <Wordmark
+          fill="white"
+          css={css`
+            width: 100%;
+          `}
+        />
+      </div>
+      <div className={styles.bottomText}>
+        <span className="caption">
+          © Love & Money {new Date().getFullYear()}
+        </span>
+        <a className="caption" href="/">
+          Made with Love + Money
+        </a>
+      </div>
+    </WidthContainer>
+  </footer>
 );
 
 export default Footer;

@@ -15,6 +15,12 @@
   "rules": {
     "comma-dangle": ["error", "never"],
     "jsx-a11y/media-has-caption": 0,
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "assert": "either"
+      }
+    ],
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
