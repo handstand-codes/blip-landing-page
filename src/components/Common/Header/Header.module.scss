@@ -60,10 +60,10 @@ $BREAKPOINT: $large-tablet;
 
     li {
       text-transform: uppercase;
-      margin-right: 24px;
+      margin-right: 1.5rem;
 
       &:last-child {
-        margin-right: 0px;
+        margin-right: 0;
       }
     }
   }
@@ -78,7 +78,7 @@ $BREAKPOINT: $large-tablet;
   &__mobileIcons {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 1.5rem;
 
     &__icon {
       @media (min-width: $BREAKPOINT) {
@@ -88,8 +88,8 @@ $BREAKPOINT: $large-tablet;
   }
 
   &__hamburger {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,6 +141,6 @@ $BREAKPOINT: $large-tablet;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 1.5rem;
   }
 }
