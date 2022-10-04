@@ -48,7 +48,9 @@ const Header = () => {
         <header
           className={[
             style.header__bar,
-            isTransparent ? style.header__bar___transparent : null
+            isTransparent && !menuActive
+              ? style.header__bar___transparent
+              : null
           ].join(` `)}
         >
           <WidthContainer>
