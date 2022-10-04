@@ -11,7 +11,6 @@ import {
   NoJs,
   Theme
 } from "~components";
-import { breakpoint } from "~utils/css.js";
 
 /** ============================================================================
  * @css
@@ -20,10 +19,6 @@ import { breakpoint } from "~utils/css.js";
 const Main = styled.main`
   width: 100%;
   position: relative;
-  padding-top: 52px;
-  ${breakpoint(`large-tablet`, `min`)} {
-    padding-top: 0;
-  }
 `;
 
 /** ============================================================================

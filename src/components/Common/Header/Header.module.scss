@@ -1,6 +1,16 @@
 @import "~styles/breakpoints.module.scss";
 
+$HEADER_HEIGHT: 52px;
+
 .container {
+  width: 100%;
+  margin-top: $HEADER_HEIGHT;
+  @media only screen and (min-width: $large-tablet) {
+    margin-top: 0;
+  }
+}
+
+.fixedContainer {
   width: 100%;
   position: fixed;
   top: 0;
@@ -11,7 +21,7 @@
 
 .header {
   &__bar {
-    height: 52px;
+    height: $HEADER_HEIGHT;
     background: var(--color-classic-black);
     color: var(--color-white);
     display: flex;
@@ -96,11 +106,16 @@
 .mobileMenu {
   transition: 0.3s var(--cubic-easing) transform;
   background: var(--color-darling-mauve);
-  height: calc(100vh - 52px);
+  height: calc(100vh - $HEADER_HEIGHT);
+  position: fixed;
+  top: $HEADER_HEIGHT;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: translateX(100%);
+  z-index: 40;
 
   &__active {
     transform: translateX(0%);
