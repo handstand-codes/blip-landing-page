@@ -9,7 +9,8 @@ import {
   Menu,
   SEO,
   NoJs,
-  Theme
+  Theme,
+  WordCarousel
 } from "~components";
 
 /** ============================================================================
@@ -43,6 +44,8 @@ const Layout = ({ children, className, seo, location }) => (
     </Main>
 
     <Footer />
+
+    <WordCarousel />
   </>
 );
 
