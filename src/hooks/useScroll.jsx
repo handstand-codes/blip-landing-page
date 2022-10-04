@@ -1,31 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const useScroll = () => {
-  const [scrollTop, setScrollTop] = useState(0);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-  const [scrollingDown, setScrollingDown] = useState(null);
+  const [scrollY, setScrollY] = useState(0);
+  const [isScrollingDown, setIsScrollingDown] = useState(null);
 
-  const scrollHandler = () => {
-    setScrollTop(window.scrollY);
+  const lastScrollYRef = useRef(0);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
   };
 
   useEffect(() => {
-    window.addEventListener(`scroll`, scrollHandler);
-
-    return () => {
-      window.removeEventListener(`scroll`, scrollHandler);
-    };
-  }, []);
+    window.addEventListener(`scroll`, handleScroll);
+    return () => window.removeEventListener(`scroll`, handleScroll);
+  });
 
   useEffect(() => {
-    setScrollingDown(scrollTop > lastScrollTop);
-    setLastScrollTop(scrollTop);
-  }, [scrollTop]);
+    setIsScrollingDown(scrollY > lastScrollYRef);
+    lastScrollYRef.current = scrollY;
+  }, [scrollY]);
 
-  return {
-    scrollTop,
-    scrollingDown
-  };
+  return { scrollY, isScrollingDown };
 };
 
 export default useScroll;
