@@ -3,7 +3,7 @@ $BUTTON_HEIGHT: 38px;
 .button {
   height: $BUTTON_HEIGHT;
   position: relative;
-  display: block;
+  display: inline-block;
   padding: 0 2rem;
   border-radius: 500px;
   cursor: pointer;

@@ -55,13 +55,13 @@ const Button = ({
   disabled = false
 }) => {
   const innerJSX = (
-    <div className={styles.button__InnerContent}>{children}</div>
+    <div className={styles.button__innerContent}>{children}</div>
   );
 
   if (to) {
     return (
       <Link
-        className={[className, styles.button].join(` `)}
+        className={[className, styles.button, `button-text`].join(` `)}
         css={
           transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
         }
@@ -77,7 +77,7 @@ const Button = ({
     return (
       <button
         type="button"
-        className={[className, styles.button].join(` `)}
+        className={[className, styles.button, `button-text`].join(` `)}
         disabled={disabled}
         css={
           transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
