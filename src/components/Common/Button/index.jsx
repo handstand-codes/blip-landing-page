@@ -1,32 +1,16 @@
 import React from "react";
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
 import { Link } from "~components";
 import { COLORS } from "~components/Common/Theme/Colors/index.jsx";
+import * as styles from "./Button.module.scss";
 
 /** ============================================================================
  * variables
  */
-export const BUTTON_HEIGHT = `38px`;
-
-export const buttonCSS = `
-  height: ${BUTTON_HEIGHT};
-  position: relative;
-  display: block;
-  padding: 0 2rem;
-  background: var(--color-mono-100);
-  border-radius: 500px;
-  border: 1px solid var(--color-mono-100);
-  color: var(--color-white);
-  cursor: pointer;
-`;
-
 export const BUTTON_STYLES = {};
 
 Object.keys(COLORS).forEach((colorKey) => {
   BUTTON_STYLES[colorKey] = css`
-    ${buttonCSS};
-
     background: var(--color-${colorKey});
     border: 1px solid
       var(
@@ -42,31 +26,11 @@ export const ALPHA_BUTTON_STYLES = {};
 
 Object.keys(COLORS).forEach((colorKey) => {
   ALPHA_BUTTON_STYLES[colorKey] = css`
-    ${buttonCSS};
-
     background: transparent;
     border: 1px solid var(--color-${colorKey});
     color: var(--color-${colorKey});
   `;
 });
-
-/** ============================================================================
- * @css
- */
-
-const InnerContent = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  span {
-    display: block;
-    vertical-align: middle;
-  }
-`;
 
 /** ============================================================================
  * @component
@@ -90,12 +54,14 @@ const Button = ({
   transparent = false,
   disabled = false
 }) => {
-  const innerJSX = <InnerContent>{children}</InnerContent>;
+  const innerJSX = (
+    <div className={styles.button__InnerContent}>{children}</div>
+  );
 
   if (to) {
     return (
       <Link
-        className={className}
+        className={[className, styles.button].join(` `)}
         css={
           transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
         }
@@ -111,7 +77,7 @@ const Button = ({
     return (
       <button
         type="button"
-        className={className}
+        className={[className, styles.button].join(` `)}
         disabled={disabled}
         css={
           transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
