@@ -13,6 +13,7 @@ const Viewport = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  pointer-events: none;
 `;
 
 /** ============================================================================
