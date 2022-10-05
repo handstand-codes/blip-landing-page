@@ -1,36 +1,36 @@
 export default {
-  name: `colourGridItem`,
-  title: `Colour Grid Item`,
+  name: `colorGridItem`,
+  title: `Color Grid Item`,
   type: `object`,
   fields: [
     {
       name: `fontColor`,
-      title: `Font Color`,
+      title: `Font Colour`,
       type: `reference`,
-      to: [{ type: `colour` }],
+      to: [{ type: `colour` }]
     },
     {
       name: `name`,
       title: `Name`,
-      type: `string`,
+      type: `string`
     },
     {
       name: `gridSize`,
       title: `Grid Size`,
       type: `string`,
       options: {
-        list: [`s`, `m`, `l`, `xl`],
-      },
+        list: [`s`, `m`, `l`, `xl`]
+      }
     },
     {
       name: `hex`,
       title: `Hex`,
-      type: `string`,
+      type: `string`
     },
     {
       name: `rgb`,
       title: `RGB`,
-      type: `string`,
-    },
-  ],
+      type: `string`
+    }
+  ]
 };

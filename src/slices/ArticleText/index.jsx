@@ -34,10 +34,10 @@ const ContentWrapper = styled.div`
 /** ============================================================================
  * @component
  */
-const ArticleText = ({ data: { backgroundColour, fontColour, _rawBody } }) => (
+const ArticleText = ({ data: { backgroundColor, fontColor, _rawBody } }) => (
   <Container
-    background={backgroundColour?.hex || `#ffffff`}
-    color={fontColour?.hex || `#000000`}
+    background={backgroundColor?.hex || `#ffffff`}
+    color={fontColor?.hex || `#000000`}
   >
     <Grid>
       <ContentWrapper>

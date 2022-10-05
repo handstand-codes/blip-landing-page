@@ -103,7 +103,7 @@ const TextOverlay = styled.div`
 /** ============================================================================
  * @component
  */
-const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
+const ShopCarousel = ({ data: { backgroundColor, fontColor } }) => {
   // ---------------------------------------------------------------------------
   // context / ref / state
 
@@ -129,8 +129,8 @@ const ShopCarousel = ({ data: { backgroundColour, fontColour } }) => {
   return (
     <>
       <Container
-        background={backgroundColour?.hex || `#ffffff`}
-        color={fontColour?.hex || `#000000`}
+        background={backgroundColor?.hex || `#ffffff`}
+        color={fontColor?.hex || `#000000`}
       >
         <Sidebar>
           <h2

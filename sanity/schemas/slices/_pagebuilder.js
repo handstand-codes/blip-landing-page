@@ -9,7 +9,7 @@ export default {
       type: `array`,
       of: [
         { type: `fullWidthTextSlice` },
-        { type: `colourBlockHeaderSlice` },
+        { type: `colorBlockHeaderSlice` },
         { type: `articleTextSlice` },
         { type: `shopCarouselSlice` }
       ]

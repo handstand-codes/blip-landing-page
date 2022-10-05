@@ -15,10 +15,10 @@ export const Queries = graphql`
       }
       _type
     }
-    textColour {
+    textColor {
       hex
     }
-    backgroundColour {
+    backgroundColor {
       hex
     }
   }

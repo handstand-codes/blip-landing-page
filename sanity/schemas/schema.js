@@ -19,7 +19,7 @@ import settings from "./singletons/settings";
 // Objects
 import altImage from "./objects/altImage";
 import blockContent from "./objects/blockContent";
-import colourGridItem from "./objects/colourGridItem";
+import colorGridItem from "./objects/colorGridItem";
 import download from "./objects/download";
 import downloadLink from "./objects/downloadLink";
 import fontStyle from "./objects/fontStyle";
@@ -40,7 +40,7 @@ import textContent from "./objects/textContent";
 import pagebuilder from "./slices/_pagebuilder";
 //
 import fullWidthTextSlice from "./slices/fullWidthText";
-import colourBlockHeaderSlice from "./slices/colourBlockHeader";
+import colorBlockHeaderSlice from "./slices/colorBlockHeader";
 import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
 
@@ -65,7 +65,7 @@ export default createSchema({
 
     altImage,
     blockContent,
-    colourGridItem,
+    colorGridItem,
     download,
     downloadLink,
     fontStyle,
@@ -86,7 +86,7 @@ export default createSchema({
 
     pagebuilder,
     fullWidthTextSlice,
-    colourBlockHeaderSlice,
+    colorBlockHeaderSlice,
     articleTextSlice,
     shopCarouselSlice
   ])

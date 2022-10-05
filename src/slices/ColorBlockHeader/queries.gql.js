@@ -4,14 +4,14 @@
 import { graphql } from "gatsby";
 
 export const Queries = graphql`
-  fragment ColourBlockHeaderSliceFragment on SanityColourBlockHeaderSlice {
+  fragment ColorBlockHeaderSliceFragment on SanityColorBlockHeaderSlice {
     _key
     _type
     title
-    textColour {
+    textColor {
       hex
     }
-    backgroundColour {
+    backgroundColor {
       hex
     }
   }

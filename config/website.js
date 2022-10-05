@@ -11,7 +11,7 @@ module.exports = {
   icon: `src/images/icon.png`, // Used for manifest favicon, splash screen, and icon generation
   shortName: `Loungeface`, // shortname for manifest. MUST be shorter than 12 characters
   author: `Love + Money`, // Author for schemaORGJSONLD
-  themeColor: `#000000`, // PWA Icon background & address bar colour if installed on desktop
-  backgroundColor: `#000000`, // PWA colour shown before styles and content loads, should match the background-color CSS property in the site’s stylesheet
+  themeColor: `#000000`, // PWA Icon background & address bar color if installed on desktop
+  backgroundColor: `#000000`, // PWA color shown before styles and content loads, should match the background-color CSS property in the site’s stylesheet
   twitter: `` // Twitter Username
 };

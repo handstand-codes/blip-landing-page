@@ -7,22 +7,19 @@ export default {
       title: `Text Content`,
       name: `textContent`,
       type: `array`,
-      of: [{ type: `block` }],
-      validation: (Rule) => Rule.required()
+      of: [{ type: `block` }]
     },
     {
       title: `Text Colour`,
-      name: `textColour`,
+      name: `textColor`,
       type: `reference`,
-      to: [{ type: `colour` }],
-      validation: (Rule) => Rule.required()
+      to: [{ type: `colour` }]
     },
     {
       title: `Background Colour`,
-      name: `backgroundColour`,
+      name: `backgroundColor`,
       type: `reference`,
-      to: [{ type: `colour` }],
-      validation: (Rule) => Rule.required()
+      to: [{ type: `colour` }]
     }
   ],
   preview: {

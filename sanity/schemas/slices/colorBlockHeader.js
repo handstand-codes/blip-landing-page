@@ -1,6 +1,6 @@
 export default {
-  name: `colourBlockHeaderSlice`,
-  title: `Colour Block Header`,
+  name: `colorBlockHeaderSlice`,
+  title: `Color Block Header`,
   type: `object`,
   fields: [
     {
@@ -9,13 +9,13 @@ export default {
       type: `string`
     },
     {
-      name: `textColour`,
+      name: `textColor`,
       title: `Text Colour`,
       type: `reference`,
       to: [{ type: `colour` }]
     },
     {
-      name: `backgroundColour`,
+      name: `backgroundColor`,
       title: `Background Colour`,
       type: `reference`,
       to: [{ type: `colour` }]
@@ -24,7 +24,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: `Colour Block Header`
+        title: `Color Block Header`
       };
     }
   }

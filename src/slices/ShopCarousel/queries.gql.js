@@ -8,12 +8,12 @@ export const Queries = graphql`
     _key
     _type
 
-    backgroundColour {
+    backgroundColor {
       title
       hex
     }
 
-    fontColour {
+    fontColor {
       title
       hex
     }

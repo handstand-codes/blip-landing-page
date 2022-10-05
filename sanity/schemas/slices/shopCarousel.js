@@ -4,13 +4,13 @@ export default {
   type: `object`,
   fields: [
     {
-      name: `backgroundColour`,
+      name: `backgroundColor`,
       title: `Background Colour`,
       type: `reference`,
       to: [{ type: `colour` }]
     },
     {
-      name: `fontColour`,
+      name: `fontColor`,
       title: `Font Colour`,
       type: `reference`,
       to: [{ type: `colour` }]
