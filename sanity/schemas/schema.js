@@ -40,6 +40,7 @@ import textContent from "./objects/textContent";
 import pagebuilder from "./slices/_pagebuilder";
 //
 import fullWidthTextSlice from "./slices/fullWidthText";
+import colourBlockHeaderSlice from "./slices/colourBlockHeader";
 import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
 
@@ -85,6 +86,7 @@ export default createSchema({
 
     pagebuilder,
     fullWidthTextSlice,
+    colourBlockHeaderSlice,
     articleTextSlice,
     shopCarouselSlice
   ])

@@ -9,8 +9,8 @@ export default {
       type: `array`,
       of: [
         { type: `fullWidthTextSlice` },
+        { type: `colourBlockHeaderSlice` },
         { type: `articleTextSlice` },
-        { type: `colourBannerSlice` },
         { type: `shopCarouselSlice` }
       ]
     }

@@ -28,7 +28,7 @@ export default {
   preview: {
     prepare() {
       return {
-        title: `textContent`
+        title: `Text Content`
       };
     }
   }
