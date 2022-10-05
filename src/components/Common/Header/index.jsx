@@ -20,8 +20,10 @@ const Header = () => {
   const { pathname, menuActive, setMenuActive } = useApp();
   const { scrollY } = useScroll();
 
+  const isTransparencyEnabled = pathname === `/`;
+
   const checkIfTransparent = () => {
-    if (pathname !== `/`) return;
+    if (!isTransparencyEnabled) return;
     const TRANSPARENCY_SCROLL_MARGIN = 80;
     setIsTransparent(scrollY < TRANSPARENCY_SCROLL_MARGIN);
   };
@@ -54,7 +56,8 @@ const Header = () => {
     <div
       className={[
         style.container,
-        hasLoadedPathname ? style.container__visible : null
+        hasLoadedPathname ? style.container__visible : null,
+        isTransparencyEnabled ? style.removeTopMargin : null
       ].join(` `)}
     >
       <div className={style.fixedContainer}>

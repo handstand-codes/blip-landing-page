@@ -7,12 +7,15 @@ $BREAKPOINT: $small-desktop;
   width: 100%;
   display: none;
   margin-top: $HEADER_HEIGHT;
-  @media only screen and (min-width: $BREAKPOINT) {
-    margin-top: 0;
-  }
 
   &__visible {
     display: block;
+  }
+
+  &.removeTopMargin {
+    @media only screen and (min-width: $BREAKPOINT) {
+      margin-top: 0;
+    }
   }
 }
 
