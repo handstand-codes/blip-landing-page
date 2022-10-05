@@ -14,35 +14,42 @@ $BREAKPOINT: $large-tablet;
 .content {
   margin-bottom: 3.5rem;
   @media only screen and (min-width: $BREAKPOINT) {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 9rem;
   }
 }
 
 .newsletter {
   margin-bottom: 3.5rem;
+  grid-column: span 8;
+
+  @media only screen and (min-width: $BREAKPOINT) {
+    margin-bottom: 0;
+    grid-column: span 4;
+  }
 
   &__input {
     display: block;
     margin-top: 1rem;
+    width: 100%;
+    max-width: 500px;
   }
 }
 
 .nav {
+  display: grid;
+  row-gap: 3.5rem;
+  grid-column: span 8;
+
   @media only screen and (min-width: $BREAKPOINT) {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    grid-column: 7 / span 6;
+    grid-template-columns: repeat(6, 1fr);
   }
 
   &__ul {
-    margin-bottom: 3.5rem;
-
+    grid-column: span 8;
     @media only screen and (min-width: $BREAKPOINT) {
-      min-width: 12vw;
-      max-width: 200px;
-      margin-bottom: 0;
-      margin-right: 1.5rem;
+      grid-column: span 2;
     }
 
     li {

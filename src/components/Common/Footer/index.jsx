@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, WidthContainer } from "~components";
+import { Link, WidthContainer, Grid } from "~components";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
 import { css } from "@emotion/react";
 import * as styles from "./Footer.module.scss";
@@ -7,8 +7,7 @@ import * as styles from "./Footer.module.scss";
 const Footer = () => (
   <footer className={styles.footer}>
     <WidthContainer>
-      {/* This is flex on desktop */}
-      <div className={styles.content}>
+      <Grid className={styles.content}>
         <div className={styles.newsletter}>
           <form>
             <label className="b1">
@@ -53,7 +52,7 @@ const Footer = () => (
             </li>
           </ul>
         </nav>
-      </div>
+      </Grid>
       <div className={styles.logo}>
         <Wordmark
           fill="white"
