@@ -7,6 +7,7 @@ import { Link, WidthContainer } from "~components";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
 import * as style from "./Header.module.scss";
+import * as bp from "~styles/breakpoints.module.scss";
 
 /** ============================================================================
  * @component
@@ -36,6 +37,18 @@ const Header = () => {
     checkIfTransparent();
     setHasLoadedPathname(true);
   }, [pathname]);
+
+  const handleResize = () => {
+    const breakpoint = parseInt(bp.largeTablet.replace(`px`, ``));
+    if (window.innerWidth > breakpoint) {
+      setMenuActive(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener(`resize`, handleResize);
+    return () => window.removeEventListener(`resize`, handleResize);
+  }, []);
 
   return (
     <div
@@ -102,44 +115,34 @@ const Header = () => {
                 <button
                   type="button"
                   onClick={() => setMenuActive((prev) => !prev)}
+                  className={style.header__mobileIcons__icon}
                 >
-                  <div className={style.header__mobileIcons__icon}>
-                    <div className={style.header__hamburger}>
-                      <div
-                        className={[
-                          style.header__hamburger__line,
-                          menuActive
-                            ? style.header__hamburger__line__active1
-                            : null
-                        ].join(` `)}
-                      />
-                      <div
-                        className={[
-                          style.header__hamburger__line,
-                          menuActive
-                            ? style.header__hamburger__line__active2
-                            : null
-                        ].join(` `)}
-                      />
-                      <div
-                        className={[
-                          style.header__hamburger__line,
-                          menuActive
-                            ? style.header__hamburger__line__active3
-                            : null
-                        ].join(` `)}
-                      />
-                    </div>
+                  <div className={style.header__hamburger}>
+                    <div
+                      className={[
+                        style.header__hamburger__line,
+                        menuActive
+                          ? style.header__hamburger__line__active1
+                          : null
+                      ].join(` `)}
+                    />
+                    <div
+                      className={[
+                        style.header__hamburger__line,
+                        menuActive
+                          ? style.header__hamburger__line__active2
+                          : null
+                      ].join(` `)}
+                    />
+                    <div
+                      className={[
+                        style.header__hamburger__line,
+                        menuActive
+                          ? style.header__hamburger__line__active3
+                          : null
+                      ].join(` `)}
+                    />
                   </div>
-
-                  <span
-                    className={[
-                      style.header__desktopMenuItem,
-                      `button-text`
-                    ].join(` `)}
-                  >
-                    Menu
-                  </span>
                 </button>
               </div>
             </div>

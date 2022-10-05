@@ -133,6 +133,10 @@ $BREAKPOINT: $large-tablet;
   transform: translateX(100%);
   z-index: 40;
 
+  @media only screen and (min-width: $BREAKPOINT) {
+    display: none;
+  }
+
   &__active {
     transform: translateX(0%);
   }
