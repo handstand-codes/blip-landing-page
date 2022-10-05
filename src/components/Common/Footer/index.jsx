@@ -37,7 +37,7 @@ const Footer = () => (
               <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
             <li className="b1">
-              <Link to="/">Terms of Use</Link>
+              <Link to="/terms-of-service">Terms of Service</Link>
             </li>
           </ul>
           <ul className={styles.nav__ul}>
