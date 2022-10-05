@@ -53,7 +53,7 @@ const Header = () => {
               : null
           ].join(` `)}
         >
-          <WidthContainer>
+          <WidthContainer paddingOnly>
             <div className={style.header__content}>
               <Link to="/" onClick={() => setMenuActive(false)}>
                 <Wordmark

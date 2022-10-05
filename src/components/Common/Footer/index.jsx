@@ -6,7 +6,7 @@ import * as styles from "./Footer.module.scss";
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <WidthContainer>
+    <WidthContainer paddingOnly>
       <Grid className={styles.content}>
         <div className={styles.newsletter}>
           <form>
