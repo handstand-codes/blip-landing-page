@@ -34,7 +34,7 @@ const Footer = () => (
           </ul>
           <ul className={styles.nav__ul}>
             <li className="b1">
-              <Link to="/">Privacy Policy</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
             <li className="b1">
               <Link to="/">Terms of Use</Link>
