@@ -9,8 +9,8 @@ export default {
       type: `string`
     },
     {
-      name: `fontColour`,
-      title: `Font Colour`,
+      name: `textColour`,
+      title: `Text Colour`,
       type: `reference`,
       to: [{ type: `colour` }]
     },
