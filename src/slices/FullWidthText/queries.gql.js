@@ -15,7 +15,7 @@ export const Queries = graphql`
       }
       _type
     }
-    fontColour {
+    textColour {
       hex
     }
     backgroundColour {

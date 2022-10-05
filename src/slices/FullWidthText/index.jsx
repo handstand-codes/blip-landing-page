@@ -4,15 +4,14 @@ import { PortableText } from "@portabletext/react";
 import * as styles from "./FullWidthText.module.scss";
 
 const FullWidthText = ({
-  data: {
-    textContent,
-    backgroundColour = `var(--color-white)`,
-    fontColour = `var(--color-black)`
-  }
+  data: { textContent, backgroundColour, textColour }
 }) => (
   <article
     className={styles.container}
-    style={{ background: backgroundColour, color: fontColour }}
+    style={{
+      background: backgroundColour?.hex || `var(--color-white)`,
+      color: textColour?.hex || `var(--color-black-90)`
+    }}
   >
     <WidthContainer>
       <div className={[styles.textContent, `b1`].join(` `)}>

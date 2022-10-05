@@ -11,15 +11,15 @@ export default {
       validation: (Rule) => Rule.required()
     },
     {
-      title: `Background Colour`,
-      name: `backgroundColour`,
+      title: `Text Colour`,
+      name: `textColour`,
       type: `reference`,
       to: [{ type: `colour` }],
       validation: (Rule) => Rule.required()
     },
     {
-      title: `Font Colour`,
-      name: `fontColour`,
+      title: `Background Colour`,
+      name: `backgroundColour`,
       type: `reference`,
       to: [{ type: `colour` }],
       validation: (Rule) => Rule.required()
