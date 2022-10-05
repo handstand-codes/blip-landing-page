@@ -1,14 +1,14 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import * as style from "./WordCarousel.module.scss";
-import wordCarouselMock from "./mock";
+import phrases from "./phrases";
 
-const WordCarousel = ({ thingsToFace = wordCarouselMock }) => {
-  const DUPLICATIONS = 10;
+const WordCarousel = () => {
+  const DUPLICATIONS = 5;
   const duplicatedArray = [];
 
   for (let i = 0; i < DUPLICATIONS; i++) {
-    duplicatedArray.push(thingsToFace);
+    duplicatedArray.push(phrases);
   }
 
   const flatDuplicatedArray = duplicatedArray.flat();
