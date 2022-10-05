@@ -13,6 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@portabletext/react": "^1.0.6",
     "@reach/router": "^1.3.4",
     "@react-hook/resize-observer": "^1.2.5",
     "@react-three/drei": "^8.3.1",

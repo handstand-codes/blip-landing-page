@@ -1,0 +1,20 @@
+@import "~styles/breakpoints.module.scss";
+
+.container {
+  padding: 1rem 0;
+
+  @media only screen and (min-width: $small-desktop) {
+    padding: 2.5rem 0;
+  }
+}
+
+.textContent {
+  max-width: $large-tablet;
+  margin: auto;
+  p {
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

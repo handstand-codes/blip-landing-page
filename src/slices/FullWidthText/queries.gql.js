@@ -4,15 +4,22 @@
 import { graphql } from "gatsby";
 
 export const Queries = graphql`
-  fragment ColourBannerSliceFragment on SanityColourBannerSlice {
+  fragment FullWidthTextSliceFragment on SanityFullWidthTextSlice {
     _key
     _type
-    backgroundColour {
-      hex
+    textContent {
+      children {
+        text
+        marks
+        _type
+      }
+      _type
     }
     fontColour {
       hex
     }
-    title
+    backgroundColour {
+      hex
+    }
   }
 `;
