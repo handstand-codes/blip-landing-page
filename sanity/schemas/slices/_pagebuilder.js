@@ -8,6 +8,7 @@ export default {
       title: `Slices`,
       type: `array`,
       of: [
+        { type: `fullWidthTextSlice` },
         { type: `articleTextSlice` },
         { type: `colourBannerSlice` },
         { type: `shopCarouselSlice` }
