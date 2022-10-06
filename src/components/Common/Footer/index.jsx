@@ -62,11 +62,14 @@ const Footer = () => (
         />
       </div>
       <div className={styles.bottomText}>
-        <span className="caption">
-          © Love & Money {new Date().getFullYear()}
-        </span>
+        <span className="caption">© Loungeface {new Date().getFullYear()}</span>
         <a className="caption" href="/">
-          Made with Love + Money
+          Made with{` `}
+          <span className={styles.bottomText__desktop}>Love</span>
+          <span className={styles.bottomText__mobile}>{`<3`}</span>
+          {` + `}
+          <span className={styles.bottomText__desktop}>Money</span>
+          <span className={styles.bottomText__mobile}>$</span>
         </a>
       </div>
     </WidthContainer>

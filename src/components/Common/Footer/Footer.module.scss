@@ -68,4 +68,17 @@ $BREAKPOINT: $small-desktop;
 .bottomText {
   display: flex;
   justify-content: space-between;
+
+  &__mobile {
+    @media only screen and (min-width: $small-tablet) {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+    @media only screen and (min-width: $small-tablet) {
+      display: inline;
+    }
+  }
 }
