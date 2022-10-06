@@ -6,7 +6,7 @@ import { useApp, useScroll, useWindowDimensions } from "~hooks";
 import { Link, WidthContainer } from "~components";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
-import * as style from "./Header.module.scss";
+import * as styles from "./Header.module.scss";
 import * as bp from "~styles/breakpoints.module.scss";
 
 /** ============================================================================
@@ -59,30 +59,36 @@ const Header = () => {
     }
   }, [windowWidth]);
 
-  useEffect(() => {}, [isMenuActive]);
+  useEffect(() => {
+    if (isMenuActive) {
+      document.body.classList.add(styles.disableScroll);
+    } else {
+      document.body.classList.remove(styles.disableScroll);
+    }
+  }, [isMenuActive]);
 
   return (
     <div
       className={[
-        style.container,
-        hasLoadedPathname ? style.container__visible : null,
-        isTransparencyEnabled ? style.removeTopMargin : null
+        styles.container,
+        hasLoadedPathname ? styles.container__visible : null,
+        isTransparencyEnabled ? styles.removeTopMargin : null
       ].join(` `)}
     >
-      <div className={style.fixedContainer}>
+      <div className={styles.fixedContainer}>
         <header
           css={css`
             color: ${menuContentColor};
           `}
           className={[
-            style.header__bar,
+            styles.header__bar,
             isTransparent && !isMenuActive
-              ? style.header__bar___transparent
+              ? styles.header__bar___transparent
               : null
           ].join(` `)}
         >
           <WidthContainer paddingOnly>
-            <div className={style.header__content}>
+            <div className={styles.header__content}>
               <Link to="/" onClick={() => setIsMenuActive(false)}>
                 <Wordmark
                   css={css`
@@ -93,7 +99,7 @@ const Header = () => {
                 />
               </Link>
 
-              <nav className={style.header__desktopNav}>
+              <nav className={styles.header__desktopNav}>
                 <ul>
                   <li className="button-text">
                     <Link to="/">Shop</Link>
@@ -107,9 +113,9 @@ const Header = () => {
                 </ul>
               </nav>
 
-              <div className={style.header__mobileIcons}>
+              <div className={styles.header__mobileIcons}>
                 <button type="button">
-                  <div className={style.header__mobileIcons__icon}>
+                  <div className={styles.header__mobileIcons__icon}>
                     <Cart
                       css={css`
                         height: 24px;
@@ -119,7 +125,7 @@ const Header = () => {
                   </div>
                   <span
                     className={[
-                      style.header__desktopMenuItem,
+                      styles.header__desktopMenuItem,
                       `button-text`
                     ].join(` `)}
                   >
@@ -130,30 +136,30 @@ const Header = () => {
                 <button
                   type="button"
                   onClick={() => setIsMenuActive((prev) => !prev)}
-                  className={style.header__mobileIcons__icon}
+                  className={styles.header__mobileIcons__icon}
                 >
-                  <div className={style.header__hamburger}>
+                  <div className={styles.header__hamburger}>
                     <div
                       className={[
-                        style.header__hamburger__line,
+                        styles.header__hamburger__line,
                         isMenuActive
-                          ? style.header__hamburger__line__active1
+                          ? styles.header__hamburger__line__active1
                           : null
                       ].join(` `)}
                     />
                     <div
                       className={[
-                        style.header__hamburger__line,
+                        styles.header__hamburger__line,
                         isMenuActive
-                          ? style.header__hamburger__line__active2
+                          ? styles.header__hamburger__line__active2
                           : null
                       ].join(` `)}
                     />
                     <div
                       className={[
-                        style.header__hamburger__line,
+                        styles.header__hamburger__line,
                         isMenuActive
-                          ? style.header__hamburger__line__active3
+                          ? styles.header__hamburger__line__active3
                           : null
                       ].join(` `)}
                     />
@@ -166,8 +172,8 @@ const Header = () => {
 
         <nav
           className={[
-            style.mobileMenu,
-            isMenuActive ? style.mobileMenu__active : ``
+            styles.mobileMenu,
+            isMenuActive ? styles.mobileMenu__active : ``
           ].join(` `)}
         >
           <ul>

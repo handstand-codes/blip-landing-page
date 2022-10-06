@@ -3,6 +3,11 @@
 $HEADER_HEIGHT: 52px;
 $BREAKPOINT: $large-tablet;
 
+.disableScroll {
+  height: 100%;
+  overflow: hidden;
+}
+
 .container {
   width: 100%;
   display: none;
