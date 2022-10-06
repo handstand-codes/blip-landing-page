@@ -16,7 +16,7 @@ const Page = ({ location, data: staticData }) => {
   // ---------------------------------------------------------------------------
   // context / ref / state
 
-  const { sanityPage } = staticData;
+  const { sanityPage, sanitySettings } = staticData;
   const { pagebuilder } = sanityPage;
 
   const slices = pagebuilder?.slices || [];
@@ -25,7 +25,7 @@ const Page = ({ location, data: staticData }) => {
   // render
 
   return (
-    <Layout location={location}>
+    <Layout location={location} globalSettings={sanitySettings}>
       {slices?.[0] &&
         slices.map((slice) => <SanitySlice key={slice._key} data={slice} />)}
     </Layout>
@@ -50,6 +50,11 @@ export const query = graphql`
           ...ArticleTextSliceFragment
           ...ShopCarouselSliceFragment
         }
+      }
+    }
+    sanitySettings {
+      footer {
+        scrollingPhrases
       }
     }
   }

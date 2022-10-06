@@ -1,24 +1,30 @@
 export default {
-  name: 'footer',
-  title: 'Footer',
-  type: 'object',
+  name: "footer",
+  title: "Footer",
+  type: "object",
   options: {
     collapsed: false,
-    collapsible: true,
+    collapsible: true
   },
   fields: [
+    {
+      name: "scrollingPhrases",
+      title: "Scrolling Phrases",
+      type: "array",
+      of: [{ type: "string" }]
+    },
     // Links
     {
-      name: 'links',
-      title: 'Links',
-      type: 'array',
-      of: [{ type: 'linkInternal' }, { type: 'linkExternal' }],
+      name: "links",
+      title: "Links",
+      type: "array",
+      of: [{ type: "linkInternal" }, { type: "linkExternal" }]
     },
     // Text
     {
-      name: 'text',
-      title: 'Text',
-      type: 'array',
+      name: "text",
+      title: "Text",
+      type: "array",
       of: [
         {
           lists: [],
@@ -26,30 +32,30 @@ export default {
             annotations: [
               // Email
               {
-                title: 'Email',
-                name: 'annotationLinkEmail',
-                type: 'annotationLinkEmail',
+                title: "Email",
+                name: "annotationLinkEmail",
+                type: "annotationLinkEmail"
               },
               // Internal link
               {
-                title: 'Internal page',
-                name: 'annotationLinkInternal',
-                type: 'annotationLinkInternal',
+                title: "Internal page",
+                name: "annotationLinkInternal",
+                type: "annotationLinkInternal"
               },
               // URL
               {
-                title: 'URL',
-                name: 'annotationLinkExternal',
-                type: 'annotationLinkExternal',
-              },
+                title: "URL",
+                name: "annotationLinkExternal",
+                type: "annotationLinkExternal"
+              }
             ],
-            decorators: [],
+            decorators: []
           },
           // Block styles
-          styles: [{ title: 'Normal', value: 'normal' }],
-          type: 'block',
-        },
-      ],
-    },
-  ],
+          styles: [{ title: "Normal", value: "normal" }],
+          type: "block"
+        }
+      ]
+    }
+  ]
 };

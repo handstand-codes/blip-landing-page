@@ -1,9 +1,8 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import * as style from "./WordCarousel.module.scss";
-import phrases from "./phrases";
 
-const WordCarousel = () => {
+const WordCarousel = ({ phrases }) => {
   const DUPLICATIONS = 5;
   const duplicatedArray = [];
 
@@ -15,7 +14,7 @@ const WordCarousel = () => {
 
   return (
     <div className={style.marquee}>
-      <Marquee gradient={false} speed={70} pauseOnHover>
+      <Marquee gradient={false} speed={70}>
         {flatDuplicatedArray.map((item, i) => (
           <span className={[style.marquee__item, `h2`].join(` `)} key={i}>
             {item}

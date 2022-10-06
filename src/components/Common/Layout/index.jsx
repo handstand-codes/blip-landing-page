@@ -9,8 +9,7 @@ import {
   Menu,
   SEO,
   NoJs,
-  Theme,
-  WordCarousel
+  Theme
 } from "~components";
 
 /** ============================================================================
@@ -25,7 +24,13 @@ const Main = styled.main`
 /** ============================================================================
  * @component Core template wrapper.
  */
-const Layout = ({ children, className, seo, location }) => (
+const Layout = ({
+  children,
+  className,
+  seo,
+  location,
+  globalSettings: { footer }
+}) => (
   <>
     <NoJs />
 
@@ -43,9 +48,7 @@ const Layout = ({ children, className, seo, location }) => (
       {children}
     </Main>
 
-    <Footer />
-
-    <WordCarousel />
+    <Footer settings={footer} />
   </>
 );
 
