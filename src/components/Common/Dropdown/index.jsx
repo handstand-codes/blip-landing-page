@@ -44,7 +44,9 @@ const Dropdown = ({ title, content }) => {
       </button>
       <div
         className={styles.content__container}
-        style={{ height: isOpen ? `${contentHeight}px` : `8px` }}
+        css={css`
+          height: ${isOpen ? contentHeight : 8}px;
+        `}
       >
         <p
           ref={contentRef}

@@ -16,6 +16,8 @@ import * as bp from "~styles/breakpoints.module.scss";
 const Header = () => {
   const [isTransparent, setIsTransparent] = useState(false);
   const [hasLoadedPathname, setHasLoadedPathname] = useState(false);
+  const [menuContentColor, setMenuContentColor] =
+    useState(`var(--color-white)`);
 
   const { pathname, menuActive, setMenuActive, primaryColor } = useApp();
   const { scrollY } = useScroll();
@@ -26,7 +28,6 @@ const Header = () => {
   const isTransparencyEnabled = pathname === `/`;
   const breakpoint = parseInt(bp.largeTablet.replace(`px`, ``));
   const isDesktopWidth = windowWidth >= breakpoint;
-  const menuContentColor = isTransparent ? primaryColor : `var(--color-white)`;
 
   const checkIfTransparent = () => {
     if (!isTransparencyEnabled) return;
@@ -38,6 +39,10 @@ const Header = () => {
   useEffect(() => {
     checkIfTransparent();
   }, [scrollY]);
+
+  useEffect(() => {
+    setMenuContentColor(isTransparent ? primaryColor : `var(--color-white)`);
+  }, [isTransparent]);
 
   useEffect(() => {
     if (!pathname || hasLoadedPathname) {
@@ -64,7 +69,9 @@ const Header = () => {
     >
       <div className={style.fixedContainer}>
         <header
-          style={{ color: menuContentColor }}
+          css={css`
+            color: ${menuContentColor};
+          `}
           className={[
             style.header__bar,
             isTransparent && !menuActive
