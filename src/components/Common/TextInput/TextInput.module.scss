@@ -1,0 +1,38 @@
+.container {
+  position: relative;
+  display: block;
+  max-width: 400px;
+  margin-top: 1rem;
+}
+
+.input {
+  padding: 1rem;
+  padding-right: 52px;
+
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 1rem;
+
+  &__noBorder {
+    border-width: 0;
+  }
+}
+
+.button {
+  &__container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    transform: rotate(-90deg);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}

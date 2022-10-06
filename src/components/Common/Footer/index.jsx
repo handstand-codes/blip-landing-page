@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, WidthContainer, Grid } from "~components";
+import { Link, WidthContainer, Grid, TextInput } from "~components";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
 import { css } from "@emotion/react";
 import * as styles from "./Footer.module.scss";
@@ -10,12 +10,16 @@ const Footer = () => (
       <Grid className={styles.content}>
         <div className={styles.newsletter}>
           <form>
-            <label className="b1">
+            <label htmlFor="newsletter_signup_input" className="b1">
               Sign up for Newsletters
-              <input
-                className={styles.newsletter__input}
-                type="text"
+              <TextInput
+                id="newsletter_signup_input"
                 placeholder="Your email here"
+                bgColor="var(--color-classic-black)"
+                textColor="var(--color-white)"
+                borderColor="var(--color-white)"
+                placeholderColor="var(--color-black-20)"
+                onClick={() => {}}
               />
             </label>
           </form>
