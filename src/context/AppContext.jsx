@@ -15,6 +15,7 @@ const AppProvider = ({ children }) => {
 
   const [menuActive, setMenuActive] = useState(false);
   const [pathname, setPathname] = useState(null);
+  const [primaryColor, setPrimaryColor] = useState(`#E2FF2E`);
 
   // ---------------------------------------------------------------------------
   // methods
@@ -37,7 +38,13 @@ const AppProvider = ({ children }) => {
   // ---------------------------------------------------------------------------
   // render
 
-  const contextProps = useMemo(() => ({ menuActive, setMenuActive, pathname }));
+  const contextProps = useMemo(() => ({
+    menuActive,
+    setMenuActive,
+    pathname,
+    primaryColor,
+    setPrimaryColor
+  }));
 
   return (
     <AppContext.Provider value={contextProps}>{children}</AppContext.Provider>

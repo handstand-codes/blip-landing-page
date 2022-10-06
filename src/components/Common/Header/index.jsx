@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import { useApp, useScroll } from "~hooks";
+import { useApp, useScroll, useWindowDimensions } from "~hooks";
 import { Link, WidthContainer } from "~components";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
@@ -17,15 +17,22 @@ const Header = () => {
   const [isTransparent, setIsTransparent] = useState(false);
   const [hasLoadedPathname, setHasLoadedPathname] = useState(false);
 
-  const { pathname, menuActive, setMenuActive } = useApp();
+  const { pathname, menuActive, setMenuActive, primaryColor } = useApp();
   const { scrollY } = useScroll();
+  const {
+    windowSize: { width: windowWidth }
+  } = useWindowDimensions();
 
   const isTransparencyEnabled = pathname === `/`;
+  const breakpoint = parseInt(bp.largeTablet.replace(`px`, ``));
+  const isDesktopWidth = windowWidth >= breakpoint;
+  const menuContentColor = isTransparent ? primaryColor : `var(--color-white)`;
 
   const checkIfTransparent = () => {
     if (!isTransparencyEnabled) return;
     const TRANSPARENCY_SCROLL_MARGIN = 80;
-    setIsTransparent(scrollY < TRANSPARENCY_SCROLL_MARGIN);
+    const hasPassedScrollMargin = scrollY < TRANSPARENCY_SCROLL_MARGIN;
+    setIsTransparent(hasPassedScrollMargin && isDesktopWidth);
   };
 
   useEffect(() => {
@@ -40,17 +47,12 @@ const Header = () => {
     setHasLoadedPathname(true);
   }, [pathname]);
 
-  const handleResize = () => {
-    const breakpoint = parseInt(bp.largeTablet.replace(`px`, ``));
-    if (window.innerWidth > breakpoint) {
+  useEffect(() => {
+    checkIfTransparent();
+    if (isDesktopWidth) {
       setMenuActive(false);
     }
-  };
-
-  useEffect(() => {
-    window.addEventListener(`resize`, handleResize);
-    return () => window.removeEventListener(`resize`, handleResize);
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div
@@ -62,6 +64,7 @@ const Header = () => {
     >
       <div className={style.fixedContainer}>
         <header
+          style={{ color: menuContentColor }}
           className={[
             style.header__bar,
             isTransparent && !menuActive
@@ -77,7 +80,7 @@ const Header = () => {
                     height: 16px;
                     display: block;
                   `}
-                  fill="white"
+                  fill={menuContentColor}
                 />
               </Link>
 
