@@ -35,12 +35,14 @@ import product from "./objects/product";
 import seoSingleton from "./objects/seo/singleton";
 import seoStandard from "./objects/seo/standard";
 import textContent from "./objects/textContent";
+import dropdown from "./objects/dropdown";
 
 // Slices
 import pagebuilder from "./slices/_pagebuilder";
 //
 import fullWidthTextSlice from "./slices/fullWidthText";
 import colorBlockHeaderSlice from "./slices/colorBlockHeader";
+import dropdownGroupSlice from "./slices/dropdownGroup";
 import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
 
@@ -52,7 +54,7 @@ export default createSchema({
     annotationLinkExternal,
     annotationLinkInternal,
 
-    //
+    // Documents
 
     colour,
     page,
@@ -61,7 +63,7 @@ export default createSchema({
 
     settings,
 
-    //
+    // Objects
 
     altImage,
     blockContent,
@@ -81,12 +83,14 @@ export default createSchema({
     seoSingleton,
     seoStandard,
     textContent,
+    dropdown,
 
-    //
+    // Slices
 
     pagebuilder,
     fullWidthTextSlice,
     colorBlockHeaderSlice,
+    dropdownGroupSlice,
     articleTextSlice,
     shopCarouselSlice
   ])

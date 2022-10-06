@@ -10,6 +10,7 @@ export default {
       of: [
         { type: `fullWidthTextSlice` },
         { type: `colorBlockHeaderSlice` },
+        { type: `dropdownGroupSlice` },
         { type: `articleTextSlice` },
         { type: `shopCarouselSlice` }
       ]
