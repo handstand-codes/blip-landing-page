@@ -23,7 +23,7 @@ const Footer = () => (
         <nav className={styles.nav}>
           <ul className={styles.nav__ul}>
             <li className="b1">
-              <Link to="/">FAQs</Link>
+              <Link to="/faqs">FAQs</Link>
             </li>
             <li className="b1">
               <Link to="/">About</Link>
