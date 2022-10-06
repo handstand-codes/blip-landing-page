@@ -69,7 +69,7 @@ const Header = ({ menu }) => {
 
   const menuLinks = () =>
     menu?.links?.map((link) => (
-      <li>
+      <li key={link._key}>
         {link._type === `linkInternal` && (
           <Link to={link.reference.slug.current}>{link.title}</Link>
         )}

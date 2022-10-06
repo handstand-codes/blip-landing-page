@@ -55,6 +55,63 @@ export const query = graphql`
     sanitySettings {
       footer {
         scrollingPhrases
+        linksColumn1 {
+          ... on SanityLinkExternal {
+            _key
+            _type
+            url
+            title
+            newWindow
+          }
+          ... on SanityLinkInternal {
+            _key
+            _type
+            title
+            reference {
+              slug {
+                current
+              }
+            }
+          }
+        }
+        linksColumn2 {
+          ... on SanityLinkInternal {
+            _key
+            _type
+            title
+            reference {
+              slug {
+                current
+              }
+            }
+          }
+          ... on SanityLinkExternal {
+            _key
+            _type
+            url
+            title
+            newWindow
+          }
+        }
+        linksColumn3 {
+          ... on SanityLinkInternal {
+            _key
+            _type
+            title
+            reference {
+              slug {
+                current
+              }
+            }
+          }
+          ... on SanityLinkExternal {
+            _key
+            _type
+            url
+            title
+            newWindow
+          }
+        }
       }
       menu {
         links {

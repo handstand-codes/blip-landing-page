@@ -8,54 +8,29 @@ export default {
   },
   fields: [
     {
+      title: "Links Column 1",
+      name: "linksColumn1",
+      type: "array",
+      of: [{ type: "linkInternal" }, { type: "linkExternal" }]
+    },
+    {
+      title: "Links Column 2",
+      name: "linksColumn2",
+      type: "array",
+      of: [{ type: "linkInternal" }, { type: "linkExternal" }]
+    },
+    {
+      title: "Links Column 3",
+      name: "linksColumn3",
+      type: "array",
+      of: [{ type: "linkInternal" }, { type: "linkExternal" }]
+    },
+
+    {
       name: "scrollingPhrases",
       title: "Scrolling Phrases",
       type: "array",
       of: [{ type: "string" }]
-    },
-    // Links
-    {
-      name: "links",
-      title: "Links",
-      type: "array",
-      of: [{ type: "linkInternal" }, { type: "linkExternal" }]
-    },
-    // Text
-    {
-      name: "text",
-      title: "Text",
-      type: "array",
-      of: [
-        {
-          lists: [],
-          marks: {
-            annotations: [
-              // Email
-              {
-                title: "Email",
-                name: "annotationLinkEmail",
-                type: "annotationLinkEmail"
-              },
-              // Internal link
-              {
-                title: "Internal page",
-                name: "annotationLinkInternal",
-                type: "annotationLinkInternal"
-              },
-              // URL
-              {
-                title: "URL",
-                name: "annotationLinkExternal",
-                type: "annotationLinkExternal"
-              }
-            ],
-            decorators: []
-          },
-          // Block styles
-          styles: [{ title: "Normal", value: "normal" }],
-          type: "block"
-        }
-      ]
     }
   ]
 };
