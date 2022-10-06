@@ -13,7 +13,7 @@ import * as bp from "~styles/breakpoints.module.scss";
  * @component
  * Global nav.
  */
-const Header = () => {
+const Header = ({ menu }) => {
   const [isTransparent, setIsTransparent] = useState(false);
   const [hasLoadedPathname, setHasLoadedPathname] = useState(false);
   const [menuContentColor, setMenuContentColor] =
@@ -67,6 +67,24 @@ const Header = () => {
     }
   }, [isMenuActive]);
 
+  const menuLinks = () =>
+    menu?.links?.map((link) => (
+      <li>
+        {link._type === `linkInternal` && (
+          <Link to={link.reference.slug.current}>{link.title}</Link>
+        )}
+        {link._type === `linkExternal` && (
+          <a
+            href={link.url}
+            rel={link.newWindow ? `noreferrer noopener` : null}
+            target={link.newWindow ? `_blank` : `_self`}
+          >
+            {link.title}
+          </a>
+        )}
+      </li>
+    ));
+
   return (
     <div
       className={[
@@ -100,17 +118,7 @@ const Header = () => {
               </Link>
 
               <nav className={styles.header__desktopNav}>
-                <ul>
-                  <li className="button-text">
-                    <Link to="/">Shop</Link>
-                  </li>
-                  <li className="button-text">
-                    <Link to="/">About</Link>
-                  </li>
-                  <li className="button-text">
-                    <Link to="/">Contact</Link>
-                  </li>
-                </ul>
+                <ul className="button-text">{menuLinks()}</ul>
               </nav>
 
               <div className={styles.header__mobileIcons}>
@@ -176,17 +184,7 @@ const Header = () => {
             isMenuActive ? styles.mobileMenu__active : ``
           ].join(` `)}
         >
-          <ul>
-            <li className="d1">
-              <Link to="/">Shop</Link>
-            </li>
-            <li className="d1">
-              <Link to="/">About Us</Link>
-            </li>
-            <li className="d1">
-              <Link to="/">Contact</Link>
-            </li>
-          </ul>
+          <ul className="d1">{menuLinks()}</ul>
         </nav>
       </div>
     </div>

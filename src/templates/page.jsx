@@ -56,6 +56,27 @@ export const query = graphql`
       footer {
         scrollingPhrases
       }
+      menu {
+        links {
+          ... on SanityLinkInternal {
+            _key
+            _type
+            reference {
+              slug {
+                current
+              }
+            }
+            title
+          }
+          ... on SanityLinkExternal {
+            _key
+            _type
+            newWindow
+            title
+            url
+          }
+        }
+      }
     }
   }
 `;

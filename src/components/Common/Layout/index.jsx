@@ -29,7 +29,7 @@ const Layout = ({
   className,
   seo,
   location,
-  globalSettings: { footer }
+  globalSettings: { menu, footer }
 }) => (
   <>
     <NoJs />
@@ -40,7 +40,7 @@ const Layout = ({
 
     <Menu />
 
-    <Header />
+    <Header menu={menu} />
 
     <Main className={className}>
       <SEO {...seo} location={location} />
