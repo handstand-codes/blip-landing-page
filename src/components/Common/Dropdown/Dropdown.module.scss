@@ -1,0 +1,37 @@
+.button {
+  border-top: 1px solid var(--color-black-20);
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &__text {
+    margin-right: 1rem;
+  }
+
+  &__icon {
+    transition: transform 0.3s;
+    margin-right: 3.5px;
+    &__rotate {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.content {
+  &__container {
+    overflow: hidden;
+    transition: height 0.3s;
+  }
+  &__text {
+    padding-bottom: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &__visible {
+      opacity: 1;
+    }
+  }
+}
