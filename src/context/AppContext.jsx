@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
   // ---------------------------------------------------------------------------
   // context / ref / state
 
-  const [menuActive, setMenuActive] = useState(false);
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const [pathname, setPathname] = useState(null);
   const [primaryColor, setPrimaryColor] = useState(`#E2FF2E`);
 
@@ -39,8 +39,8 @@ const AppProvider = ({ children }) => {
   // render
 
   const contextProps = useMemo(() => ({
-    menuActive,
-    setMenuActive,
+    isMenuActive,
+    setIsMenuActive,
     pathname,
     primaryColor,
     setPrimaryColor

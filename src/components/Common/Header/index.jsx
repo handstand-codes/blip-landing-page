@@ -19,7 +19,7 @@ const Header = () => {
   const [menuContentColor, setMenuContentColor] =
     useState(`var(--color-white)`);
 
-  const { pathname, menuActive, setMenuActive, primaryColor } = useApp();
+  const { pathname, isMenuActive, setIsMenuActive, primaryColor } = useApp();
   const { scrollY } = useScroll();
   const {
     windowSize: { width: windowWidth }
@@ -55,9 +55,11 @@ const Header = () => {
   useEffect(() => {
     checkIfTransparent();
     if (isDesktopWidth) {
-      setMenuActive(false);
+      setIsMenuActive(false);
     }
   }, [windowWidth]);
+
+  useEffect(() => {}, [isMenuActive]);
 
   return (
     <div
@@ -74,14 +76,14 @@ const Header = () => {
           `}
           className={[
             style.header__bar,
-            isTransparent && !menuActive
+            isTransparent && !isMenuActive
               ? style.header__bar___transparent
               : null
           ].join(` `)}
         >
           <WidthContainer paddingOnly>
             <div className={style.header__content}>
-              <Link to="/" onClick={() => setMenuActive(false)}>
+              <Link to="/" onClick={() => setIsMenuActive(false)}>
                 <Wordmark
                   css={css`
                     height: 16px;
@@ -127,14 +129,14 @@ const Header = () => {
 
                 <button
                   type="button"
-                  onClick={() => setMenuActive((prev) => !prev)}
+                  onClick={() => setIsMenuActive((prev) => !prev)}
                   className={style.header__mobileIcons__icon}
                 >
                   <div className={style.header__hamburger}>
                     <div
                       className={[
                         style.header__hamburger__line,
-                        menuActive
+                        isMenuActive
                           ? style.header__hamburger__line__active1
                           : null
                       ].join(` `)}
@@ -142,7 +144,7 @@ const Header = () => {
                     <div
                       className={[
                         style.header__hamburger__line,
-                        menuActive
+                        isMenuActive
                           ? style.header__hamburger__line__active2
                           : null
                       ].join(` `)}
@@ -150,7 +152,7 @@ const Header = () => {
                     <div
                       className={[
                         style.header__hamburger__line,
-                        menuActive
+                        isMenuActive
                           ? style.header__hamburger__line__active3
                           : null
                       ].join(` `)}
@@ -165,7 +167,7 @@ const Header = () => {
         <nav
           className={[
             style.mobileMenu,
-            menuActive ? style.mobileMenu__active : ``
+            isMenuActive ? style.mobileMenu__active : ``
           ].join(` `)}
         >
           <ul>

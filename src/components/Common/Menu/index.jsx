@@ -13,7 +13,7 @@ import { ReactComponent as Logomark } from "~assets/svg/logos/logomark.svg";
  * @component
  */
 const Menu = () => {
-  const { menuActive, setMenuActive } = useApp();
+  const { isMenuActive, setIsMenuActive } = useApp();
 
   //
 
