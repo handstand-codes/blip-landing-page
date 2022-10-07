@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { useApp, useScroll, useWindowDimensions } from "~hooks";
-import { Link, WidthContainer } from "~components";
+import { WidthContainer, ListLinks } from "~components";
+import { Link } from "gatsby";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
 import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
 import * as styles from "./Header.module.scss";
@@ -67,24 +68,6 @@ const Header = ({ menu }) => {
     }
   }, [isMenuActive]);
 
-  const menuLinks = () =>
-    menu?.links?.map((link) => (
-      <li key={link._key}>
-        {link._type === `linkInternal` && (
-          <Link to={link.reference.slug.current}>{link.title}</Link>
-        )}
-        {link._type === `linkExternal` && (
-          <a
-            href={link.url}
-            rel={link.newWindow ? `noreferrer noopener` : null}
-            target={link.newWindow ? `_blank` : `_self`}
-          >
-            {link.title}
-          </a>
-        )}
-      </li>
-    ));
-
   return (
     <div
       className={[
@@ -118,7 +101,9 @@ const Header = ({ menu }) => {
               </Link>
 
               <nav className={styles.header__desktopNav}>
-                <ul className="button-text">{menuLinks()}</ul>
+                <ul className="button-text">
+                  <ListLinks links={menu?.links} />
+                </ul>
               </nav>
 
               <div className={styles.header__mobileIcons}>
@@ -184,7 +169,9 @@ const Header = ({ menu }) => {
             isMenuActive ? styles.mobileMenu__active : ``
           ].join(` `)}
         >
-          <ul className="d1">{menuLinks()}</ul>
+          <ul className="d1">
+            <ListLinks links={menu?.links} />
+          </ul>
         </nav>
       </div>
     </div>
