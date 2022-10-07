@@ -7,22 +7,22 @@ export default {
       title: `Text`,
       name: `text`,
       type: `array`,
-      of: [{ type: `block` }]
+      of: [
+        {
+          type: `block`,
+          styles: [{ title: `Normal`, value: `normal` }],
+          lists: [],
+          marks: {
+            decorators: [],
+            annotations: []
+          }
+        }
+      ]
     },
     {
       name: `image`,
       title: `Image`,
-      type: `image`,
-      fields: [
-        {
-          name: `altText`,
-          title: `Alternative Text`,
-          type: `string`,
-          options: {
-            isHighlighted: true
-          }
-        }
-      ]
+      type: `altImage`
     },
     {
       name: `imageOnRight`,

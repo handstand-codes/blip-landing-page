@@ -49,6 +49,7 @@ export const query = graphql`
           ...DropdownGroupSliceFragment
           ...ArticleTextSliceFragment
           ...ShopCarouselSliceFragment
+          ...TextImage5050SliceFragment
         }
       }
     }

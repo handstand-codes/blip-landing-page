@@ -8,8 +8,8 @@ export default {
       title: `Alternative Text`,
       type: `string`,
       options: {
-        isHighlighted: true,
-      },
-    },
-  ],
+        isHighlighted: true
+      }
+    }
+  ]
 };
