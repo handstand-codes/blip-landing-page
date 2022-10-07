@@ -45,6 +45,7 @@ import colorBlockHeaderSlice from "./slices/colorBlockHeader";
 import dropdownGroupSlice from "./slices/dropdownGroup";
 import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
+import textImage5050Slice from "./slices/textImage5050";
 
 // Schema
 export default createSchema({
@@ -92,6 +93,7 @@ export default createSchema({
     colorBlockHeaderSlice,
     dropdownGroupSlice,
     articleTextSlice,
-    shopCarouselSlice
+    shopCarouselSlice,
+    textImage5050Slice
   ])
 });
