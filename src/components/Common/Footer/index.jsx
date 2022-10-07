@@ -35,20 +35,17 @@ const Footer = ({ settings }) => {
         <WidthContainer paddingOnly>
           <Grid className={styles.content}>
             <div className={styles.newsletter}>
-              <form>
-                <label htmlFor="newsletter_signup_input" className="b1">
+              <label htmlFor="newsletter_signup_input" className="b1">
+                <span className={styles.newsletter__CTA}>
                   Sign up for Newsletters
-                  <TextInput
-                    id="newsletter_signup_input"
-                    placeholder="Your email here"
-                    bgColor="var(--color-classic-black)"
-                    textColor="var(--color-white)"
-                    borderColor="var(--color-white)"
-                    placeholderColor="var(--color-black-20)"
-                    onClick={() => {}}
-                  />
-                </label>
-              </form>
+                </span>
+                <TextInput
+                  id="newsletter_signup_input"
+                  placeholder="Your email here"
+                  onClick={() => {}}
+                  isDarkTheme
+                />
+              </label>
             </div>
             <nav className={styles.nav}>
               <ul className={[styles.nav__ul, `b1`].join(` `)}>

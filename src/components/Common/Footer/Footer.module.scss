@@ -26,6 +26,11 @@ $BREAKPOINT: $small-desktop;
     margin-bottom: 0;
     grid-column: span 4;
   }
+
+  &__CTA {
+    display: block;
+    margin-bottom: 1rem;
+  }
 }
 
 .nav {
