@@ -55,64 +55,64 @@ const Fonts = () => (
       // display //
       .d1 {
         font-weight: 700;
-        font-size: 80px;
-        line-height: 90%;
-        letter-spacing: -0.02em;
+        font-size: 48px;
+        line-height: 110%;
+        letter-spacing: -0.0125em;
         text-transform: uppercase;
       }
 
       .d2 {
         font-weight: 700;
-        font-size: 62px;
-        line-height: 90%;
-        letter-spacing: -0.02em;
+        font-size: 36px;
+        line-height: 110%;
+        letter-spacing: -0.0125em;
         text-transform: uppercase;
       }
 
       // headings //
       .h1 {
         font-weight: 700;
-        font-size: 48px;
+        font-size: 28px;
         line-height: 110%;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.005em;
         text-transform: uppercase;
       }
 
       .h2 {
         font-weight: 700;
-        font-size: 35px;
+        font-size: 24px;
         line-height: 110%;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.005em;
         text-transform: uppercase;
       }
 
       .h3 {
         font-weight: 700;
-        font-size: 24px;
+        font-size: 20px;
         line-height: 110%;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.005em;
         text-transform: uppercase;
       }
 
       .h4 {
         font-weight: 700;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 110%;
-        letter-spacing: -0.02em;
+        letter-spacing: -0.005em;
         text-transform: uppercase;
       }
 
       // body //
       .b1 {
         font-weight: 500;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 110%;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.004em;
       }
 
       .b2 {
         font-weight: 500;
-        font-size: 16px;
+        font-size: 14px;
         line-height: 110%;
         letter-spacing: 0.01em;
       }
@@ -121,41 +121,82 @@ const Fonts = () => (
       .caption {
         font-weight: 500;
         font-size: 12px;
-        line-height: 120%;
+        line-height: 110%;
         letter-spacing: 0.02em;
         /* font-feature-settings: "zero" on; */
       }
 
       .button-text {
         font-weight: 700;
-        font-size: 20px;
-        line-height: 100%;
+        font-size: 16px;
+        line-height: 120%;
         letter-spacing: 0.01em;
         text-transform: uppercase;
       }
 
-      // breakpoints (ASC) //
-      ${breakpoint(`large-desktop`, `max`)} {
+      ${breakpoint(`small-tablet`, `min`)} {
+        // display //
         .d1 {
-          font-size: 100px;
+          font-size: 80px;
+          line-height: 90%;
+          letter-spacing: -0.02em;
         }
-      }
 
-      ${breakpoint(`small-tablet`, `max`)} {
-        .d1 {
-          font-size: 36px;
+        .d2 {
+          font-size: 62px;
+          line-height: 90%;
+          letter-spacing: -0.02em;
         }
-      }
 
-      ${breakpoint(`large-mobile`, `max`)} {
+        // headings //
         .h1 {
-          font-size: 24px;
+          font-size: 48px;
+          line-height: 110%;
+          letter-spacing: -0.02em;
         }
+
         .h2 {
-          font-size: 20px;
+          font-size: 35px;
+          line-height: 110%;
+          letter-spacing: -0.02em;
         }
+
         .h3 {
+          font-size: 24px;
+          line-height: 110%;
+          letter-spacing: -0.02em;
+        }
+
+        .h4 {
+          font-size: 20px;
+          line-height: 110%;
+          letter-spacing: -0.02em;
+        }
+
+        // body //
+        .b1 {
+          font-size: 20px;
+          line-height: 110%;
+          letter-spacing: 0.01em;
+        }
+
+        .b2 {
           font-size: 16px;
+          line-height: 110%;
+          letter-spacing: 0.01em;
+        }
+
+        // other //
+        .caption {
+          font-size: 12px;
+          line-height: 120%;
+          letter-spacing: 0.02em;
+        }
+
+        .button-text {
+          font-size: 20px;
+          line-height: 100%;
+          letter-spacing: 0.01em;
         }
       }
     `}
