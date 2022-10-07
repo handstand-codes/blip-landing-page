@@ -140,6 +140,7 @@ $BREAKPOINT: $large-tablet;
   justify-content: center;
   transform: translateX(100%);
   z-index: 40;
+  user-select: none;
 
   @media only screen and (min-width: $BREAKPOINT) {
     display: none;
