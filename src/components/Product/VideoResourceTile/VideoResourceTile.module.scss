@@ -1,0 +1,42 @@
+.linkContainer {
+  position: relative;
+  overflow: hidden;
+  width: 340px;
+  height: 340px;
+  display: block;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+
+  &.hovered {
+    .thumbnail {
+      opacity: 0;
+    }
+  }
+}
+
+.linkPill {
+  background: var(--color-sick-lime);
+  position: absolute;
+  top: 1rem;
+  right: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.thumbnail {
+  position: absolute;
+  transition: opacity 0.5s;
+  inset: 0;
+}
+
+.video {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
