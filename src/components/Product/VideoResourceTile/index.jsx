@@ -21,6 +21,8 @@ const VideoResourceTile = ({ title, description, image, video, link }) => {
     <div>
       <a
         href={link?.url}
+        target={link?.newWindow ? `_blank` : `_self`}
+        rel={link?.newWindow ? `noopener noreferrer` : null}
         className={[
           styles.linkContainer,
           `button-text`,
@@ -29,18 +31,24 @@ const VideoResourceTile = ({ title, description, image, video, link }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        {/* <GatsbyImage
+        <video
+          ref={videoRef}
+          muted
+          loop
+          src={video.asset.url}
+          className={styles.video}
+        />
+        <GatsbyImage
           image={image?.asset?.gatsbyImageData}
-          alt={image?.altText}
+          alt={image?.altText || ``}
           className={[
-						styles.thumbnail,
+            styles.thumbnail,
             isHovered ? styles.transparent : null
           ].join(` `)}
-        /> */}
-        <video ref={videoRef} muted src={video} className={styles.video} />
-        <img src={image} alt="" className={styles.thumbnail} />
+        />
+
         <div className={styles.linkPill}>
-          {link?.text}
+          {link?.title}
 
           <PlayIcon
             css={css`

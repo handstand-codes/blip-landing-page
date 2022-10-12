@@ -1,8 +1,8 @@
 .linkContainer {
   position: relative;
   overflow: hidden;
-  width: 340px;
-  height: 340px;
+  width: 100%;
+  padding-bottom: 100%;
   display: block;
   border-radius: 20px;
   margin-bottom: 1.5rem;
@@ -27,14 +27,15 @@
 
 .thumbnail {
   position: absolute;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   inset: 0;
 }
 
 .video {
   pointer-events: none;
   position: absolute;
-  inset: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .title {

@@ -50,6 +50,7 @@ export const query = graphql`
           ...ArticleTextSliceFragment
           ...ShopCarouselSliceFragment
           ...TextImage5050SliceFragment
+          ...VideoResourcesSliceFragment
         }
       }
     }

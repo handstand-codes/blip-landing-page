@@ -12,6 +12,7 @@ export default {
         { type: `colorBlockHeaderSlice` },
         { type: `dropdownGroupSlice` },
         { type: `articleTextSlice` },
+        { type: `videoResourcesSlice` },
         { type: `shopCarouselSlice` },
         { type: `textImage5050Slice` }
       ]

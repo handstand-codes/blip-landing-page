@@ -36,6 +36,7 @@ import seoSingleton from "./objects/seo/singleton";
 import seoStandard from "./objects/seo/standard";
 import textContent from "./objects/textContent";
 import dropdown from "./objects/dropdown";
+import videoResourceTile from "./objects/videoResourceTile";
 
 // Slices
 import pagebuilder from "./slices/_pagebuilder";
@@ -46,6 +47,7 @@ import dropdownGroupSlice from "./slices/dropdownGroup";
 import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
 import textImage5050Slice from "./slices/textImage5050";
+import videoResourcesSlice from "./slices/videoResources";
 
 // Schema
 export default createSchema({
@@ -85,12 +87,14 @@ export default createSchema({
     seoStandard,
     textContent,
     dropdown,
+    videoResourceTile,
 
     // Slices
 
     pagebuilder,
     fullWidthTextSlice,
     colorBlockHeaderSlice,
+    videoResourcesSlice,
     dropdownGroupSlice,
     articleTextSlice,
     shopCarouselSlice,
