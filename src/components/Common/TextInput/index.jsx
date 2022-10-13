@@ -20,7 +20,8 @@ const TextInput = ({
   onClick,
   onChange,
   className,
-  textarea
+  textarea,
+  onEnter
 }) => {
   /** ============================================================================
    * @component
@@ -42,6 +43,7 @@ const TextInput = ({
    * @param  {boolean} 		textarea  			Renders multiline textarea
    * @param  {function} 	onClick  				Renders the inline submit button
    * @param  {function} 	onChange  			Callback which gets passed e.target.value when updated
+   * @param  {function} 	onEnter  				Called when user presses Enter key, used for standalone inputs
    * @return {node}
    */
 
@@ -49,6 +51,11 @@ const TextInput = ({
 
   const handleChange = (e) => {
     if (onChange) onChange(e.target.value);
+  };
+
+  const handleKeyDown = (e) => {
+    if (!onEnter) return;
+    if (e.key === `Enter`) onEnter();
   };
 
   const warningIconColor = isDarkTheme
@@ -116,6 +123,7 @@ const TextInput = ({
           placeholder={placeholder}
           onChange={handleChange}
           value={value}
+          onKeyDown={handleKeyDown}
         />
         {onClick && (
           <div className={styles.button__container}>
