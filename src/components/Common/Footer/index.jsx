@@ -6,7 +6,7 @@ import {
   TextInput,
   WordCarousel
 } from "~components";
-import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
+import { ReactComponent as Wordmark } from "~assets/svg/logos/wordmark.svg";
 import regex from "~constants/regex";
 import { css } from "@emotion/react";
 import * as styles from "./Footer.module.scss";

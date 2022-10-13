@@ -2,15 +2,7 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import {
-  Footer,
-  Header,
-  HeightDetector,
-  Menu,
-  SEO,
-  NoJs,
-  Theme
-} from "~components";
+import { Footer, Header, HeightDetector, SEO, NoJs, Theme } from "~components";
 
 /** ============================================================================
  * @css
@@ -37,8 +29,6 @@ const Layout = ({
     <HeightDetector />
 
     <Theme />
-
-    <Menu />
 
     <Header menu={menu} />
 

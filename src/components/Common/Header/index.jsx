@@ -6,7 +6,7 @@ import { useApp, useScroll, useWindowDimensions } from "~hooks";
 import { WidthContainer, ListLinks } from "~components";
 import { Link } from "gatsby";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
-import { ReactComponent as Wordmark } from "~assets/svg/logos/logo.svg";
+import { ReactComponent as Wordmark } from "~assets/svg/logos/wordmark.svg";
 import * as styles from "./Header.module.scss";
 import * as bp from "~styles/breakpoints.module.scss";
 
