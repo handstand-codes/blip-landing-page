@@ -11,6 +11,7 @@ import { Footer, Header, HeightDetector, SEO, NoJs, Theme } from "~components";
 const Main = styled.main`
   width: 100%;
   position: relative;
+  background: white;
 `;
 
 /** ============================================================================
