@@ -27,7 +27,9 @@ const Page = ({ location, data: staticData }) => {
   return (
     <Layout location={location} globalSettings={sanitySettings}>
       {slices?.[0] &&
-        slices.map((slice) => <SanitySlice key={slice._key} data={slice} />)}
+        slices.map((slice, i) => (
+          <SanitySlice key={slice._key} data={{ ...slice, renderIndex: i }} />
+        ))}
     </Layout>
   );
 };

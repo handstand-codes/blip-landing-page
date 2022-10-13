@@ -1,0 +1,59 @@
+@import "~styles/breakpoints.module.scss";
+
+.container {
+  background: brown;
+  padding: 2.5rem 0;
+
+  @media only screen and (min-width: $large-tablet) {
+    padding: 3.5rem 0;
+  }
+
+  @media only screen and (min-width: $desktop) {
+    padding: 5rem 0;
+  }
+}
+
+.flexWrapper {
+  @media only screen and (min-width: $desktop) {
+    display: flex;
+  }
+}
+
+.text,
+.form {
+  @media only screen and (min-width: $desktop) {
+    flex: 1;
+  }
+}
+
+.text {
+  color: var(--color-sick-lime);
+  margin-bottom: 1rem;
+  @media only screen and (min-width: $desktop) {
+    margin-right: 7rem;
+    margin-bottom: 0;
+  }
+}
+
+.form {
+  background: var(--color-white);
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+.inputField {
+  margin-bottom: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.nameAndEmailFields {
+  margin-bottom: 1rem;
+
+  @media only screen and (min-width: $tablet) {
+    display: flex;
+    gap: 1.25rem;
+  }
+}

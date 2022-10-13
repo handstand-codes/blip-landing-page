@@ -1,8 +1,7 @@
 .container {
-  max-width: 400px;
   width: 100%;
   user-select: none;
-  display: inline-block;
+  display: block;
 }
 
 .topText {
@@ -34,7 +33,7 @@
   border-radius: 1rem;
   border: none;
   color: var(--color-black);
-  background-color: var(--color-white);
+  background-color: var(--color-black-10);
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--color-black-40);

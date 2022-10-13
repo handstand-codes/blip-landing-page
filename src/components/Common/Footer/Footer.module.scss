@@ -21,6 +21,7 @@ $BREAKPOINT: $small-desktop;
 .newsletter {
   margin-bottom: 3.5rem;
   grid-column: span 8;
+  max-width: 400px;
 
   @media only screen and (min-width: $BREAKPOINT) {
     margin-bottom: 0;
