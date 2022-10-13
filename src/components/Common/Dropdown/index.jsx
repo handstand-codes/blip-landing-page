@@ -26,12 +26,11 @@ const Dropdown = ({ title, content }) => {
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <span className={[styles.button__text, `b1`].join(` `)}>{title}</span>
+        <span className={[styles.buttonText, `b1`].join(` `)}>{title}</span>
         <div
-          className={[
-            styles.button__icon,
-            isOpen ? styles.button__icon__rotate : null
-          ].join(` `)}
+          className={[styles.arrowIcon, isOpen ? styles.rotate : null].join(
+            ` `
+          )}
         >
           <Arrow
             css={css`
@@ -43,7 +42,7 @@ const Dropdown = ({ title, content }) => {
         </div>
       </button>
       <div
-        className={styles.content__container}
+        className={styles.contentContainer}
         css={css`
           height: ${isOpen ? contentHeight : 8}px;
         `}
@@ -52,8 +51,8 @@ const Dropdown = ({ title, content }) => {
           ref={contentRef}
           className={[
             `b2`,
-            styles.content__text,
-            isOpen ? styles.content__text__visible : null
+            styles.contentText,
+            isOpen ? styles.visible : null
           ].join(` `)}
         >
           {content}

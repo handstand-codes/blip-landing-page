@@ -103,7 +103,7 @@ const ContactBlock = ({
             >
               <h3 className="h2">{successHeader}</h3>
               <p className="b2">{successMessage}</p>
-              <Button color="black" to="/">
+              <Button disabled={!hasSubmitted} color="black" to="/">
                 Back to home
               </Button>
             </div>
@@ -118,6 +118,7 @@ const ContactBlock = ({
                   onChange={(value) => handleUpdateValue(value, `name`)}
                   value={formValue.name}
                   hasError={formErrors.name}
+                  disabled={hasSubmitted}
                 />
                 {/* Email */}
                 <TextInput
@@ -128,6 +129,7 @@ const ContactBlock = ({
                   onChange={(value) => handleUpdateValue(value, `email`)}
                   value={formValue.email}
                   hasError={formErrors.email}
+                  disabled={hasSubmitted}
                 />
               </div>
               {/* Enquiry */}
@@ -139,6 +141,7 @@ const ContactBlock = ({
                 value={formValue.enquiry}
                 hasError={formErrors.enquiry}
                 required
+                disabled={hasSubmitted}
               />
               {/* Message */}
               <TextInput
@@ -150,8 +153,9 @@ const ContactBlock = ({
                 value={formValue.message}
                 hasError={formErrors.message}
                 textarea
+                disabled={hasSubmitted}
               />
-              <Button color="black" buttonType="submit">
+              <Button disabled={hasSubmitted} color="black" buttonType="submit">
                 Submit
               </Button>
             </form>

@@ -7,31 +7,33 @@
   width: 100%;
   margin-bottom: 1rem;
 
-  &__text {
-    margin-right: 1rem;
-  }
-
-  &__icon {
-    transition: transform 0.3s;
-    margin-right: 3.5px;
-    &__rotate {
-      transform: rotate(180deg);
-    }
+  &:focus-visible {
+    background: var(--color-black-10);
   }
 }
 
-.content {
-  &__container {
-    overflow: hidden;
-    transition: height 0.3s;
-  }
-  &__text {
-    padding-bottom: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.3s;
+.buttonText {
+  margin-right: 1rem;
+}
 
-    &__visible {
-      opacity: 1;
-    }
+.arrowIcon {
+  transition: transform 0.3s;
+  margin-right: 3.5px;
+  &.rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.contentContainer {
+  overflow: hidden;
+  transition: height 0.3s;
+}
+.contentText {
+  padding-bottom: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.visible {
+    opacity: 1;
   }
 }

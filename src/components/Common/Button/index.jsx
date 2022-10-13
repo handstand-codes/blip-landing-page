@@ -62,6 +62,7 @@ const Button = ({
   if (to) {
     return (
       <Link
+        tabIndex={disabled ? -1 : 0}
         className={[className, styles.button, `button-text`].join(` `)}
         css={
           transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
@@ -76,6 +77,7 @@ const Button = ({
 
   return (
     <button
+      tabIndex={disabled ? -1 : 0}
       type={buttonType === `button` ? `button` : `submit`}
       className={[className, styles.button, `button-text`].join(` `)}
       disabled={disabled}
