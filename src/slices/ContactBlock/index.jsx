@@ -5,7 +5,15 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./ContactBlock.module.scss";
 
 const ContactBlock = ({
-  data: { renderIndex, header, subheader, bgImage, form }
+  data: {
+    renderIndex,
+    header,
+    subheader,
+    bgImage,
+    form,
+    successHeader,
+    successMessage
+  }
 }) => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -93,10 +101,8 @@ const ContactBlock = ({
                 hasSubmitted ? styles.visible : null
               ].join(` `)}
             >
-              <h3 className="h2">Thanks for your enquiry.</h3>
-              <p className="b2">
-                We&apos;ll get back to you as soon as we can.
-              </p>
+              <h3 className="h2">{successHeader}</h3>
+              <p className="b2">{successMessage}</p>
               <Button color="black" to="/">
                 Back to home
               </Button>

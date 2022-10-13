@@ -39,6 +39,7 @@ import dropdown from "./objects/dropdown";
 import videoResourceTile from "./objects/videoResourceTile";
 import textInput from "./objects/textInput";
 import contactForm from "./objects/contactForm";
+import newsletterSignup from "./objects/newsletterSignup";
 
 // Slices
 import pagebuilder from "./slices/_pagebuilder";
@@ -93,6 +94,7 @@ export default createSchema({
     videoResourceTile,
     textInput,
     contactForm,
+    newsletterSignup,
 
     // Slices
 

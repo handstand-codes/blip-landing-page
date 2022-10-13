@@ -40,7 +40,7 @@ const Footer = ({ settings }) => {
             <div className={styles.newsletter}>
               <label className="b1" htmlFor="newsletter_signup_input">
                 <span className={styles.newsletter__CTA}>
-                  Sign up for Newsletters
+                  {settings.newsletterSignup.label}
                 </span>
                 <div
                   className={[
@@ -50,7 +50,7 @@ const Footer = ({ settings }) => {
                 >
                   <TextInput
                     id="newsletter_signup_input"
-                    placeholder="Your email here"
+                    placeholder={settings.newsletterSignup.placeholder}
                     onClick={handleSubmit}
                     isDarkTheme
                     className={styles.input}
@@ -60,7 +60,7 @@ const Footer = ({ settings }) => {
                     hasError={hasError}
                   />
                   <p className={[`b2`, styles.successMessage].join(` `)}>
-                    Thanks for signing up!
+                    {settings.newsletterSignup.successMessage}
                   </p>
                 </div>
               </label>

@@ -59,6 +59,11 @@ export const query = graphql`
     }
     sanitySettings {
       footer {
+        newsletterSignup {
+          label
+          placeholder
+          successMessage
+        }
         scrollingPhrases
         linksColumn1 {
           ... on SanityLinkExternal {

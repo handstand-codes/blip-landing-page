@@ -22,11 +22,23 @@ export default {
       name: `bgImage`,
       title: `Background Image`,
       type: `image`
+    },
+    {
+      name: `successHeader`,
+      title: `Success Header`,
+      type: `string`
+    },
+    {
+      name: `successMessage`,
+      title: `Success Message`,
+      type: `string`
     }
   ],
   initialValue: {
     header: `More questions?`,
     subheader: `Get in touch and we’ll get back to you as soon as we can.`,
+    successHeader: `Thanks for your enquiry.`,
+    successMessage: `We'll get back to you as soon as we can.`,
     form: {
       name: {
         label: `Name`,

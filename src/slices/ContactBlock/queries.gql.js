@@ -9,6 +9,8 @@ export const Queries = graphql`
     _type
     subheader
     header
+    successHeader
+    successMessage
     bgImage {
       asset {
         gatsbyImageData

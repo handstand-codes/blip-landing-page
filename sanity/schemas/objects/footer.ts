@@ -31,6 +31,11 @@ export default {
       title: "Scrolling Phrases",
       type: "array",
       of: [{ type: "string" }]
+    },
+    {
+      name: "newsletterSignup",
+      title: "Newsletter Signup",
+      type: "newsletterSignup"
     }
   ]
 };
