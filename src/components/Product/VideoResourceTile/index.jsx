@@ -41,10 +41,7 @@ const VideoResourceTile = ({ title, description, image, video, link }) => {
         <GatsbyImage
           image={image?.asset?.gatsbyImageData}
           alt={image?.altText || ``}
-          className={[
-            styles.thumbnail,
-            isHovered ? styles.transparent : null
-          ].join(` `)}
+          className={styles.thumbnail}
         />
 
         <div className={styles.linkPill}>
