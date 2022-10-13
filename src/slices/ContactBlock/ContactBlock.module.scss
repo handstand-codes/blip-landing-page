@@ -16,7 +16,6 @@
 .bgImage {
   position: absolute;
   inset: 0;
-  z-index: -10;
 }
 
 .flexWrapper {
@@ -34,6 +33,8 @@
 
 .text {
   color: var(--color-sick-lime);
+  z-index: 10;
+  position: relative;
   margin-bottom: 1rem;
   @media only screen and (min-width: $desktop) {
     margin-right: 7rem;
