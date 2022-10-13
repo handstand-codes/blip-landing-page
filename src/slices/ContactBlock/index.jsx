@@ -13,16 +13,62 @@ const ContactBlock = ({
     message: ``
   });
 
-  const Header = renderIndex === 0 ? `h1` : `h2`;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formValue);
-  };
+  const [formErrors, setFormErrors] = useState({
+    name: false,
+    email: false,
+    enquiry: false,
+    message: false
+  });
 
   const handleUpdateValue = (value, formField) => {
     setFormValue((prev) => ({ ...prev, [formField]: value }));
+    setFormErrors((prev) => ({ ...prev, [formField]: false }));
   };
+
+  const formHasError = () => {
+    const regex = {
+      name: /^.+$/, // Anything
+      email: /^.+[@].+[.].+$/, // <love>@<money>.<beta>
+      enquiry: /^.+$/, // Anything
+      message: /^.+$/ // Anything
+    };
+
+    const error = {
+      name: false,
+      email: false,
+      enquiry: false,
+      message: false
+    };
+
+    const formFields = Object.keys(formValue);
+
+    let hasError = false;
+
+    formFields.forEach((field) => {
+      if (!regex[field].test(formValue[field])) {
+        error[field] = true;
+        hasError = true;
+      }
+    });
+
+    setFormErrors({
+      name: error.name,
+      email: error.email,
+      enquiry: error.enquiry,
+      message: error.message
+    });
+
+    return hasError;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formHasError()) return;
+    // Do something with formValue...
+    console.log(formValue);
+  };
+
+  const Header = renderIndex === 0 ? `h1` : `h2`;
 
   return (
     <div className={styles.container}>
@@ -49,6 +95,7 @@ const ContactBlock = ({
                 placeholder={form.name.placeholder}
                 onChange={(value) => handleUpdateValue(value, `name`)}
                 value={formValue.name}
+                hasError={formErrors.name}
               />
               {/* Email */}
               <TextInput
@@ -58,6 +105,7 @@ const ContactBlock = ({
                 placeholder={form.email.placeholder}
                 onChange={(value) => handleUpdateValue(value, `email`)}
                 value={formValue.email}
+                hasError={formErrors.email}
               />
             </div>
             {/* Enquiry */}
@@ -67,6 +115,8 @@ const ContactBlock = ({
               placeholder={form.enquiry.placeholder}
               onChange={(value) => handleUpdateValue(value, `enquiry`)}
               value={formValue.enquiry}
+              hasError={formErrors.enquiry}
+              required
             />
             {/* Message */}
             <TextInput
@@ -76,6 +126,7 @@ const ContactBlock = ({
               placeholder={form.message.placeholder}
               onChange={(value) => handleUpdateValue(value, `message`)}
               value={formValue.message}
+              hasError={formErrors.message}
               textarea
             />
             <Button color="black" buttonType="submit">

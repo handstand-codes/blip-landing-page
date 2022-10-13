@@ -45,6 +45,8 @@ const TextInput = ({
    * @return {node}
    */
 
+  const MAX_LENGTH = 300;
+
   const handleChange = (e) => {
     if (onChange) onChange(e.target.value);
   };
@@ -100,6 +102,7 @@ const TextInput = ({
           </div>
         )}
         <InputElement
+          maxLength={MAX_LENGTH}
           tabIndex={disabled ? -1 : 0}
           id={id}
           className={[
