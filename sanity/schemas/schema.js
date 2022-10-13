@@ -37,6 +37,8 @@ import seoStandard from "./objects/seo/standard";
 import textContent from "./objects/textContent";
 import dropdown from "./objects/dropdown";
 import videoResourceTile from "./objects/videoResourceTile";
+import textInput from "./objects/textInput";
+import contactForm from "./objects/contactForm";
 
 // Slices
 import pagebuilder from "./slices/_pagebuilder";
@@ -48,6 +50,7 @@ import articleTextSlice from "./slices/articleText";
 import shopCarouselSlice from "./slices/shopCarousel";
 import textImage5050Slice from "./slices/textImage5050";
 import videoResourcesSlice from "./slices/videoResources";
+import contactBlockSlice from "./slices/contactBlock";
 
 // Schema
 export default createSchema({
@@ -88,6 +91,8 @@ export default createSchema({
     textContent,
     dropdown,
     videoResourceTile,
+    textInput,
+    contactForm,
 
     // Slices
 
@@ -98,6 +103,7 @@ export default createSchema({
     dropdownGroupSlice,
     articleTextSlice,
     shopCarouselSlice,
-    textImage5050Slice
+    textImage5050Slice,
+    contactBlockSlice
   ])
 });

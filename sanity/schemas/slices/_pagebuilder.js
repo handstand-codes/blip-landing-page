@@ -14,6 +14,7 @@ export default {
         { type: `articleTextSlice` },
         { type: `videoResourcesSlice` },
         { type: `shopCarouselSlice` },
+        { type: `contactBlockSlice` },
         { type: `textImage5050Slice` }
       ]
     }
