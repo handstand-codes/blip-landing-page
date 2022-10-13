@@ -1,7 +1,7 @@
 @import "~styles/breakpoints.module.scss";
 
 .container {
-  background: brown;
+  position: relative;
   padding: 2.5rem 0;
 
   @media only screen and (min-width: $large-tablet) {
@@ -11,6 +11,12 @@
   @media only screen and (min-width: $desktop) {
     padding: 5rem 0;
   }
+}
+
+.bgImage {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
 }
 
 .flexWrapper {

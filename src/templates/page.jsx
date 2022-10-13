@@ -47,6 +47,7 @@ export const query = graphql`
       pagebuilder {
         slices {
           ...FullWidthTextSliceFragment
+          ...ContactBlockSliceFragment
           ...ColorBlockHeaderSliceFragment
           ...DropdownGroupSliceFragment
           ...ArticleTextSliceFragment

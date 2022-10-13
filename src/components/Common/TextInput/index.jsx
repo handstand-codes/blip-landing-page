@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { css } from "@emotion/react";
 import { ReactComponent as Arrow } from "~assets/svg/arrow-down.svg";
 import { ReactComponent as WarningTriangle } from "~assets/svg/warning-triangle.svg";
@@ -19,14 +19,9 @@ const TextInput = ({
   disabled,
   onClick,
   onChange,
-  className
+  className,
+  textarea
 }) => {
-  const [inputValue, setInputValue] = useState(value || ``);
-
-  useEffect(() => {
-    if (onChange) onChange(inputValue);
-  }, [inputValue]);
-
   /** ============================================================================
    * @component
    * Text input form field
@@ -35,7 +30,7 @@ const TextInput = ({
    * @param  {string}    	className  			For additional styling config
    * @param  {string}    	placeholder  		Placeholder text
    * @param  {string}    	id           		Used to connect with label for a11y
-   * @param  {string}  		initialValue 		Set the initial input value
+   * @param  {string}  		value 					Control value from parent
    * @param  {string}   	label        		Text which displays in top left corner
    * @param  {string}    	hint      			Text which displays in top right corner
    * @param  {string} 		warningMessage  Shows in bottom left next to warning icon
@@ -44,14 +39,21 @@ const TextInput = ({
    * @param  {boolean} 		hasError  			Toggles the error state
    * @param  {boolean} 		disabled  			Toggles the disabled state
    * @param  {boolean} 		isDarkTheme  		Toggles inverted color scheme
+   * @param  {boolean} 		textarea  			Renders multiline textarea
    * @param  {function} 	onClick  				Renders the inline submit button
-   * @param  {function} 	onChange  			Callback which gets passed inputValue when updated
+   * @param  {function} 	onChange  			Callback which gets passed e.target.value when updated
    * @return {node}
    */
+
+  const handleChange = (e) => {
+    if (onChange) onChange(e.target.value);
+  };
 
   const warningIconColor = isDarkTheme
     ? `var(--color-black-20)`
     : `var(--color-black-40)`;
+
+  const InputElement = textarea ? `textarea` : `input`;
 
   return (
     <div
@@ -97,19 +99,20 @@ const TextInput = ({
             />
           </div>
         )}
-        <input
+        <InputElement
           tabIndex={disabled ? -1 : 0}
           id={id}
           className={[
             styles.input,
             `b2`,
+            textarea ? styles.textarea : null,
             hasSearchIcon ? styles.hasSearch : null,
             onClick ? styles.hasArrow : null
           ].join(` `)}
           type="text"
           placeholder={placeholder}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={handleChange}
+          value={value}
         />
         {onClick && (
           <div className={styles.button__container}>

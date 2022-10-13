@@ -12,13 +12,13 @@ export const BUTTON_STYLES = {};
 Object.keys(COLORS).forEach((colorKey) => {
   BUTTON_STYLES[colorKey] = css`
     background: var(--color-${colorKey});
-    border: 1px solid
-      var(
-        --color-${colorKey === `sick-lime` || colorKey === `white` || colorKey === `antiflash` ? `black` : `white`}
-      );
+    border: 1px solid var(--color-black);
     color: var(
       --color-${colorKey === `sick-lime` || colorKey === `white` || colorKey === `antiflash` ? `black` : `white`}
     );
+    &:focus-visible {
+      box-shadow: white inset 0 0 0 1px;
+    }
   `;
 });
 
@@ -52,7 +52,8 @@ const Button = ({
   onClick,
   color = `white`,
   transparent = false,
-  disabled = false
+  disabled = false,
+  buttonType = `button`
 }) => {
   const innerJSX = (
     <div className={styles.button__innerContent}>{children}</div>
@@ -73,23 +74,17 @@ const Button = ({
     );
   }
 
-  if (onClick) {
-    return (
-      <button
-        type="button"
-        className={[className, styles.button, `button-text`].join(` `)}
-        disabled={disabled}
-        css={
-          transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]
-        }
-        onClick={onClick}
-      >
-        {innerJSX}
-      </button>
-    );
-  }
-
-  return null;
+  return (
+    <button
+      type={buttonType === `button` ? `button` : `submit`}
+      className={[className, styles.button, `button-text`].join(` `)}
+      disabled={disabled}
+      css={transparent ? ALPHA_BUTTON_STYLES?.[color] : BUTTON_STYLES?.[color]}
+      onClick={onClick}
+    >
+      {innerJSX}
+    </button>
+  );
 };
 
 export default Button;

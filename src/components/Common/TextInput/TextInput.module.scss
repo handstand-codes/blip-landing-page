@@ -1,3 +1,5 @@
+@import "~styles/breakpoints.module.scss";
+
 .container {
   width: 100%;
   user-select: none;
@@ -60,6 +62,14 @@
 
   &.hasArrow {
     padding-right: 3.25rem;
+  }
+}
+
+.textarea {
+  height: 160px;
+  resize: none;
+  @media only screen and (min-width: $desktop) {
+    height: 200px;
   }
 }
 
