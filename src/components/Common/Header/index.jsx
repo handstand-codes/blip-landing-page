@@ -51,6 +51,7 @@ const Header = ({ menu }) => {
     }
     checkIfTransparent();
     setHasLoadedPathname(true);
+    setIsMenuActive(false);
   }, [pathname]);
 
   useEffect(() => {
