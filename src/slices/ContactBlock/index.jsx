@@ -7,6 +7,8 @@ import * as styles from "./ContactBlock.module.scss";
 const ContactBlock = ({
   data: { renderIndex, header, subheader, bgImage, form }
 }) => {
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
   const [formValue, setFormValue] = useState({
     name: ``,
     email: ``,
@@ -58,8 +60,12 @@ const ContactBlock = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formHasError()) return;
-    // Do something with formValue...
-    console.log(formValue);
+    /**
+     * Do something with formValue
+     * Probably an async submission,
+     * on success set hasSubmitted to true
+     */
+    setHasSubmitted(true);
   };
 
   const Header = renderIndex === 0 ? `h1` : `h2`;
@@ -79,54 +85,71 @@ const ContactBlock = ({
             </Header>
             <p className="b1">{subheader}</p>
           </div>
-          <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.nameAndEmailFields}>
-              {/* Name */}
-              <TextInput
-                className={styles.inputField}
-                required
-                label={form.name.label}
-                placeholder={form.name.placeholder}
-                onChange={(value) => handleUpdateValue(value, `name`)}
-                value={formValue.name}
-                hasError={formErrors.name}
-              />
-              {/* Email */}
-              <TextInput
-                className={styles.inputField}
-                required
-                label={form.email.label}
-                placeholder={form.email.placeholder}
-                onChange={(value) => handleUpdateValue(value, `email`)}
-                value={formValue.email}
-                hasError={formErrors.email}
-              />
+          <div className={styles.formContainer}>
+            <div
+              aria-hidden={!hasSubmitted}
+              className={[
+                styles.successContainer,
+                hasSubmitted ? styles.visible : null
+              ].join(` `)}
+            >
+              <h3 className="h2">Thanks for your enquiry.</h3>
+              <p className="b2">
+                We&apos;ll get back to you as soon as we can.
+              </p>
+              <Button color="black" to="/">
+                Back to home
+              </Button>
             </div>
-            {/* Enquiry */}
-            <TextInput
-              className={styles.inputField}
-              label={form.enquiry.label}
-              placeholder={form.enquiry.placeholder}
-              onChange={(value) => handleUpdateValue(value, `enquiry`)}
-              value={formValue.enquiry}
-              hasError={formErrors.enquiry}
-              required
-            />
-            {/* Message */}
-            <TextInput
-              className={styles.inputField}
-              required
-              label={form.message.label}
-              placeholder={form.message.placeholder}
-              onChange={(value) => handleUpdateValue(value, `message`)}
-              value={formValue.message}
-              hasError={formErrors.message}
-              textarea
-            />
-            <Button color="black" buttonType="submit">
-              Submit
-            </Button>
-          </form>
+            <form aria-hidden={hasSubmitted} onSubmit={handleSubmit}>
+              <div className={styles.nameAndEmailFields}>
+                {/* Name */}
+                <TextInput
+                  className={styles.inputField}
+                  required
+                  label={form.name.label}
+                  placeholder={form.name.placeholder}
+                  onChange={(value) => handleUpdateValue(value, `name`)}
+                  value={formValue.name}
+                  hasError={formErrors.name}
+                />
+                {/* Email */}
+                <TextInput
+                  className={styles.inputField}
+                  required
+                  label={form.email.label}
+                  placeholder={form.email.placeholder}
+                  onChange={(value) => handleUpdateValue(value, `email`)}
+                  value={formValue.email}
+                  hasError={formErrors.email}
+                />
+              </div>
+              {/* Enquiry */}
+              <TextInput
+                className={styles.inputField}
+                label={form.enquiry.label}
+                placeholder={form.enquiry.placeholder}
+                onChange={(value) => handleUpdateValue(value, `enquiry`)}
+                value={formValue.enquiry}
+                hasError={formErrors.enquiry}
+                required
+              />
+              {/* Message */}
+              <TextInput
+                className={styles.inputField}
+                required
+                label={form.message.label}
+                placeholder={form.message.placeholder}
+                onChange={(value) => handleUpdateValue(value, `message`)}
+                value={formValue.message}
+                hasError={formErrors.message}
+                textarea
+              />
+              <Button color="black" buttonType="submit">
+                Submit
+              </Button>
+            </form>
+          </div>
         </div>
       </WidthContainer>
     </div>
