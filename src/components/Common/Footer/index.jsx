@@ -14,18 +14,21 @@ import * as styles from "./Footer.module.scss";
 const Footer = ({ settings }) => {
   const [inputValue, setInputValue] = useState(``);
   const [hasError, setHasError] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleChange = (value) => {
+    if (hasSubmitted) return;
     setInputValue(value);
     setHasError(false);
   };
 
   const handleSubmit = () => {
+    if (hasSubmitted) return;
     if (!regex.email.test(inputValue)) {
       setHasError(true);
     } else {
       // Do something with value
-      console.log(inputValue);
+      setHasSubmitted(true);
     }
   };
 
@@ -35,20 +38,31 @@ const Footer = ({ settings }) => {
         <WidthContainer paddingOnly>
           <Grid className={styles.content}>
             <div className={styles.newsletter}>
-              <label htmlFor="newsletter_signup_input" className="b1">
+              <label className="b1" htmlFor="newsletter_signup_input">
                 <span className={styles.newsletter__CTA}>
                   Sign up for Newsletters
                 </span>
-                <TextInput
-                  id="newsletter_signup_input"
-                  placeholder="Your email here"
-                  onClick={handleSubmit}
-                  isDarkTheme
-                  onChange={handleChange}
-                  value={inputValue}
-                  onEnter={handleSubmit}
-                  hasError={hasError}
-                />
+                <div
+                  className={[
+                    styles.inputContainer,
+                    hasSubmitted ? styles.submitted : null
+                  ].join(` `)}
+                >
+                  <TextInput
+                    id="newsletter_signup_input"
+                    placeholder="Your email here"
+                    onClick={handleSubmit}
+                    isDarkTheme
+                    className={styles.input}
+                    onChange={handleChange}
+                    value={inputValue}
+                    onEnter={handleSubmit}
+                    hasError={hasError}
+                  />
+                  <p className={[`b2`, styles.successMessage].join(` `)}>
+                    Thanks for signing up!
+                  </p>
+                </div>
               </label>
             </div>
             <nav className={styles.nav}>

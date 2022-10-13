@@ -23,6 +23,10 @@ $BREAKPOINT: $small-desktop;
   grid-column: span 8;
   max-width: 400px;
 
+  .input {
+    margin-bottom: 1rem;
+  }
+
   @media only screen and (min-width: $BREAKPOINT) {
     margin-bottom: 0;
     grid-column: span 4;
@@ -32,6 +36,21 @@ $BREAKPOINT: $small-desktop;
     display: block;
     margin-bottom: 1rem;
   }
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.successMessage {
+  position: absolute;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  inset: 0;
+  background: var(--color-classic-black);
+  padding: 0 1rem;
+  opacity: 0;
 }
 
 .nav {
@@ -80,5 +99,14 @@ $BREAKPOINT: $small-desktop;
     @media only screen and (min-width: $small-tablet) {
       display: inline;
     }
+  }
+}
+
+.submitted {
+  .successMessage {
+    opacity: 1;
+  }
+  input:focus {
+    box-shadow: 0 0 0 1px var(--color-white) !important;
   }
 }
