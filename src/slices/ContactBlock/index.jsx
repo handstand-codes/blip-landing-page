@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { WidthContainer, TextInput, Button } from "~components";
+import regex from "~constants/regex";
 import { GatsbyImage } from "gatsby-plugin-image";
 import * as styles from "./ContactBlock.module.scss";
 
@@ -26,13 +27,6 @@ const ContactBlock = ({
   };
 
   const formHasError = () => {
-    const regex = {
-      name: /^.+$/, // Anything
-      email: /^.+[@].+[.].+$/, // <love>@<money>.<beta>
-      enquiry: /^.+$/, // Anything
-      message: /^.+$/ // Anything
-    };
-
     const error = {
       name: false,
       email: false,
