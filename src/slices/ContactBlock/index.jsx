@@ -59,7 +59,7 @@ const ContactBlock = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formHasError()) return;
+    if (hasSubmitted || formHasError()) return;
     /**
      * Do something with formValue
      * Probably an async submission,
