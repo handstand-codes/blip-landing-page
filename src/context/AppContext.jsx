@@ -16,6 +16,7 @@ const AppProvider = ({ children }) => {
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [pathname, setPathname] = useState(null);
   const [primaryColor, setPrimaryColor] = useState(`#E2FF2E`);
+  const [globalSettings, setGlobalSettings] = useState();
 
   // ---------------------------------------------------------------------------
   // methods
@@ -43,7 +44,9 @@ const AppProvider = ({ children }) => {
     setIsMenuActive,
     pathname,
     primaryColor,
-    setPrimaryColor
+    setPrimaryColor,
+    globalSettings,
+    setGlobalSettings
   }));
 
   return (

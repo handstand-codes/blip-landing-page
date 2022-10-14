@@ -1,36 +1,28 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { graphql } from "gatsby";
-import { Layout, SanitySlice } from "~components";
+import { SanitySlice } from "~components";
+import { useApp } from "~hooks";
 
-/** ============================================================================
- * @css
- */
-
-// ...
-
-/** ============================================================================
- * @page
- * Static page routes @ /*.
- */
-const Page = ({ location, data: staticData }) => {
-  // ---------------------------------------------------------------------------
-  // context / ref / state
-
+const Page = ({ data: staticData }) => {
   const { sanityPage, sanitySettings } = staticData;
   const { pagebuilder } = sanityPage;
 
   const slices = pagebuilder?.slices || [];
 
-  // ---------------------------------------------------------------------------
-  // render
+  const { setGlobalSettings } = useApp();
+
+  useLayoutEffect(() => {
+    setGlobalSettings(sanitySettings);
+  }, []);
 
   return (
-    <Layout location={location} globalSettings={sanitySettings}>
+    // Page content is wrapped in layout component by gatsby-plugin-layout
+    <>
       {slices?.[0] &&
         slices.map((slice, i) => (
           <SanitySlice key={slice._key} data={{ ...slice, renderIndex: i }} />
         ))}
-    </Layout>
+    </>
   );
 };
 

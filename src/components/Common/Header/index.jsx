@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { useApp, useScroll, useWindowDimensions } from "~hooks";
@@ -10,13 +8,8 @@ import { ReactComponent as Wordmark } from "~assets/svg/logos/wordmark.svg";
 import * as styles from "./Header.module.scss";
 import * as bp from "~styles/breakpoints.module.scss";
 
-/** ============================================================================
- * @component
- * Global nav.
- */
 const Header = ({ menu }) => {
   const [isTransparent, setIsTransparent] = useState(false);
-  const [hasLoadedPathname, setHasLoadedPathname] = useState(false);
   const [menuContentColor, setMenuContentColor] =
     useState(`var(--color-white)`);
 
@@ -31,7 +24,10 @@ const Header = ({ menu }) => {
   const isDesktopWidth = windowWidth >= breakpoint;
 
   const checkIfTransparent = () => {
-    if (!isTransparencyEnabled) return;
+    if (!isTransparencyEnabled) {
+      setIsTransparent(false);
+      return;
+    }
     const TRANSPARENCY_SCROLL_MARGIN = 80;
     const hasPassedScrollMargin = scrollY < TRANSPARENCY_SCROLL_MARGIN;
     setIsTransparent(hasPassedScrollMargin && isDesktopWidth);
@@ -39,18 +35,13 @@ const Header = ({ menu }) => {
 
   useEffect(() => {
     checkIfTransparent();
-  }, [scrollY]);
+  }, [scrollY, pathname]);
 
   useEffect(() => {
     setMenuContentColor(isTransparent ? primaryColor : `var(--color-white)`);
   }, [isTransparent]);
 
   useEffect(() => {
-    if (!pathname || hasLoadedPathname) {
-      return;
-    }
-    checkIfTransparent();
-    setHasLoadedPathname(true);
     setIsMenuActive(false);
   }, [pathname]);
 
@@ -73,7 +64,6 @@ const Header = ({ menu }) => {
     <div
       className={[
         styles.container,
-        hasLoadedPathname ? styles.container__visible : null,
         isTransparencyEnabled ? styles.removeTopMargin : null
       ].join(` `)}
     >
@@ -164,10 +154,11 @@ const Header = ({ menu }) => {
           </WidthContainer>
         </header>
 
+        {/* Mobile menu */}
         <nav
           className={[
             styles.mobileMenu,
-            isMenuActive ? styles.mobileMenu__active : ``
+            isMenuActive ? styles.active : null
           ].join(` `)}
         >
           <ul className="d1">

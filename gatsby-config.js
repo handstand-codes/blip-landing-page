@@ -372,6 +372,7 @@ module.exports = {
       options: { name: `src`, path: path.join(__dirname, `src`) }
     },
     `gatsby-plugin-svgr`,
+    `gatsby-plugin-layout`,
     ...hostingPlugins(),
     ...seoPlugins(),
     ...trackingPlugins(),

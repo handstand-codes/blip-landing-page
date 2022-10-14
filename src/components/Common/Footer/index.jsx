@@ -40,7 +40,7 @@ const Footer = ({ settings }) => {
             <div className={styles.newsletter}>
               <label className="b1" htmlFor="newsletter_signup_input">
                 <span className={styles.newsletter__CTA}>
-                  {settings.newsletterSignup.label}
+                  {settings?.newsletterSignup.label}
                 </span>
                 <div
                   className={[
@@ -50,7 +50,7 @@ const Footer = ({ settings }) => {
                 >
                   <TextInput
                     id="newsletter_signup_input"
-                    placeholder={settings.newsletterSignup.placeholder}
+                    placeholder={settings?.newsletterSignup.placeholder}
                     onClick={handleSubmit}
                     isDarkTheme
                     className={styles.input}
@@ -60,20 +60,20 @@ const Footer = ({ settings }) => {
                     hasError={hasError}
                   />
                   <p className={[`b2`, styles.successMessage].join(` `)}>
-                    {settings.newsletterSignup.successMessage}
+                    {settings?.newsletterSignup.successMessage}
                   </p>
                 </div>
               </label>
             </div>
             <nav className={styles.nav}>
               <ul className={[styles.nav__ul, `b1`].join(` `)}>
-                <ListLinks links={settings.linksColumn1} />
+                <ListLinks links={settings?.linksColumn1} />
               </ul>
               <ul className={[styles.nav__ul, `b1`].join(` `)}>
-                <ListLinks links={settings.linksColumn2} />
+                <ListLinks links={settings?.linksColumn2} />
               </ul>
               <ul className={[styles.nav__ul, `b1`].join(` `)}>
-                <ListLinks links={settings.linksColumn3} />
+                <ListLinks links={settings?.linksColumn3} />
               </ul>
             </nav>
           </Grid>
@@ -100,7 +100,7 @@ const Footer = ({ settings }) => {
           </div>
         </WidthContainer>
       </footer>
-      <WordCarousel phrases={settings.scrollingPhrases} />
+      <WordCarousel phrases={settings?.scrollingPhrases} />
     </>
   );
 };

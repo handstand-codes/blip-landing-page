@@ -10,12 +10,7 @@ $BREAKPOINT: $large-tablet;
 
 .container {
   width: 100%;
-  display: none;
   margin-top: $HEADER_HEIGHT;
-
-  &__visible {
-    display: block;
-  }
 
   &.removeTopMargin {
     @media only screen and (min-width: $BREAKPOINT) {
@@ -146,7 +141,7 @@ $BREAKPOINT: $large-tablet;
     display: none;
   }
 
-  &__active {
+  &.active {
     transform: translateX(0%);
   }
 
