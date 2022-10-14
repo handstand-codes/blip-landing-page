@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import { useApp, useScroll, useWindowDimensions } from "~hooks";
+import { useAppContext, useScroll, useWindowDimensions } from "~hooks";
 import { WidthContainer, ListLinks } from "~components";
 import { Link } from "gatsby";
 import { ReactComponent as Cart } from "~assets/svg/cart.svg";
@@ -13,7 +13,8 @@ const Header = ({ menu }) => {
   const [menuContentColor, setMenuContentColor] =
     useState(`var(--color-white)`);
 
-  const { pathname, isMenuActive, setIsMenuActive, primaryColor } = useApp();
+  const { pathname, isMenuActive, setIsMenuActive, primaryColor } =
+    useAppContext();
   const { scrollY } = useScroll();
   const {
     windowSize: { width: windowWidth }

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from "react";
 import { graphql } from "gatsby";
 import { SanitySlice } from "~components";
-import { useApp } from "~hooks";
+import { useAppContext } from "~hooks";
 
 const Page = ({ data: staticData }) => {
   const { sanityPage, sanitySettings } = staticData;
@@ -9,7 +9,7 @@ const Page = ({ data: staticData }) => {
 
   const slices = pagebuilder?.slices || [];
 
-  const { setGlobalSettings } = useApp();
+  const { setGlobalSettings } = useAppContext();
 
   useLayoutEffect(() => {
     setGlobalSettings(sanitySettings);

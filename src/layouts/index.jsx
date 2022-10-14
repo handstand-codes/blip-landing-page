@@ -2,12 +2,12 @@
 
 import React from "react";
 import { Footer, Header, HeightDetector, SEO, NoJs, Theme } from "~components";
-import { useApp } from "~hooks";
+import { useAppContext } from "~hooks";
 
 import * as styles from "./Layout.module.scss";
 
 const Layout = ({ children, className, seo, location }) => {
-  const { globalSettings } = useApp();
+  const { globalSettings } = useAppContext();
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styled from "@emotion/styled";
-import { useApp } from "~hooks";
+import { useAppContext } from "~hooks";
 
 /** ============================================================================
  * @css
@@ -23,7 +23,7 @@ const HeightDetector = () => {
   // --------------------------------------------------------------------------
   // context / ref / state
 
-  const { pathname } = useApp();
+  const { pathname } = useAppContext();
 
   const ref = useRef();
 
