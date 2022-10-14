@@ -28,29 +28,27 @@ $BREAKPOINT: $large-tablet;
   z-index: 40;
 }
 
-.header {
-  &__bar {
-    height: $HEADER_HEIGHT;
-    background: var(--color-classic-black);
-    color: var(--color-white);
-    user-select: none;
-    transition: background-color 0.3s;
+.headerBar {
+  height: $HEADER_HEIGHT;
+  background: var(--color-classic-black);
+  color: var(--color-white);
+  user-select: none;
+  transition: background-color 0.3s;
 
-    &___transparent {
-      @media only screen and (min-width: $BREAKPOINT) {
-        background: transparent;
-      }
+  &.transparent {
+    @media only screen and (min-width: $BREAKPOINT) {
+      background: transparent;
     }
   }
 
-  &__content {
+  .content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
   }
 
-  &__desktopNav {
+  .desktopNav {
     display: none;
 
     @media (min-width: $BREAKPOINT) {
@@ -71,26 +69,26 @@ $BREAKPOINT: $large-tablet;
     }
   }
 
-  &__desktopMenuItem {
+  .desktopMenuItem {
     display: none;
     @media (min-width: $BREAKPOINT) {
       display: inline;
     }
   }
 
-  &__mobileIcons {
+  .mobileIcons {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 
-    &__icon {
+    .icon {
       @media (min-width: $BREAKPOINT) {
         display: none;
       }
     }
   }
 
-  &__hamburger {
+  .hamburger {
     width: 1.5rem;
     height: 1.5rem;
     display: flex;
@@ -99,7 +97,7 @@ $BREAKPOINT: $large-tablet;
     justify-content: space-between;
     padding: 4px 2px;
 
-    &__line {
+    .line {
       transition: 0.3s var(--cubic-easing) transform;
       width: 100%;
       height: 2px;
@@ -107,15 +105,15 @@ $BREAKPOINT: $large-tablet;
       background: white;
       border-radius: 2px;
 
-      &__active1 {
+      &.active1 {
         transform: rotate(45deg) translate3d(5px, 5px, 0) scale(1);
       }
 
-      &__active2 {
+      &.active2 {
         transform: rotate(0deg) translate3d(0, 0, 0) scale(0);
       }
 
-      &__active3 {
+      &.active3 {
         transform: rotate(-45deg) translate3d(5px, -5px, 0) scale(1);
       }
     }

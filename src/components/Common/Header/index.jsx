@@ -73,14 +73,12 @@ const Header = ({ menu }) => {
             color: ${menuContentColor};
           `}
           className={[
-            styles.header__bar,
-            isTransparent && !isMenuActive
-              ? styles.header__bar___transparent
-              : null
+            styles.headerBar,
+            isTransparent && !isMenuActive ? styles.transparent : null
           ].join(` `)}
         >
           <WidthContainer paddingOnly>
-            <div className={styles.header__content}>
+            <div className={styles.content}>
               <Link to="/" onClick={() => setIsMenuActive(false)}>
                 <Wordmark
                   css={css`
@@ -91,15 +89,15 @@ const Header = ({ menu }) => {
                 />
               </Link>
 
-              <nav className={styles.header__desktopNav}>
+              <nav className={styles.desktopNav}>
                 <ul className="button-text">
                   <ListLinks links={menu?.links} />
                 </ul>
               </nav>
 
-              <div className={styles.header__mobileIcons}>
+              <div className={styles.mobileIcons}>
                 <button type="button">
-                  <div className={styles.header__mobileIcons__icon}>
+                  <div className={styles.icon}>
                     <Cart
                       css={css`
                         height: 24px;
@@ -108,10 +106,9 @@ const Header = ({ menu }) => {
                     />
                   </div>
                   <span
-                    className={[
-                      styles.header__desktopMenuItem,
-                      `button-text`
-                    ].join(` `)}
+                    className={[styles.desktopMenuItem, `button-text`].join(
+                      ` `
+                    )}
                   >
                     Cart
                   </span>
@@ -120,31 +117,25 @@ const Header = ({ menu }) => {
                 <button
                   type="button"
                   onClick={() => setIsMenuActive((prev) => !prev)}
-                  className={styles.header__mobileIcons__icon}
+                  className={styles.icon}
                 >
-                  <div className={styles.header__hamburger}>
+                  <div className={styles.hamburger}>
                     <div
                       className={[
-                        styles.header__hamburger__line,
-                        isMenuActive
-                          ? styles.header__hamburger__line__active1
-                          : null
+                        styles.line,
+                        isMenuActive ? styles.active1 : null
                       ].join(` `)}
                     />
                     <div
                       className={[
-                        styles.header__hamburger__line,
-                        isMenuActive
-                          ? styles.header__hamburger__line__active2
-                          : null
+                        styles.line,
+                        isMenuActive ? styles.active2 : null
                       ].join(` `)}
                     />
                     <div
                       className={[
-                        styles.header__hamburger__line,
-                        isMenuActive
-                          ? styles.header__hamburger__line__active3
-                          : null
+                        styles.line,
+                        isMenuActive ? styles.active3 : null
                       ].join(` `)}
                     />
                   </div>
