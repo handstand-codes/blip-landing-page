@@ -1,10 +1,8 @@
-import S from '@sanity/desk-tool/structure-builder';
-import { DocumentIcon } from '@sanity/icons';
+import S from "@sanity/desk-tool/structure-builder";
 
 // prettier-ignore
 export const pages = S.listItem()
   .title('Pages')
-  .icon(DocumentIcon)
   .schemaType('page')
   .child(
     S.documentTypeList('page')

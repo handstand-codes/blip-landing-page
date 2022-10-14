@@ -1,7 +1,10 @@
+import React from "react";
+
 export default {
   name: `page`,
   title: `Page`,
   type: `document`,
+  icon: () => <span style={{ fontSize: 30 }}>📄</span>,
   fields: [
     {
       name: `title`,

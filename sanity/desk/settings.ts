@@ -1,4 +1,4 @@
-import S from '@sanity/desk-tool/structure-builder';
+import S from "@sanity/desk-tool/structure-builder";
 
 // prettier-ignore
 export const settings = S.listItem()
