@@ -9,12 +9,12 @@ import * as styles from "./Header.module.scss";
 import * as bp from "~styles/breakpoints.module.scss";
 
 const Header = ({ menu }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isTransparent, setIsTransparent] = useState(false);
   const [menuContentColor, setMenuContentColor] =
     useState(`var(--color-white)`);
 
-  const { pathname, isMenuActive, setIsMenuActive, primaryColor } =
-    useAppContext();
+  const { pathname, primaryColor } = useAppContext();
   const { scrollY } = useScroll();
   const {
     windowSize: { width: windowWidth }
@@ -43,23 +43,23 @@ const Header = ({ menu }) => {
   }, [isTransparent]);
 
   useEffect(() => {
-    setIsMenuActive(false);
+    setIsMobileMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     checkIfTransparent();
     if (isDesktopWidth) {
-      setIsMenuActive(false);
+      setIsMobileMenuOpen(false);
     }
   }, [windowWidth]);
 
   useEffect(() => {
-    if (isMenuActive) {
+    if (isMobileMenuOpen) {
       document.body.classList.add(styles.disableScroll);
     } else {
       document.body.classList.remove(styles.disableScroll);
     }
-  }, [isMenuActive]);
+  }, [isMobileMenuOpen]);
 
   return (
     <div
@@ -75,12 +75,12 @@ const Header = ({ menu }) => {
           `}
           className={[
             styles.headerBar,
-            isTransparent && !isMenuActive ? styles.transparent : null
+            isTransparent && !isMobileMenuOpen ? styles.transparent : null
           ].join(` `)}
         >
           <WidthContainer paddingOnly>
             <div className={styles.content}>
-              <Link to="/" onClick={() => setIsMenuActive(false)}>
+              <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
                 <Wordmark
                   css={css`
                     height: 16px;
@@ -117,26 +117,26 @@ const Header = ({ menu }) => {
 
                 <button
                   type="button"
-                  onClick={() => setIsMenuActive((prev) => !prev)}
+                  onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                   className={styles.icon}
                 >
                   <div className={styles.hamburger}>
                     <div
                       className={[
                         styles.line,
-                        isMenuActive ? styles.active1 : null
+                        isMobileMenuOpen ? styles.active1 : null
                       ].join(` `)}
                     />
                     <div
                       className={[
                         styles.line,
-                        isMenuActive ? styles.active2 : null
+                        isMobileMenuOpen ? styles.active2 : null
                       ].join(` `)}
                     />
                     <div
                       className={[
                         styles.line,
-                        isMenuActive ? styles.active3 : null
+                        isMobileMenuOpen ? styles.active3 : null
                       ].join(` `)}
                     />
                   </div>
@@ -150,7 +150,7 @@ const Header = ({ menu }) => {
         <nav
           className={[
             styles.mobileMenu,
-            isMenuActive ? styles.active : null
+            isMobileMenuOpen ? styles.active : null
           ].join(` `)}
         >
           <ul className="d1">
