@@ -15,6 +15,7 @@ const Footer = ({ settings }) => {
   const [inputValue, setInputValue] = useState(``);
   const [hasError, setHasError] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (value) => {
     if (hasSubmitted) return;
@@ -23,12 +24,31 @@ const Footer = ({ settings }) => {
   };
 
   const handleSubmit = () => {
-    if (hasSubmitted) return;
+    if (hasSubmitted || isSubmitting) return;
     if (!regex.email.test(inputValue)) {
       setHasError(true);
     } else {
-      // Do something with value
-      setHasSubmitted(true);
+      setIsSubmitting(true);
+      fetch(`/api/subscribe-to-newsletter`, {
+        method: `POST`,
+        headers: {
+          accept: `application/json`,
+          "content-type": `application/json`,
+          "access-control-allow-origin": `*`
+        },
+        body: JSON.stringify({
+          profiles: [{ email: inputValue }]
+        })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          setHasSubmitted(true);
+          setIsSubmitting(false);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   };
 
