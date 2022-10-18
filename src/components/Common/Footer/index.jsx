@@ -12,6 +12,12 @@ import { css } from "@emotion/react";
 import * as styles from "./Footer.module.scss";
 
 const Footer = ({ settings }) => {
+  /**
+   * Todo:
+   * - Add error handling in UI
+   * - Add loading state
+   */
+
   const [inputValue, setInputValue] = useState(``);
   const [hasError, setHasError] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -32,9 +38,7 @@ const Footer = ({ settings }) => {
       fetch(`/api/subscribe-to-newsletter`, {
         method: `POST`,
         headers: {
-          accept: `application/json`,
-          "content-type": `application/json`,
-          "access-control-allow-origin": `*`
+          "content-type": `application/json`
         },
         body: JSON.stringify({
           profiles: [{ email: inputValue }]
