@@ -16,6 +16,7 @@ const ContactBlock = ({
   }
 }) => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formValue, setFormValue] = useState({
     name: ``,
@@ -73,7 +74,30 @@ const ContactBlock = ({
      * Probably an async submission,
      * on success set hasSubmitted to true
      */
-    setHasSubmitted(true);
+    setIsSubmitting(true);
+    fetch(`/api/submit-enquiry`, {
+      method: `POST`,
+      headers: {
+        "content-type": `application/json`
+      },
+      body: JSON.stringify({
+        profiles: [
+          { name: formValue.name },
+          { email: formValue.email },
+          { enquiry: formValue.enquiry },
+          { message: formValue.message }
+        ]
+      })
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setHasSubmitted(true);
+        setIsSubmitting(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const Header = renderIndex === 0 ? `h1` : `h2`;
