@@ -12,47 +12,46 @@ import { css } from "@emotion/react";
 import * as styles from "./Footer.module.scss";
 
 const Footer = ({ settings }) => {
-  /**
-   * Todo:
-   * - Add error handling in UI
-   * - Add loading state
-   */
-
   const [inputValue, setInputValue] = useState(``);
-  const [hasError, setHasError] = useState(false);
+  const [hasValidationError, setHasValidationError] = useState(false);
+  const [hasAPIError, setHasAPIError] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (value) => {
     if (hasSubmitted) return;
     setInputValue(value);
-    setHasError(false);
+    setHasValidationError(false);
+    setHasAPIError(false);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (hasSubmitted || isSubmitting) return;
     if (!regex.email.test(inputValue)) {
-      setHasError(true);
+      setHasValidationError(true);
     } else {
       setIsSubmitting(true);
-      fetch(`/api/subscribe-to-newsletter`, {
-        method: `POST`,
-        headers: {
-          "content-type": `application/json`
-        },
-        body: JSON.stringify({
-          profiles: [{ email: inputValue }]
-        })
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setHasSubmitted(true);
-          setIsSubmitting(false);
-        })
-        .catch((err) => {
-          console.error(err);
+      try {
+        const response = await fetch(`/api/subscribe-to-newsletter`, {
+          method: `POST`,
+          headers: {
+            "content-type": `application/json`
+          },
+          body: JSON.stringify({
+            profiles: [{ email: inputValue }]
+          })
         });
+        const data = await response.json();
+        setIsSubmitting(false);
+        if (data.statusCode === 500) {
+          throw new Error(data.body.code);
+        }
+        setHasSubmitted(true);
+      } catch (err) {
+        console.error(err);
+        setHasAPIError(true);
+        setInputValue(``);
+      }
     }
   };
 
@@ -81,13 +80,18 @@ const Footer = ({ settings }) => {
                     onChange={handleChange}
                     value={inputValue}
                     onEnter={handleSubmit}
-                    hasError={hasError}
+                    hasError={hasValidationError}
                   />
                   <p className={[`b2`, styles.successMessage].join(` `)}>
                     {settings?.newsletterSignup.successMessage}
                   </p>
                 </div>
               </label>
+              {hasAPIError && (
+                <span className={[`b2`].join(` `)}>
+                  Something went wrong, please try again later.
+                </span>
+              )}
             </div>
             <nav className={styles.nav}>
               <ul className={[styles.nav__ul, `b1`].join(` `)}>
