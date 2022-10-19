@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-import { BREAKPOINTS } from "~utils/css";
+import * as bp from "~styles/breakpoints.module.scss";
 
 const useDevice = () => {
   const [windowSize, setWindowSize] = useState({
@@ -10,8 +9,8 @@ const useDevice = () => {
 
   const [screen, setScreen] = useState(null);
 
-  const breakpoints = Object.keys(BREAKPOINTS).reduce((acc, key) => {
-    acc[key] = parseInt(BREAKPOINTS[key].replace(`px`, ``));
+  const breakpoints = Object.keys(bp).reduce((acc, key) => {
+    acc[key] = parseInt(bp[key].replace(`px`, ``));
     return acc;
   }, {});
 
@@ -49,8 +48,8 @@ const useDevice = () => {
       return;
     }
 
-    const breakpointKeys = Object.keys(BREAKPOINTS);
-    const breakpointValues = Object.values(BREAKPOINTS);
+    const breakpointKeys = Object.keys(bp);
+    const breakpointValues = Object.values(bp);
 
     setScreen(
       breakpointKeys[

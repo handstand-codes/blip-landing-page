@@ -1,34 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import styled from "@emotion/styled";
 import { useAppContext } from "~hooks";
-
-/** ============================================================================
- * @css
- */
-const Viewport = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-`;
+import * as styles from "./HeightDetector.module.scss";
 
 /** ============================================================================
  * @component Resize height detector for iOS.
  */
 const HeightDetector = () => {
-  // --------------------------------------------------------------------------
-  // context / ref / state
-
   const { pathname } = useAppContext();
 
   const ref = useRef();
-
-  // --------------------------------------------------------------------------
-  // lifecycle
 
   useEffect(() => {
     if (!ref?.current || typeof window === `undefined`) {
@@ -57,10 +37,7 @@ const HeightDetector = () => {
     };
   }, [ref, pathname]);
 
-  // --------------------------------------------------------------------------
-  // render
-
-  return <Viewport ref={ref} />;
+  return <div className={styles.viewport} ref={ref} />;
 };
 
 export default HeightDetector;

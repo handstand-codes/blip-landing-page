@@ -1,16 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled from "@emotion/styled";
 import { useInView } from "react-intersection-observer";
-
-/** ============================================================================
- * @css
- */
-
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-`;
+import * as styles from "./HTMLVideo.module.scss";
 
 const HTMLVideo = ({
   className = ``,
@@ -24,9 +14,6 @@ const HTMLVideo = ({
   restart = false,
   src
 }) => {
-  // ---------------------------------------------------------------------------
-  // context / ref / state
-
   const { ref, inView } = useInView();
 
   const videoRef = useRef();
@@ -35,16 +22,10 @@ const HTMLVideo = ({
   const [duration, setDuration] = useState(null);
   const [position, setPosition] = useState(0);
 
-  // ---------------------------------------------------------------------------
-  // lifecycle
-
-  // initial []
   useEffect(() => {
     if (!videoRef?.current) {
       return () => {};
     }
-
-    // duration / metadata
 
     const onLoadedMetadata = () => {
       setDuration(videoRef.current.duration);
@@ -69,7 +50,6 @@ const HTMLVideo = ({
     );
 
     // current playback position
-
     const onTimeUpdate = () => {
       if (!videoRef?.current) {
         return;
@@ -81,7 +61,6 @@ const HTMLVideo = ({
     videoRef.current.addEventListener(`timeupdate`, onTimeUpdate, false);
 
     // cleanup
-
     return () => {
       if (!videoRef?.current) {
         return;
@@ -132,11 +111,8 @@ const HTMLVideo = ({
     }
   }, [videoRef, inView, restart, position]);
 
-  // ---------------------------------------------------------------------------
-  // render
-
   return (
-    <Container ref={ref}>
+    <div className={styles.container} ref={ref}>
       <video
         ref={videoRef}
         className={className}
@@ -149,7 +125,7 @@ const HTMLVideo = ({
       >
         <source src={src} />
       </video>
-    </Container>
+    </div>
   );
 };
 

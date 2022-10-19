@@ -6,7 +6,6 @@ require(`dotenv`).config({
 
 const path = require(`path`);
 const website = require(`./config/website`);
-const robotsProduction = require(`./config/robots-txt.production`);
 
 /** ----------------------------------------------------------------------------
  * Environment variables
@@ -69,7 +68,6 @@ if (GATSBY_CMD !== `serve`) {
 const seoPlugins = () => {
   const plugins = [`gatsby-plugin-sass`];
 
-  plugins.push(`gatsby-plugin-react-helmet`);
   plugins.push({
     resolve: `gatsby-plugin-robots-txt`,
     options: {
@@ -78,77 +76,24 @@ const seoPlugins = () => {
         : path.join(__dirname, `config/robots-txt.production.js`)
     }
   });
-  plugins.push({
-    resolve: `gatsby-plugin-sitemap`,
-    options: {
-      excludes: [...robotsProduction.policy[0].disallow],
-      query: `
-    {
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-      siteBuildMetadata {
-        buildTime(formatString: "YYYY-MM-DDTHH:mm:ss.sssZ")
-      }
-      allSitePage {
-        nodes {
-          path
-        }
-      }
-      allSanityPage {
-        edges {
-          node {
-            _updatedAt(formatString: "YYYY-MM-DDTHH:mm:ss.sssZ")
-            slug {
-              current
-            }
-          }
-        }
-      }
-    }
-    `,
-      resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
-      resolvePages: ({
-        allSitePage: { nodes: sitePages },
-        allSanityPage: { edges: sanityPages },
-        siteBuildMetadata
-      }) =>
-        sitePages.map((page) => {
-          const sanityPageIndex = sanityPages.findIndex(({ node }) => {
-            const slug =
-              node.slug.current === `/` ? `/` : `/${node.slug.current}/`;
-            return page.path === slug;
-          });
-          return sanityPageIndex > -1
-            ? {
-                path: page.path,
-                updatedAt: sanityPages[sanityPageIndex].node._updatedAt
-              }
-            : { path: page.path, updatedAt: siteBuildMetadata.buildTime };
-        }),
-      serialize: (page) => ({ url: page.path, lastmod: page.updatedAt }),
-      createLinkInHead: true
-    }
-  });
-  plugins.push({
-    resolve: `gatsby-plugin-manifest`,
-    options: {
-      name: website.title,
-      short_name: website.shortName,
-      description: website.description,
-      start_url: `/`,
-      background_color: website.backgroundColor,
-      theme_color: website.themeColor,
-      display: `standalone`,
-      icon: website.icon,
-      include_favicon: false,
-      icon_options: {
-        purpose: `any maskable`
-      }
-    }
-  });
+  // Todo: get manifest plugin icons working
+  // plugins.push({
+  //   resolve: `gatsby-plugin-manifest`,
+  //   options: {
+  //     name: website.title,
+  //     short_name: website.shortName,
+  //     description: website.description,
+  //     start_url: `/`,
+  //     background_color: website.backgroundColor,
+  //     theme_color: website.themeColor,
+  //     display: `standalone`,
+  //     icon: website.icon,
+  //     include_favicon: false,
+  //     icon_options: {
+  //       purpose: `any maskable`
+  //     }
+  //   }
+  // });
   // gatsby-plugin-offline to be after gatsby-plugin-manifest
   plugins.push({
     resolve: `gatsby-plugin-offline`
@@ -311,8 +256,12 @@ module.exports = {
     siteLanguage: website.siteLanguage,
     ogLanguage: website.ogLanguage,
     author: website.author,
-    twitter: website.twitter,
-    socialLinks: website.socialLinks
+    twitterUsername: website.twitterUsername,
+    socialLinks: website.socialLinks,
+    backgroundColor: website.backgroundColor,
+    themeColor: website.themeColor,
+    shortName: website.shortName,
+    icon: website.icon
   },
   //
   // Flags

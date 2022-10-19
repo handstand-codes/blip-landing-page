@@ -1,10 +1,9 @@
 import React from "react";
-import Helmet from "react-helmet";
 
 const Facebook = ({ url, name, type, title, desc, image, locale }) => {
   if (!image || !name) return null;
   return (
-    <Helmet>
+    <>
       {name && <meta property="og:site_name" content={name} />}
       <meta property="og:locale" content={locale} />
       <meta property="og:url" content={url} />
@@ -13,7 +12,7 @@ const Facebook = ({ url, name, type, title, desc, image, locale }) => {
       <meta property="og:description" content={desc} />
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={desc} />
-    </Helmet>
+    </>
   );
 };
 

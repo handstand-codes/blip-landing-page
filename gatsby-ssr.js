@@ -1,5 +1,8 @@
 /* eslint-disable import/prefer-default-export */
 
-import RootElement from "./root-element";
+const RootElement = require(`./root-element`);
 
-export const wrapRootElement = RootElement;
+exports.onRenderBody = ({ setHtmlAttributes }) => {
+  setHtmlAttributes({ lang: `en` });
+};
+exports.wrapRootElement = () => RootElement;

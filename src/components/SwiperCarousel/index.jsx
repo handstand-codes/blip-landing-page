@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 // https://swiperjs.com/react
 
 import React, { useRef, useState, useEffect } from "react";
@@ -5,22 +7,15 @@ import { PropTypes } from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
-
 import "swiper/css/bundle";
 
-const SwiperCarousel = ({ id, _css, gridwrap, loop, options, nav, slides }) => {
+const SwiperCarousel = ({ id, loop, options, nav, slides }) => {
   SwiperCore.use([Autoplay]);
-
-  // ---------------------------------------------------------------------------
-  // context / ref / state
 
   const swiper = useRef(null);
 
   const [current, setCurrent] = useState(1);
   const [slideKeys, setSlideKeys] = useState([]);
-
-  // ---------------------------------------------------------------------------
-  // methods
 
   const next = () => {
     if (!swiper?.current?.swiper?.slideNext) {
@@ -44,17 +39,11 @@ const SwiperCarousel = ({ id, _css, gridwrap, loop, options, nav, slides }) => {
     swiper.current.swiper.slideTo(index);
   };
 
-  // ---------------------------------------------------------------------------
-  // lifecycle
-
   useEffect(() => {
     const keys = slides.map(() => uuidv4());
 
     setSlideKeys(keys);
   }, [slides]);
-
-  // ---------------------------------------------------------------------------
-  // render
 
   const swiperJSX = (
     <>

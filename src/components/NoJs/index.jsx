@@ -1,5 +1,5 @@
+import { Link } from "gatsby";
 import React from "react";
-import { Link } from "~components";
 import * as styles from "./NoJs.module.scss";
 
 const NoJs = () => (

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { createContext, useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { globalHistory } from "@reach/router";

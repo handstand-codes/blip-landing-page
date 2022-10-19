@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable consistent-return */
 const axios = require(`axios`);
 
 const subscribeToNewsletter = async (req, res) => {

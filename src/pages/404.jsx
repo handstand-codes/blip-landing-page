@@ -1,5 +1,6 @@
-import { Link } from "gatsby";
 import React from "react";
+import { Link } from "gatsby";
+import { SEO } from "~components";
 
 const FourOhFour = () => (
   <>
@@ -17,3 +18,5 @@ const FourOhFour = () => (
 );
 
 export default FourOhFour;
+
+export const Head = () => <SEO />;

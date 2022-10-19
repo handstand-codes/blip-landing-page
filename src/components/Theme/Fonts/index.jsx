@@ -4,7 +4,7 @@ import ppNeueMontrealBoldWOFF from "~assets/fonts/pp-neue-montreal-bold.woff";
 import ppNeueMontrealBoldWOFF2 from "~assets/fonts/pp-neue-montreal-bold.woff2";
 import ppNeueMontrealMediumWOFF from "~assets/fonts/pp-neue-montreal-medium.woff";
 import ppNeueMontrealMediumWOFF2 from "~assets/fonts/pp-neue-montreal-medium.woff2";
-import { breakpoint } from "~utils/css.js";
+import * as bp from "~styles/breakpoints.module.scss";
 
 const SANS_FALLBACKS = `"Helvetica Neue", "Helvetica", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`;
 
@@ -134,7 +134,7 @@ const Fonts = () => (
         text-transform: uppercase;
       }
 
-      ${breakpoint(`small-tablet`, `min`)} {
+      @media only screen and (min-width: ${bp.smallTablet}) {
         // display //
         .d1 {
           font-size: 80px;

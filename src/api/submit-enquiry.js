@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable consistent-return */
 const axios = require(`axios`);
 
 const submitEnquiry = async (req, res) => {

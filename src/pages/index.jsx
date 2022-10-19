@@ -1,4 +1,5 @@
 import React from "react";
+import { SEO } from "~components";
 
 const Homepage = () => (
   <div
@@ -14,3 +15,5 @@ const Homepage = () => (
 );
 
 export default Homepage;
+
+export const Head = () => <SEO />;
