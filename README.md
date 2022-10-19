@@ -31,6 +31,12 @@ Gatsby template for a simple landing page site.
 
 ## Configuration
 
+### package.json
+Update all project info
+
+### config/website
+Add meta info
+
 ### Create .env files
 
 Use `.env.template` to generate `.env.development` and `.env.production` files containing the included ENV variables.
