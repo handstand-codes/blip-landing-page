@@ -23,9 +23,11 @@ Gatsby template for a simple landing page site.
   - Use the `website.js` to easily change the most important information
   - Use `.env.template` to generate `.env.development` and `.env.production` files containing ENV variables
 
-## Installation
+## Installation + Repo Setup
 
 1. Clone and `yarn install`
+2. Create new repo on Github
+3. `git remote set-url origin <repo url>`
 
 ## Configuration
 
