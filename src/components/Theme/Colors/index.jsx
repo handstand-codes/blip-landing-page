@@ -17,12 +17,13 @@ export const COLORS = {
   success: `#07cb9c`,
 
   // Client
-  "classic-black": `#141414`,
-  "sick-lime": `#E2FF2E`,
-  "darling-mauve": `#B8B4FF`,
-  "bright-pink": `#FF40B4`,
-  blush: `#F58C90`,
-  sunkiss: `#FFCC01`
+  lime: `#CEFF43`,
+	pink: `#FF4395`,
+	lavendar: `#CDA5FF`,
+	orange: `#FF5E0D`,
+	"military-green": `#43462C`,
+	"off-white": `#F2F2F2`,
+	"warm-black": `#201D1D`
 };
 
 const Colors = () => (
