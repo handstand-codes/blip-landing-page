@@ -11,8 +11,6 @@ const useWindowDimensions = () => {
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
-  //
-
   useEffect(() => {
     function handleResize() {
       setWindowSize({
@@ -27,8 +25,6 @@ const useWindowDimensions = () => {
 
     return () => window.removeEventListener(`resize`, handleResize);
   }, []);
-
-  //
 
   useEffect(() => {
     if (!windowSize?.width || !windowSize?.height) {
@@ -83,8 +79,6 @@ const useWindowDimensions = () => {
         setIsDesktop(false);
     }
   }, [screen]);
-
-  //
 
   return {
     screen,

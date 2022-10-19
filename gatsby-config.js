@@ -14,10 +14,6 @@ const robotsProduction = require(`./config/robots-txt.production`);
 const {
   IS_STAGING,
   GATSBY_SITE_URL,
-  GATSBY_IS_PREVIEW,
-  SANITY_DATASET,
-  SANITY_PROJECT_ID,
-  SANITY_TOKEN,
   HOST,
   gatsby_executing_command: GATSBY_CMD
 } = process.env;
@@ -26,7 +22,6 @@ const pathPrefix = website.pathPrefix === `/` ? `` : website.pathPrefix;
 const isDev =
   GATSBY_CMD === `develop` || process.env.NODE_ENV === `development`;
 const isPreview = (IS_STAGING || `false`).toLocaleLowerCase() === `true`;
-const previewEnabled = (GATSBY_IS_PREVIEW || `false`).toLowerCase() === `true`;
 
 /** ----------------------------------------------------------------------------
  * Check for default website config values
@@ -58,11 +53,7 @@ if (!isDev && !isPreview) {
  * Check all required ENV variables are set
  */
 if (GATSBY_CMD !== `serve`) {
-  const requiredEnvVariables = [
-    `GATSBY_SITE_URL`,
-    `SANITY_PROJECT_ID`,
-    `SANITY_DATASET`
-  ];
+  const requiredEnvVariables = [`GATSBY_SITE_URL`];
 
   requiredEnvVariables.map((item) => {
     if (!process.env[item]) {
@@ -71,36 +62,6 @@ if (GATSBY_CMD !== `serve`) {
     return null;
   });
 }
-
-/** ----------------------------------------------------------------------------
- * Sanity plugins
- */
-const sanityPlugins = () => {
-  const plugins = [];
-
-  if (
-    !SANITY_PROJECT_ID ||
-    SANITY_PROJECT_ID === `` ||
-    !SANITY_DATASET ||
-    SANITY_DATASET === ``
-  ) {
-    return plugins;
-  }
-
-  plugins.push({
-    resolve: `gatsby-source-sanity`,
-    options: {
-      projectId: SANITY_PROJECT_ID,
-      dataset: SANITY_DATASET,
-      token: SANITY_TOKEN,
-      graphqlTag: `default`,
-      watchMode: isDev,
-      overlayDrafts: previewEnabled
-    }
-  });
-
-  return plugins;
-};
 
 /** ----------------------------------------------------------------------------
  * SEO plugins
@@ -375,7 +336,6 @@ module.exports = {
     `gatsby-plugin-layout`,
     ...hostingPlugins(),
     ...seoPlugins(),
-    ...trackingPlugins(),
-    ...sanityPlugins()
+    ...trackingPlugins()
   ]
 };

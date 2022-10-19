@@ -5,25 +5,8 @@ import { globalHistory } from "@reach/router";
 
 export const AppContext = createContext({});
 
-/** ============================================================================
- * @context
- * Global application data.
- */
 const AppProvider = ({ children }) => {
-  // ---------------------------------------------------------------------------
-  // context / ref / state
-
   const [pathname, setPathname] = useState(null);
-  const [primaryColor, setPrimaryColor] = useState(`#E2FF2E`);
-  const [globalSettings, setGlobalSettings] = useState();
-
-  // ---------------------------------------------------------------------------
-  // methods
-
-  // ...
-
-  // ---------------------------------------------------------------------------
-  // lifecycle
 
   useEffect(() => {
     if (typeof window !== `undefined` && window?.location?.pathname) {
@@ -35,15 +18,8 @@ const AppProvider = ({ children }) => {
     });
   }, []);
 
-  // ---------------------------------------------------------------------------
-  // render
-
   const contextProps = useMemo(() => ({
-    pathname,
-    primaryColor,
-    setPrimaryColor,
-    globalSettings,
-    setGlobalSettings
+    pathname
   }));
 
   return (
