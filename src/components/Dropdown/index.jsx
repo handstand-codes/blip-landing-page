@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import { ReactComponent as Arrow } from "~assets/svg/arrow-down.svg";
+import { ReactComponent as Arrow } from "~assets/svg/arrow.svg";
 import * as styles from "./Dropdown.module.scss";
 
 const Dropdown = ({ title, content }) => {

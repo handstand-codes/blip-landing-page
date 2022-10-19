@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/react";
-import { ReactComponent as Arrow } from "~assets/svg/arrow-down.svg";
+import { ReactComponent as Arrow } from "~assets/svg/arrow.svg";
 import { ReactComponent as WarningTriangle } from "~assets/svg/warning-triangle.svg";
 import { ReactComponent as SearchIcon } from "~assets/svg/looking-glass.svg";
 import * as styles from "./TextInput.module.scss";
