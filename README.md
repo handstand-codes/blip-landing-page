@@ -1,17 +1,13 @@
-# Sanity Gatsby
+# LAM Landingpage Template
 
-Gatsby Starter which uses the Headless CMS [Sanity](https://prismic.io/).
+Gatsby template for a simple landing page site.
 
 ## Features
 
 - Gatsby V4
-- Sanity as Headless CMS
 - gatsby-plugin-image
 - SASS with CSS modules
 - SEO
-  - Sitemap
-  - Canonical Tags
-  - Schema.org JSONLD
   - OpenGraph Tags
   - Twitter Tags
   - Forced trailing slashes
@@ -21,42 +17,25 @@ Gatsby Starter which uses the Headless CMS [Sanity](https://prismic.io/).
   - Redirects generator for Netlify, Vercel, AWS and Gatsby Cloud
 - PWA
   - Offline Support
-  - - WebApp Manifest Support
+  - - WebApp Manifest Support (Not yet implemented)
 - Brotli Compression
 - Configurable
   - Use the `website.js` to easily change the most important information
   - Use `.env.template` to generate `.env.development` and `.env.production` files containing ENV variables
 
-## Instructions
+## Installation
 
-### Quick start guide
+1. Clone and `yarn install`
 
-1. Clone and install the repo
-2. Register an account on Sanity
-3. Create an API key and store it in an ENV variable
-4. Go to your content tab
-5. Create new documents for the `Page` type and fill out every input field
-6. Your project is ready for development and production
-
-## Setup
-
-You have to know the basics of Sanity's interface in order to be able to make the necessary changes / setup your project accordingly. You can also checkout the document ["Sourcing from Sanity"](https://www.gatsbyjs.com/plugins/gatsby-source-sanity/).
-
-### Setup the page.json custom type
-
-Get started by using the dummy `.prismic/page.json` custom type. Once inside Sanity go to the Custom types page, click "New", select "Repeatable Type" and enter "Page" as the type name. Toggle from "Build mode" to "JSON editor" in the right sidebar and paste the contents from the page.json file. This will allow you to create your first page with the dummy slice `src/slices/IntroSection.jsx` contained in this boilerplate.
+## Configuration
 
 ### Create .env files
 
-Use `.env.template` to generate `.env.development` and `.env.production` files containing the following ENV variables
+Use `.env.template` to generate `.env.development` and `.env.production` files containing the included ENV variables.
 
 #### GATSBY_SITE_URL
 
 This is the frontend URL of your project, for development it will be http://localhost:8000 or similar
-
-#### SANITY_ENV_VARIABLES
-
-Don't forget to change the default `SANITY_PROJECT_ID`, `SANITY_TOKEN` and `SANITY_DATASET` env variables.
 
 #### IS_STAGING
 
@@ -73,13 +52,19 @@ Generates relevant redirect files for your chosen hosting provider, following op
 
 By default the redirects manager (`/config/redirectsManager.js`) will create files for all three options if `HOST` is not set.
 
+#### KLAVIO
+
+For integration with Klaviyo CRM.
+
+### Fonts
+
+Add webfonts to `src/assets` and update imports + styling in `src/components/Theme/Fonts`
+
+### Colors
+
+Update color in `src/components/Theme/Colors`
+
 ## Development
-
-**Before running the local development server you'll need to add content to your Sanity repository!**
-
-**Please note**: You have to publish all these documents (not only saving them)!
-
-After that you can run the local server:
 
 ```shell
 yarn dev
@@ -101,26 +86,19 @@ You can configure your setup in `/config/website`:
 
 ```JS
 module.exports = {
-  pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  title: 'Gatsby Sanity', // Default Site Title used for PWA
-  description: 'A unopinionated Gatsby Starter which uses the Headless CMS Sanity.',
-  siteName: 'Lean Gatsby Sanity starter', // Sitename for Facebook
-  siteLanguage: 'en', // Language Tag on <html> element
-  banner: '/logos/logo-1024.png', // Default OpenGraph image
-  ogLanguage: 'en_US', // Facebook Language
-
+  pathPrefix: `/`, // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
+  title: `LAM Landingpage Template`, // Default Site Title used for SEO & PWA
+  description: `LAM Landingpage Template`, // Default Site Decription used for SEO
+  siteName: `LAM Landingpage Template`, // Sitename for Facebook
+  banner: `/open-graph.jpg`, // Default OpenGraph image
+  ogLanguage: `en_AU`, // Facebook Language
+  socialLinks: [``], // Array of social links (facebook, insta, etc)
   // JSONLD / Manifest
-  favicon: 'src/favicon.png', // Used for manifest favicon generation
-  shortName: 'Sanity', // shortname for manifest. MUST be shorter than 12 characters
-  author: 'Company Name', // Author for schemaORGJSONLD
-  themeColor: '#3D63AE',
-  backgroundColor: '#EBEDF2',
-
-  twitter: '', // Twitter Username
-  googleAnalyticsID: '',
+  icon: `/favicon-light-mode.png`, // Used for manifest favicon, splash screen, and icon generation
+  shortName: `Landingpage`, // shortname for manifest. MUST be shorter than 12 characters
+  author: `Love + Money`, // Author for schemaORGJSONLD
+  themeColor: `#000000`, // PWA Icon background & address bar color if installed on desktop
+  backgroundColor: `#000000`, // PWA color shown before styles and content loads, should match the background-color CSS property in the site’s stylesheet
+  twitterUsername: `` // Twitter Username
 }
 ```
-
-## Typography
-
-This boilerplate is using [NPM Typefaces](https://github.com/KyleAMathews/typefaces) that serves Google (and other) fonts locally to boost performance and allow them to load offline. Out the box it is using [Lato](https://www.npmjs.com/package/typeface-lato) and [Titillium](https://www.npmjs.com/package/typeface-titillium-web) these are imported and can be replaced in `src/components/Layout.jsx`.
