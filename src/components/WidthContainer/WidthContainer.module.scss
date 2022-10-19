@@ -1,7 +1,8 @@
 @import "~styles/breakpoints.module.scss";
 
 .container {
-  max-width: $small-desktop;
+  width: 100%;
+  max-width: $xl;
   margin: auto;
 }
 

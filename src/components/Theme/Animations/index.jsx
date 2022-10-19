@@ -71,6 +71,20 @@ const Animations = () => (
           }
         }
 
+        @keyframes bob {
+          0% {
+            transform: translateY(0);
+          }
+
+          30% {
+            transform: translateY(-20px);
+          }
+
+          70% {
+            transform: translateY(0);
+          }
+        }
+
         :root {
           --cubic-easing: cubic-bezier(0.215, 0.61, 0.355, 1);
           --animation-appear-in: 1s var(--cubic-easing) appear forwards;
@@ -80,6 +94,7 @@ const Animations = () => (
           --animation-appear-left-more: 1s var(--cubic-easing) appear-left-more
             forwards;
           --animation-appear-right: 1s var(--cubic-easing) appear-right forwards;
+          --animation-bob: 3s bob infinite;
         }
       `
     ]}
