@@ -1,9 +1,9 @@
 {
-  "name": "lam-landingpage-tmplt",
-  "description": "LAM Landingpage Template",
+  "name": "blip-landingpage",
+  "description": "Blip Landing Page",
   "license": "MIT",
   "version": "1.0.0",
-  "author": "Love and Money",
+  "author": "Love + Money",
   "scripts": {
     "build": "gatsby build --log-pages",
     "dev": "gatsby develop -H 0.0.0.0",
