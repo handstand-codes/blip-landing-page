@@ -1,10 +1,10 @@
 import React from "react";
-import { SEO, HeroLogoBlock } from "~components";
+import { SEO, HeroLogoBlock, SignUpBlock } from "~components";
 
 const Homepage = () => (
   <>
     <HeroLogoBlock />
-    <h1>Some other content!</h1>
+    <SignUpBlock />
   </>
 );
 
