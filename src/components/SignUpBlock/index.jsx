@@ -8,7 +8,7 @@ const SignUpBlock = () => {
   const handleChange = (e) => setInputValue(e.target.value);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="sign-up-block">
       <WidthContainer>
         <div className={styles.contentContainer}>
           <p className={[styles.availableText, `caption`].join(` `)}>
