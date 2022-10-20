@@ -30,15 +30,11 @@
 
 .logo {
   transform: rotate(90deg);
-  @media only screen and (min-height: 500px) {
-    max-width: 70vh;
-  }
-  max-width: 50vh;
-  max-height: 40vw;
+  min-width: 300px;
+  width: 70vh;
   @media only screen and (min-width: $small-tablet) {
     transform: rotate(0);
-    max-width: 75%;
-    max-height: 70vh;
+    width: 80%;
   }
 }
 
