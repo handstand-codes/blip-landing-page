@@ -1,5 +1,11 @@
 import React from "react";
-import { HeightDetector, NoJs, Theme } from "~components";
+import {
+  HeightDetector,
+  NoJs,
+  Theme,
+  StarSparkleBackground
+} from "~components";
+import "../styles/global.css";
 
 import * as styles from "./Layout.module.scss";
 
@@ -13,7 +19,10 @@ const Layout = ({ children }) => (
     <HeightDetector />
     <Theme />
 
-    <div className={styles.container}>{children}</div>
+    <div className={styles.container}>
+      {children}
+      <StarSparkleBackground />
+    </div>
   </>
 );
 

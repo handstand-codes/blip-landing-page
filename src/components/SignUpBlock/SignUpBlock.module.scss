@@ -1,12 +1,9 @@
 @import "~styles/breakpoints.module.scss";
 
 .container {
-  background: var(--color-lavendar);
-}
-
-.contentContainer {
   width: 100%;
   padding-bottom: 2.25rem;
+  color: var(--color-lime);
 }
 
 .availableText {
@@ -25,21 +22,21 @@
   margin-bottom: 3.75rem;
 }
 
-.form {
-}
-
 .input {
-  border: 2px solid var(--color-warm-black);
+  border: 2px solid var(--color-lime);
   border-radius: 6px;
-  background: var(--color-lavendar);
+  background: var(--color-warm-black);
   height: 90px;
   padding: 0 1.5rem;
   display: block;
   width: 100%;
   margin-bottom: 0.5rem;
+  color: var(--color-lime);
+  font-size: 18px;
+
   &::placeholder {
-    color: var(--color-warm-black);
-    font-size: 18px;
+    color: var(--color-lime);
+    user-select: none;
   }
 
   &.error {
@@ -48,10 +45,11 @@
 }
 
 .signUpButton {
-  background: var(--color-warm-black);
-  color: var(--color-lavendar);
+  background: var(--color-lime);
+  color: var(--color-warm-black);
   height: 90px;
   padding: 0 2.25rem;
   border-radius: 6px;
   width: 100%;
+  user-select: none;
 }
