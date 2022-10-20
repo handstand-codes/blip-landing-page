@@ -14,27 +14,25 @@ const HeroLogoBlock = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <WidthContainer>
-        <div className={styles.contentContainer}>
-          <p className={[styles.availableText, `caption`].join(` `)}>
-            Available in winter 2022
-          </p>
-          <div className={styles.logoContainer}>
-            <Logo fill="var(--color-lime)" className={styles.logo} />
-          </div>
-          <div className={styles.arrowButtonContainer}>
-            <button
-              type="button"
-              className={styles.arrowButton}
-              onClick={scrollSignupIntoView}
-            >
-              <Arrow className={styles.arrow} fill="var(--color-lavendar)" />
-            </button>
-          </div>
+    <WidthContainer>
+      <div className={styles.container}>
+        <p className={[styles.availableText, `caption`].join(` `)}>
+          Available in winter 2022
+        </p>
+        <div className={styles.logoContainer}>
+          <Logo fill="var(--color-lime)" className={styles.logo} />
         </div>
-      </WidthContainer>
-    </div>
+        <div className={styles.arrowButtonContainer}>
+          <button
+            type="button"
+            className={styles.arrowButton}
+            onClick={scrollSignupIntoView}
+          >
+            <Arrow className={styles.arrow} fill="var(--color-lavendar)" />
+          </button>
+        </div>
+      </div>
+    </WidthContainer>
   );
 };
 

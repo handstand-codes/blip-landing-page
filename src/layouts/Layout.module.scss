@@ -1,7 +1,8 @@
 .container {
   width: 100%;
   position: relative;
-  background: white;
+  background: url("../assets/svg/bg-star.svg");
+  background-color: var(--color-warm-black);
   // Flex allows the parent layout container height to grow to include child margin
   display: flex;
   flex-direction: column;
