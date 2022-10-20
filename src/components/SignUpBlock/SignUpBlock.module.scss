@@ -41,6 +41,10 @@
     color: var(--color-warm-black);
     font-size: 18px;
   }
+
+  &.error {
+    border-color: var(--color-error);
+  }
 }
 
 .signUpButton {
