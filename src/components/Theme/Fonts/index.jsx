@@ -1,10 +1,7 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
 
-import ArchivoSemiBoldWOFF from "~assets/fonts/Archivo-SemiBold.woff";
-import ArchivoSemiBoldWOFF2 from "~assets/fonts/Archivo-SemiBold.woff2";
-import ArchivoSemiBoldItalicWOFF from "~assets/fonts/Archivo-SemiBoldItalic.woff";
-import ArchivoSemiBoldItalicWOFF2 from "~assets/fonts/Archivo-SemiBoldItalic.woff2";
+import ArchivoVariable from "~assets/fonts/Archivo-VariableFont.woff2";
 
 import * as bp from "~styles/breakpoints.module.scss";
 
@@ -22,21 +19,10 @@ const Fonts = () => (
     styles={css`
       @font-face {
         font-family: "${ARCHIVO_ID}";
-        src: url(${ArchivoSemiBoldWOFF}) format("woff2"),
-          url(${ArchivoSemiBoldWOFF2}) format("woff");
+        src: url(${ArchivoVariable}) format("woff2");
         font-display: block;
         font-weight: normal;
         font-style: normal;
-      }
-
-      @font-face {
-        font-family: "${ARCHIVO_ID}";
-        src: url(${ArchivoSemiBoldItalicWOFF}) format("woff2"),
-          url(${ArchivoSemiBoldItalicWOFF2}) format("woff");
-        font-display: block;
-        font-weight: normal;
-        font-style: normal;
-        font-style: italic;
       }
 
       // common //
@@ -61,6 +47,7 @@ const Fonts = () => (
         font-size: 42px;
         line-height: 110%;
         letter-spacing: -0.02em;
+        font-variation-settings: "wght" 700, "wdth" 120;
       }
 
       // headings //
@@ -69,6 +56,7 @@ const Fonts = () => (
         font-size: 26px;
         line-height: 110%;
         letter-spacing: -0.01em;
+        font-variation-settings: "wght" 700, "wdth" 120;
       }
 
       .h2 {
@@ -76,6 +64,7 @@ const Fonts = () => (
         font-size: 22px;
         line-height: 120%;
         letter-spacing: -0.01em;
+        font-variation-settings: "wght" 700, "wdth" 120;
       }
 
       .h3 {
@@ -83,19 +72,22 @@ const Fonts = () => (
         font-size: 18px;
         line-height: 120%;
         letter-spacing: -0.01em;
+        font-variation-settings: "wght" 700, "wdth" 120;
       }
 
       // body //
       .b1 {
-        font-weight: 400;
         font-size: 18px;
         line-height: 120%;
+        font-weight: 700;
+        font-variation-settings: "wght" 400, "wdth" 120;
       }
 
       .b2 {
         font-weight: 400;
         font-size: 12px;
         line-height: 120%;
+        font-variation-settings: "wght" 400, "wdth" 120;
       }
 
       // other //
@@ -104,6 +96,7 @@ const Fonts = () => (
         font-size: 14px;
         line-height: 120%;
         letter-spacing: 0.02em;
+        font-variation-settings: "wght" 700, "wdth" 120;
       }
 
       .button-text {
@@ -111,6 +104,7 @@ const Fonts = () => (
         font-size: 24px;
         line-height: 120%;
         letter-spacing: 0.01em;
+        font-variation-settings: "wght" 700, "wdth" 111;
       }
 
       .button-text-underline {
@@ -118,6 +112,7 @@ const Fonts = () => (
         font-size: 16px;
         line-height: 120%;
         letter-spacing: 0.01em;
+        text-decoration: underline;
       }
 
       @media only screen and (min-width: ${bp.smallTablet}) {
