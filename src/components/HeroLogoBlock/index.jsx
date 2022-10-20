@@ -1,6 +1,6 @@
 import React from "react";
 import { WidthContainer } from "~components";
-import { ReactComponent as Logo } from "~assets/svg/logo-outline.svg";
+import { ReactComponent as Logo } from "~assets/svg/logo-solid.svg";
 import { ReactComponent as Arrow } from "~assets/svg/arrow.svg";
 
 import * as styles from "./HeroLogoBlock.module.scss";
@@ -13,7 +13,7 @@ const HeroLogoBlock = () => (
           Available in winter 2022
         </p>
         <div className={styles.logoContainer}>
-          <Logo className={styles.logo} />
+          <Logo fill="var(--color-lime)" className={styles.logo} />
         </div>
         <div className={styles.arrowButtonContainer}>
           <button type="button" className={styles.arrowButton}>
