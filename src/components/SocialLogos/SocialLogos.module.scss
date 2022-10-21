@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  background: red;
+  justify-content: center;
+}
+
+.icon {
+  fill: var(--color-lime);
+  height: 2.5rem;
+  margin: 0 0.5rem;
+}
