@@ -1,5 +1,12 @@
 import React from "react";
-import { NoJs, Theme, ContentContainer, HeightDetector } from "~components";
+import {
+  NoJs,
+  Theme,
+  ContentContainer,
+  HeightDetector,
+  StarHoverTrail,
+  StarTwinkle
+} from "~components";
 
 /**
  * Global layout that wraps all pages
@@ -10,8 +17,9 @@ const Layout = ({ children }) => (
     <NoJs />
     <Theme />
     <HeightDetector />
-
+    <StarTwinkle />
     <ContentContainer>{children}</ContentContainer>
+    {/* <StarHoverTrail /> */}
   </>
 );
 

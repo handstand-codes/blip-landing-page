@@ -1,0 +1,29 @@
+$size: 40px;
+
+.container {
+  display: inline-block;
+}
+
+.icon {
+  height: $size;
+  width: $size;
+  fill: #161414;
+  transition: fill 2s;
+
+  &.pink {
+    fill: var(--color-pink);
+    transition: fill 0s;
+  }
+  &.orange {
+    fill: var(--color-orange);
+    transition: fill 0s;
+  }
+  &.lavendar {
+    fill: var(--color-lavendar);
+    transition: fill 0s;
+  }
+}
+
+:export {
+  size: $size;
+}
