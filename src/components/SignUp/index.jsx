@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { WidthContainer } from "~components";
 import regex from "~constants/regex";
-import * as styles from "./SignUpBlock.module.scss";
+import * as styles from "./SignUp.module.scss";
 
-const SignUpBlock = () => {
+const SignUp = () => {
   const [inputValue, setInputValue] = useState(``);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasSubmitted, setHasSubmitted] = useState(false);
@@ -50,13 +50,6 @@ const SignUpBlock = () => {
   return (
     <WidthContainer>
       <div className={styles.container} id="sign-up-block">
-        <h1 className={styles.header}>
-          Sign up to be amongst the first members of Blip Club.
-        </h1>
-        <p className={styles.description}>
-          We’ll send you the lates information on new products, events and meet
-          ups before anyone else.
-        </p>
         <form onSubmit={handleSubmit}>
           <input
             value={inputValue}
@@ -80,4 +73,4 @@ const SignUpBlock = () => {
   );
 };
 
-export default SignUpBlock;
+export default SignUp;
