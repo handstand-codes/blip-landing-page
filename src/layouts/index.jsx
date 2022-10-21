@@ -1,5 +1,5 @@
 import React from "react";
-import { HeightDetector, NoJs, Theme } from "~components";
+import { HeightDetector, NoJs, Theme, WidthContainer } from "~components";
 
 import * as styles from "./Layout.module.scss";
 
@@ -13,7 +13,9 @@ const Layout = ({ children }) => (
     <HeightDetector />
     <Theme />
 
-    <div className={styles.container}>{children}</div>
+    <WidthContainer>
+      <div className={styles.container}>{children}</div>
+    </WidthContainer>
   </>
 );
 
