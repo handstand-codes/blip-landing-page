@@ -1,7 +1,9 @@
 @import "~styles/breakpoints.module.scss";
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 2.25rem;
+}
+
+.logo {
+  fill: var(--color-lime);
 }

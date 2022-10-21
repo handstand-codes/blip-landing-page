@@ -1,15 +1,12 @@
 import React from "react";
-import { WidthContainer } from "~components";
 import { ReactComponent as Logo } from "~assets/svg/logo-solid.svg";
 
 import * as styles from "./HeroLogo.module.scss";
 
 const HeroLogo = () => (
-  <WidthContainer>
-    <div className={styles.container}>
-      <Logo fill="var(--color-lime)" className={styles.logo} />
-    </div>
-  </WidthContainer>
+  <div className={styles.container}>
+    <Logo className={styles.logo} />
+  </div>
 );
 
 export default HeroLogo;
