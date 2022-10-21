@@ -38,7 +38,7 @@ const StarCanvas = () => {
     const pointLight = new THREE.PointLight(`#CDA5FF`, 0.1);
     pointLight.position.x = 2;
     pointLight.position.y = 3;
-    pointLight.position.z = 4;
+    pointLight.position.z = 20;
     scene.add(pointLight);
 
     // Sizes
@@ -60,23 +60,23 @@ const StarCanvas = () => {
     scene.add(camera);
 
     // Update light position on mousemove
-    window.addEventListener(`mousemove`, (e) => {
-      const pageWidth = window.innerWidth;
-      const mouseWidthRatio = e.clientX / pageWidth;
-      const pageHeight = window.innerHeight;
-      const mouseHeightRatio = 1 - e.clientY / pageHeight;
+    // window.addEventListener(`mousemove`, (e) => {
+    //   const pageWidth = window.innerWidth;
+    //   const mouseWidthRatio = e.clientX / pageWidth;
+    //   const pageHeight = window.innerHeight;
+    //   const mouseHeightRatio = 1 - e.clientY / pageHeight;
 
-      const minX = -6;
-      const maxX = 6;
-      const difX = Math.abs(minX - maxX);
-      const valX = difX * mouseWidthRatio - maxX;
-      const minY = -6;
-      const maxY = 6;
-      const difY = Math.abs(minY - maxY);
-      const valY = difY * mouseHeightRatio - maxY;
+    //   const minX = -6;
+    //   const maxX = 6;
+    //   const difX = Math.abs(minX - maxX);
+    //   const valX = difX * mouseWidthRatio - maxX;
+    //   const minY = -6;
+    //   const maxY = 6;
+    //   const difY = Math.abs(minY - maxY);
+    //   const valY = difY * mouseHeightRatio - maxY;
 
-      pointLight.position.set(valX, valY, 1);
-    });
+    //   pointLight.position.set(valX, valY, 20);
+    // });
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -102,13 +102,17 @@ const StarCanvas = () => {
     });
 
     // Animate
+    const clock = new THREE.Clock();
 
-    // const clock = new THREE.Clock();
     const tick = () => {
-      // const elapsedTime = clock.getElapsedTime();
-      // sphere.rotation.y = 0.2 * elapsedTime;
+      const elapsedTime = clock.getElapsedTime();
 
-      pointLight.lookAt(box.position);
+      // Update light position
+      const MULT = 4;
+      const valX = Math.sin(elapsedTime) * MULT;
+      const valY = Math.cos(elapsedTime) * MULT;
+      pointLight.position.x = valX;
+      pointLight.position.y = valY;
 
       // Render
       renderer.render(scene, camera);
