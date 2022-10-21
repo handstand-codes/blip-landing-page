@@ -50,17 +50,14 @@ const SignUpBlock = () => {
   return (
     <WidthContainer>
       <div className={styles.container} id="sign-up-block">
-        <p className={[styles.availableText, `caption`].join(` `)}>
-          Available in winter 2022
-        </p>
-        <h1 className={[`h2 aboveStars`, styles.header].join(` `)}>
+        <h1 className={styles.header}>
           Sign up to be amongst the first members of Blip Club.
         </h1>
-        <p className={[`b1 aboveStars`, styles.description].join(` `)}>
+        <p className={styles.description}>
           We’ll send you the lates information on new products, events and meet
           ups before anyone else.
         </p>
-        <form className="aboveStars" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             value={inputValue}
             onChange={handleChange}

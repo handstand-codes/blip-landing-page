@@ -17,20 +17,17 @@ const HeroLogoBlock = () => {
     <WidthContainer>
       <div className={styles.container}>
         <div className={styles.textContainer}>
-          <p className={[styles.availableText, `caption aboveStars`].join(` `)}>
+          <p className={[styles.availableText, `caption`].join(` `)}>
             Available in winter 2022
           </p>
         </div>
         <div className={styles.logoContainer}>
-          <Logo
-            fill="var(--color-lime)"
-            className={[styles.logo, `aboveStars`].join(` `)}
-          />
+          <Logo fill="var(--color-lime)" className={styles.logo} />
         </div>
         <div className={styles.arrowButtonContainer}>
           <button
             type="button"
-            className={[styles.arrowButton, `aboveStars`].join(` `)}
+            className={styles.arrowButton}
             onClick={scrollSignupIntoView}
           >
             <Arrow className={styles.arrow} />
