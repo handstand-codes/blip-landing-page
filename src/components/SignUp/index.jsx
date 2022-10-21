@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { WidthContainer } from "~components";
 import regex from "~constants/regex";
 import * as styles from "./SignUp.module.scss";
 
@@ -48,28 +47,27 @@ const SignUp = () => {
   };
 
   return (
-    <WidthContainer>
-      <div className={styles.container} id="sign-up-block">
-        <form onSubmit={handleSubmit}>
-          <input
-            value={inputValue}
-            onChange={handleChange}
-            type="text"
-            className={[
-              styles.input,
-              hasValidationError ? styles.error : null
-            ].join(` `)}
-            placeholder="Your journey stars here."
-          />
-          <button
-            type="submit"
-            className={[`button-text`, styles.signUpButton].join(` `)}
-          >
-            {hasSubmitted ? `Thanks` : `Sign up`}
-          </button>
-        </form>
-      </div>
-    </WidthContainer>
+    <div className={styles.container} id="sign-up-block">
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <input
+          value={inputValue}
+          onChange={handleChange}
+          type="text"
+          className={[
+            `b1`,
+            styles.input,
+            hasValidationError ? styles.error : null
+          ].join(` `)}
+          placeholder="Your Email"
+        />
+        <button
+          type="submit"
+          className={[`button-text`, styles.signUpButton].join(` `)}
+        >
+          {hasSubmitted ? `Thanks` : `Sign up`}
+        </button>
+      </form>
+    </div>
   );
 };
 
