@@ -1,6 +1,13 @@
+@import "~styles/breakpoints.module.scss";
+
 .container {
   display: flex;
   justify-content: center;
+  margin-bottom: 1.5rem;
+
+  @media only screen and (min-width: $small-tablet) {
+    margin-bottom: 2rem;
+  }
 }
 
 .icon {

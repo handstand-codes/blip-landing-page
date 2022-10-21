@@ -2,7 +2,7 @@ import React from "react";
 import Star from "./Star";
 import * as styles from "./StarSparkleBackground.module.scss";
 import { size } from "./Star/Star.module.scss";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const StarRow = ({ columns }) => (
   <div>
@@ -13,7 +13,7 @@ const StarRow = ({ columns }) => (
 );
 
 const StarSparkleBackground = () => {
-  const { windowSize } = useWindowDimensions();
+  const windowSize = useWindowSize();
 
   const iconSizeInt = parseInt(size.replace(`px`, ``));
 

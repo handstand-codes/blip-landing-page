@@ -16,3 +16,16 @@
     padding: 0 2.5rem;
   }
 }
+
+.heightProvider {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  // Prevents fuckery in iOS / mobile browsers
+  max-height: calc(100vh - 80px);
+
+  @media only screen and (min-width: $tablet) {
+    max-height: none;
+  }
+}

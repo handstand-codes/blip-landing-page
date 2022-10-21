@@ -12,10 +12,13 @@ const Theme = () => (
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
+          /* height: -webkit-fill-available; */
         }
 
         body {
-          //
+          /* min-height: 100vh; */
+          /* mobile viewport bug fix */
+          /* min-height: -webkit-fill-available; */
         }
 
         a {

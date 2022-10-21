@@ -1,7 +1,5 @@
 import React from "react";
-import { HeightDetector, NoJs, Theme, WidthContainer } from "~components";
-
-import * as styles from "./Layout.module.scss";
+import { NoJs, Theme, ContentContainer } from "~components";
 
 /**
  * Global layout that wraps all pages
@@ -10,12 +8,8 @@ import * as styles from "./Layout.module.scss";
 const Layout = ({ children }) => (
   <>
     <NoJs />
-    <HeightDetector />
     <Theme />
-
-    <WidthContainer>
-      <div className={styles.container}>{children}</div>
-    </WidthContainer>
+    <ContentContainer>{children}</ContentContainer>
   </>
 );
 

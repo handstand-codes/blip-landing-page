@@ -4,17 +4,20 @@ import {
   HeroLogo,
   SignUp,
   SocialLogos,
-  AvailableText,
-  MainText
+  TopText,
+  MainText,
+  FillAvailableHeight
 } from "~components";
 
 const Homepage = () => (
   <>
-    <AvailableText />
-    <HeroLogo />
-    <MainText />
-    <SignUp />
-    <SocialLogos />
+    <TopText />
+    <FillAvailableHeight>
+      <HeroLogo />
+      <MainText />
+      <SignUp />
+      <SocialLogos />
+    </FillAvailableHeight>
   </>
 );
 

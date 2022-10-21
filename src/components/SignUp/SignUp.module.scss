@@ -2,8 +2,12 @@
 
 .container {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--color-lime);
+
+  @media only screen and (min-width: $small-tablet) {
+    margin-bottom: 2rem;
+  }
 }
 
 .form {
