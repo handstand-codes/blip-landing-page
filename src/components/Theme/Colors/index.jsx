@@ -18,12 +18,12 @@ export const COLORS = {
 
   // Client
   lime: `#CEFF43`,
-	pink: `#FF4395`,
-	lavendar: `#CDA5FF`,
-	orange: `#FF5E0D`,
-	"military-green": `#43462C`,
-	"off-white": `#F2F2F2`,
-	"warm-black": `#201D1D`
+  pink: `#FF4395`,
+  lavendar: `#CDA5FF`,
+  orange: `#FF5E0D`,
+  "military-green": `#43462C`,
+  "off-white": `#F2F2F2`,
+  "warm-black": `#201D1D`
 };
 
 const Colors = () => (
