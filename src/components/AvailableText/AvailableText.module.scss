@@ -1,0 +1,11 @@
+@import "~styles/breakpoints.module.scss";
+
+.text {
+  text-transform: uppercase;
+  color: var(--color-lime);
+  padding: 1rem;
+
+  @media only screen and (min-width: $tablet) {
+    padding: 1.5rem;
+  }
+}

@@ -1,9 +1,10 @@
 import React from "react";
-import { SEO, HeroLogoBlock, SignUp, SocialLogos } from "~components";
+import { SEO, HeroLogo, SignUp, SocialLogos, AvailableText } from "~components";
 
 const Homepage = () => (
   <>
-    <HeroLogoBlock />
+    <AvailableText />
+    <HeroLogo />
     <SignUp />
     <SocialLogos />
   </>
