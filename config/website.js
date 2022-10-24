@@ -3,7 +3,7 @@ module.exports = {
   title: `Blip`, // Default Site Title used for SEO & PWA
   description: `Blip description goes here`, // Default Site Decription used for SEO
   siteName: `Blip`, // Sitename for Facebook
-  banner: `/open-graph.jpg`, // Default OpenGraph image
+  banner: `/og-image.png`, // Default OpenGraph image
   ogLanguage: `en_AU`, // Facebook Language
   socialLinks: [``], // Array of social links (facebook, insta, etc)
   // JSONLD / Manifest
