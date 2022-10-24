@@ -4,9 +4,7 @@ import {
   Theme,
   ContentContainer,
   HeightDetector,
-  StarHoverTrail,
-  StarTwinkle,
-  StarCanvas
+  StarTwinkle
 } from "~components";
 
 /**
@@ -18,10 +16,8 @@ const Layout = ({ children }) => (
     <NoJs />
     <Theme />
     <HeightDetector />
-    {/* <StarTwinkle /> */}
-    <StarCanvas />
+    <StarTwinkle />
     <ContentContainer>{children}</ContentContainer>
-    {/* <StarHoverTrail /> */}
   </>
 );
 
