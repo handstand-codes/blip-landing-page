@@ -57,6 +57,7 @@ const SignUp = () => {
           maxLength={100}
           className={[`b1`, styles.input].join(` `)}
           placeholder="Your Email"
+          required
         />
         <button
           type="submit"
@@ -68,10 +69,16 @@ const SignUp = () => {
           </div>
         </button>
       </form>
-      <p className={[`b1`, styles.successMessage].join(` `)}>
+      <p
+        aria-hidden={!hasSubmitted}
+        className={[`b1`, styles.successMessage].join(` `)}
+      >
         Thanks for signing up! Your invite is on it&apos;s way.
       </p>
-      <p className={[`b1`, styles.errorMessage].join(` `)}>
+      <p
+        aria-hidden={!hasApiError}
+        className={[`b1`, styles.errorMessage].join(` `)}
+      >
         We&apos;re sorry, something went wrong! Please try again later.
       </p>
     </div>

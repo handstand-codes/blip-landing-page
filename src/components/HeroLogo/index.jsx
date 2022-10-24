@@ -5,7 +5,7 @@ import * as styles from "./HeroLogo.module.scss";
 
 const HeroLogo = () => (
   <div className={styles.container}>
-    <Logo className={styles.logo} />
+    <Logo className={styles.logo} aria-label="Blip logo" />
   </div>
 );
 

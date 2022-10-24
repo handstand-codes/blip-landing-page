@@ -34,7 +34,7 @@ const StarTwinkle = () => {
   const FREQ = 300;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} aria-hidden="true">
       {rowArray?.map((i) => (
         <StarRow key={i} columns={colArray} odds={ODDS} freq={FREQ} />
       ))}

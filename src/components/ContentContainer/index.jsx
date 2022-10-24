@@ -7,7 +7,7 @@ const ContentContainer = ({ children, paddingOnly }) => (
       ` `
     )}
   >
-    <div className={styles.heightProvider}>{children}</div>
+    <main className={styles.heightProvider}>{children}</main>
   </div>
 );
 

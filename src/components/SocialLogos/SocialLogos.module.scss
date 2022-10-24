@@ -10,10 +10,14 @@
   }
 }
 
+.listItem {
+  margin: 0 1rem;
+}
+
 .link {
   border-radius: 6px;
   padding: 0.25rem;
-  margin: 0 1rem;
+  display: block;
 
   &:focus-visible {
     box-shadow: 0 0 0 1px var(--color-lime);
