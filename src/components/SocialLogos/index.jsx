@@ -6,9 +6,23 @@ import * as styles from "./SocialLogos.module.scss";
 
 const SocialLogos = () => (
   <div className={styles.container}>
-    <InstaLogo className={styles.icon} />
-    <TikTokLogo className={styles.icon} />
-    <TwitterLogo className={styles.icon} />
+    <a
+      href="https://www.instagram.com/"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <InstaLogo className={styles.icon} />
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer noopener">
+      <TikTokLogo className={styles.icon} />
+    </a>
+    <a
+      href="https://www.twitter.com/"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <TwitterLogo className={styles.icon} />
+    </a>
   </div>
 );
 

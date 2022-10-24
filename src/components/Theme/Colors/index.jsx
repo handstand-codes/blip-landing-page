@@ -18,7 +18,7 @@ export const COLORS = {
 
   // Client
   lime: `#CEFF43`,
-  "lime-hover": `#b6e33b`,
+  "lime-hover": `#a3cb34`,
   pink: `#FF4395`,
   lavendar: `#CDA5FF`,
   orange: `#FF5E0D`,

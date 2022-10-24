@@ -1,11 +1,11 @@
 <svg viewBox="0 0 55 53" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect x="4.50391" y="3.6955" width="46.4563" height="46.8018" rx="10" fill="#43462C"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M15 4.81818C9.47715 4.81818 5 9.13253 5 14.4545V38.5455C5 43.8675 9.47715 48.1818 15 48.1818H40C45.5229 48.1818 50 43.8675 50 38.5455V14.4545C50 9.13253 45.5229 4.81818 40 4.81818H15ZM0 14.4545C0 6.47152 6.71573 0 15 0H40C48.2843 0 55 6.47152 55 14.4545V38.5455C55 46.5285 48.2843 53 40 53H15C6.71573 53 0 46.5285 0 38.5455V14.4545Z" fill="#CEFF43"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15 4.81818C9.47715 4.81818 5 9.13253 5 14.4545V38.5455C5 43.8675 9.47715 48.1818 15 48.1818H40C45.5229 48.1818 50 43.8675 50 38.5455V14.4545C50 9.13253 45.5229 4.81818 40 4.81818H15ZM0 14.4545C0 6.47152 6.71573 0 15 0H40C48.2843 0 55 6.47152 55 14.4545V38.5455C55 46.5285 48.2843 53 40 53H15C6.71573 53 0 46.5285 0 38.5455V14.4545Z" fill="current"/>
 <mask id="mask0_7699_19177" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="12" y="12" width="31" height="30">
 <path d="M12.5 12.0455H42.6609V41.1096H12.5V12.0455Z" fill="url(#pattern0)"/>
 </mask>
 <g mask="url(#mask0_7699_19177)">
-<path d="M12.5 12.0455H42.6609V41.1096H12.5V12.0455Z" fill="#CEFF43"/>
+<path d="M12.5 12.0455H42.6609V41.1096H12.5V12.0455Z" fill="current"/>
 </g>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
