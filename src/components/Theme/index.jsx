@@ -1,6 +1,6 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-import { Animations, Colors, Fonts, PageBackground } from "~components";
+import { Colors, Fonts, PageBackground } from "~components";
 import "~node_modules/modern-normalize/modern-normalize.css";
 
 const Theme = () => (
@@ -89,7 +89,6 @@ const Theme = () => (
       `}
     />
 
-    <Animations />
     <Colors />
     <Fonts />
     <PageBackground />

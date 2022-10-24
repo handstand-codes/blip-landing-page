@@ -1,13 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { useAppContext } from "~hooks";
 import * as styles from "./HeightDetector.module.scss";
 
 /** ============================================================================
  * @component Resize height detector for iOS.
  */
 const HeightDetector = () => {
-  const { pathname } = useAppContext();
-
   const ref = useRef();
 
   useEffect(() => {
@@ -35,7 +32,7 @@ const HeightDetector = () => {
     return () => {
       window.removeEventListener(`resize`, detectHeight, false);
     };
-  }, [ref, pathname]);
+  }, [ref]);
 
   return <div className={styles.container} ref={ref} />;
 };
