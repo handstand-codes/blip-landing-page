@@ -24,8 +24,9 @@ const StarTwinkle = () => {
   const colArray = [...Array(columns || 0).keys()];
 
   // Sparkle params
-  const ODDS = windowSize.width || 1000;
-  const FREQ = 200;
+  const ODDS_MULT = 2;
+  const ODDS = windowSize.width * ODDS_MULT || 1000;
+  const FREQ = 300;
 
   return (
     <div className={styles.container}>

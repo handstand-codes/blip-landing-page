@@ -1,4 +1,4 @@
-$size: 40px;
+$size: 50px;
 
 .container {
   display: inline-block;
@@ -7,7 +7,7 @@ $size: 40px;
 .icon {
   height: $size;
   width: $size;
-  fill: #161414;
+  fill: #353626;
   transition: fill 2s;
 
   &.pink {
