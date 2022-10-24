@@ -10,10 +10,20 @@
   }
 }
 
+.link {
+  border-radius: 6px;
+  padding: 0.25rem;
+  margin: 0 1rem;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-lime);
+  }
+}
+
 .icon {
+  display: block;
   fill: var(--color-lime);
   height: 2.5rem;
-  margin: 0 1rem;
   transition: all 0.2s;
 
   &:hover {

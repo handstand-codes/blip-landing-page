@@ -11,6 +11,7 @@ const SocialLogos = () => (
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Instagram"
+      className={styles.link}
     >
       <InstaLogo className={styles.icon} />
     </a>
@@ -19,6 +20,7 @@ const SocialLogos = () => (
       target="_blank"
       rel="noreferrer noopener"
       aria-label="TikTok"
+      className={styles.link}
     >
       <TikTokLogo className={styles.icon} />
     </a>
@@ -27,6 +29,7 @@ const SocialLogos = () => (
       target="_blank"
       rel="noreferrer noopener"
       aria-label="Twitter"
+      className={styles.link}
     >
       <TwitterLogo className={styles.icon} />
     </a>

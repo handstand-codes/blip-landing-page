@@ -35,6 +35,10 @@
     user-select: none;
   }
 
+  &:focus-visible {
+    box-shadow: 0 0 0 1px var(--color-lime);
+  }
+
   @media only screen and (min-width: $tablet) {
     margin-bottom: 0;
     margin-right: 0.5rem;
@@ -60,6 +64,11 @@
 
   &:hover {
     background: var(--color-lime-hover);
+  }
+
+  &:focus-visible {
+    background: var(--color-lime-hover);
+    box-shadow: 0 0 0 1px var(--color-lime);
   }
 }
 
