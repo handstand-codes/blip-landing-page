@@ -2,6 +2,7 @@
 
 .container {
   margin-bottom: 2.25rem;
+  user-select: none;
 
   @media only screen and (min-width: $tablet) {
     margin-bottom: 4.5rem;
