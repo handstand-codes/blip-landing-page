@@ -6,7 +6,7 @@ const OverscrollColors = () => (
     styles={[
       css`
         :root {
-          background-color: var(--color-warm-black);
+          background-color: var(--color-military-green);
         }
       `
     ]}
