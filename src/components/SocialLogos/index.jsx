@@ -10,16 +10,23 @@ const SocialLogos = () => (
       href="https://www.instagram.com/"
       target="_blank"
       rel="noreferrer noopener"
+      aria-label="Instagram"
     >
       <InstaLogo className={styles.icon} />
     </a>
-    <a href="https://www.tiktok.com/" target="_blank" rel="noreferrer noopener">
+    <a
+      href="https://www.tiktok.com/"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="TikTok"
+    >
       <TikTokLogo className={styles.icon} />
     </a>
     <a
       href="https://www.twitter.com/"
       target="_blank"
       rel="noreferrer noopener"
+      aria-label="Twitter"
     >
       <TwitterLogo className={styles.icon} />
     </a>
