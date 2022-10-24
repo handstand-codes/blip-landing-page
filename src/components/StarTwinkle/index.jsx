@@ -24,8 +24,13 @@ const StarTwinkle = () => {
   const colArray = [...Array(columns || 0).keys()];
 
   // Sparkle params
-  const ODDS_MULT = 2;
-  const ODDS = windowSize.width * ODDS_MULT || 1000;
+  /**
+   * Need the frequency to scale with the browser width to ensure consistancy
+   * After fiddling around for a bit, this feels about right
+   */
+  const WINDOW_FRACTION = 3 / 5;
+  const GAIN = 200;
+  const ODDS = Math.floor(windowSize.width * WINDOW_FRACTION + GAIN);
   const FREQ = 300;
 
   return (
