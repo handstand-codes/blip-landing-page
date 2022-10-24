@@ -1,0 +1,25 @@
+.container {
+  color: var(--color-lime);
+  text-align: center;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.homeLink {
+  margin-bottom: 1rem;
+  display: block;
+  transition: color 0.2s;
+  &:hover {
+    color: var(--color-lime-hover);
+  }
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  div {
+    width: 300px;
+  }
+}
