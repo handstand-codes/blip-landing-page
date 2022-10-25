@@ -8,7 +8,7 @@ const SocialLogos = () => (
   <ul className={styles.container}>
     <li className={styles.listItem}>
       <a
-        href="https://www.instagram.com/"
+        href="https://www.instagram.com/blipclub/"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Instagram"
@@ -19,7 +19,7 @@ const SocialLogos = () => (
     </li>
     <li className={styles.listItem}>
       <a
-        href="https://www.tiktok.com/"
+        href="https://www.tiktok.com/@blipclub"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="TikTok"
@@ -30,7 +30,7 @@ const SocialLogos = () => (
     </li>
     <li className={styles.listItem}>
       <a
-        href="https://www.twitter.com/"
+        href="https://twitter.com/blipclubco"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Twitter"
