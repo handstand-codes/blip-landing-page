@@ -10,7 +10,7 @@ const FourOhFour = () => (
         <HeroLogo />
       </div>
       <h2 className={[`h1`, styles.header].join(` `)}>
-        Sorry, this page doesn‘t exist.
+        Sorry, this page doesn&apos;t exist.
       </h2>
       <Link className={[`b1`, styles.homeLink].join(` `)} to="/">
         Back to home
