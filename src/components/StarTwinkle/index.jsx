@@ -1,8 +1,8 @@
 import React from "react";
+import { useWindowSize } from "~hooks";
 import Star from "./Star";
 import * as styles from "./StarTwinkle.module.scss";
 import { size } from "./Star/Star.module.scss";
-import useWindowSize from "~hooks/useWindowSize";
 
 const StarRow = ({ columns, odds, freq }) => (
   <div>

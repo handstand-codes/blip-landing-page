@@ -1,5 +1,5 @@
-import React from "react";
-import { useSiteMetadata } from "~hooks";
+import React, { useEffect } from "react";
+import { useSiteMetadata, useDarkMode } from "~hooks";
 import Facebook from "./Facebook";
 import Twitter from "./Twitter";
 
@@ -7,11 +7,21 @@ import Twitter from "./Twitter";
 
 const SEO = () => {
   const seo = useSiteMetadata();
+  const isDarkMode = useDarkMode();
+
+  useEffect(() => {
+    const favicon = document.querySelectorAll(`[rel="icon"]`)[0];
+    if (isDarkMode) {
+      if (favicon) favicon.href = `/favicon-dark.png`;
+    } else {
+      favicon.href = `/favicon-light.png`;
+    }
+  }, [isDarkMode]);
 
   return (
     <>
       <title>{seo.title}</title>
-      <link rel="icon" type="image/png" href="/favicon.png" />
+      <link rel="icon" type="image/png" href="/favicon-light.png" />
       {seo.description && <meta name="description" content={seo.description} />}
       {seo.keywords && <meta name="keywords" content={seo.keywords} />}
       <Facebook
