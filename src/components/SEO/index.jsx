@@ -11,8 +11,9 @@ const SEO = () => {
 
   useEffect(() => {
     const favicon = document.querySelectorAll(`[rel="icon"]`)[0];
+    if (!favicon) return;
     if (isDarkMode) {
-      if (favicon) favicon.href = `/favicon-dark.png`;
+      favicon.href = `/favicon-dark.png`;
     } else {
       favicon.href = `/favicon-light.png`;
     }

@@ -71,13 +71,13 @@ const SignUp = () => {
       </form>
       <p
         aria-hidden={!hasSubmitted}
-        className={[`b1`, styles.successMessage].join(` `)}
+        className={[`caption`, styles.successMessage].join(` `)}
       >
-        Thanks for signing up! Your invite is on it&apos;s way.
+        Welcome to Blip Club. Access Loading...
       </p>
       <p
         aria-hidden={!hasApiError}
-        className={[`b1`, styles.errorMessage].join(` `)}
+        className={[`caption`, styles.errorMessage].join(` `)}
       >
         We&apos;re sorry, something went wrong! Please try again later.
       </p>
