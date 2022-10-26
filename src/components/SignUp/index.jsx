@@ -69,18 +69,26 @@ const SignUp = () => {
           </div>
         </button>
       </form>
-      <p
-        aria-hidden={!hasSubmitted}
-        className={[`caption`, styles.successMessage].join(` `)}
-      >
-        Welcome to Blip Club. Access Loading...
-      </p>
-      <p
-        aria-hidden={!hasApiError}
-        className={[`caption`, styles.errorMessage].join(` `)}
-      >
-        We&apos;re sorry, something went wrong! Please try again later.
-      </p>
+
+      <div className={styles.messageContainer}>
+        <p
+          aria-hidden={!hasSubmitted}
+          className={[`caption`, styles.successMessage].join(` `)}
+        >
+          Thanks for signing up!{` `}
+          <span className={styles.noWrap}>Welcome to Blip Club.</span>
+        </p>
+      </div>
+      <div className={styles.messageContainer}>
+        <p
+          aria-hidden={!hasApiError}
+          className={[`caption`, styles.errorMessage].join(` `)}
+        >
+          We&apos;re sorry, something went wrong!
+          <br />
+          <span className={styles.noWrap}>Please try again later.</span>
+        </p>
+      </div>
     </div>
   );
 };
