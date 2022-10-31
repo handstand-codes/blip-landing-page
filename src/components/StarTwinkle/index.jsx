@@ -28,10 +28,9 @@ const StarTwinkle = () => {
    * Need the frequency to scale with the browser width to ensure consistancy
    * After fiddling around for a bit, this feels about right
    */
-  const WINDOW_FRACTION = 3 / 5;
-  const GAIN = 200;
-  const ODDS = Math.floor(windowSize.width * WINDOW_FRACTION + GAIN);
-  const FREQ = 300;
+  const GAIN = 600;
+  const ODDS = Math.floor(windowSize.width + GAIN);
+  const FREQ = 150;
 
   return (
     <div className={styles.container} aria-hidden="true">
