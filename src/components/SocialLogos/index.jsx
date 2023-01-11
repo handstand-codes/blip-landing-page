@@ -8,7 +8,7 @@ const SocialLogos = () => (
   <ul className={styles.container}>
     <li className={styles.listItem}>
       <a
-        href="https://www.instagram.com/blipclub/"
+        href="https://www.instagram.com/blip.nrt/"
         target="_blank"
         rel="noreferrer noopener"
         aria-label="Instagram"
