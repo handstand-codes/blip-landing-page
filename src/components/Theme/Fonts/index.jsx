@@ -2,6 +2,10 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 
 import ArchivoVariable from "~assets/fonts/Archivo-VariableFont.woff2";
+import VipnagorgiallaRegular from "~assets/fonts/vipnagorgialla-regular.woff2";
+import VipnagorgiallaBold from "~assets/fonts/vipnagorgialla-bold.woff2";
+import VipnagorgiallaItalic from "~assets/fonts/vipnagorgialla-italic.woff2";
+import VipnagorgiallaBoldItalic from "~assets/fonts/vipnagorgialla-bold-italic.woff2";
 
 import * as bp from "~styles/breakpoints.module.scss";
 
@@ -9,6 +13,8 @@ const SANS_FALLBACKS = `"Helvetica Neue", "Helvetica", ui-sans-serif, system-ui,
 
 const ARCHIVO_ID = `Archivo`;
 const ARCHIVO_TEXT_GROUP = `"${ARCHIVO_ID}", ${SANS_FALLBACKS}`;
+const VIPNAGORGIALLA_ID = `Vipnagorgialla`;
+const VIPNAGORGIALLA_TEXT_GROUP = `"${VIPNAGORGIALLA_ID}", ${SANS_FALLBACKS}`;
 
 /** ============================================================================
  * @component
@@ -23,6 +29,38 @@ const Fonts = () => (
         font-display: block;
         font-weight: normal;
         font-style: normal;
+      }
+
+      @font-face {
+        font-family: "${VIPNAGORGIALLA_ID}";
+        src: url(${VipnagorgiallaRegular}) format("woff2");
+        font-display: block;
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "${VIPNAGORGIALLA_ID}";
+        src: url(${VipnagorgiallaBold}) format("woff2");
+        font-display: block;
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "${VIPNAGORGIALLA_ID}";
+        src: url(${VipnagorgiallaItalic}) format("woff2");
+        font-display: block;
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: "${VIPNAGORGIALLA_ID}";
+        src: url(${VipnagorgiallaBoldItalic}) format("woff2");
+        font-display: block;
+        font-weight: bold;
+        font-style: italic;
       }
 
       // common //
