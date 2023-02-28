@@ -40,6 +40,11 @@ const SEO = () => {
         desc={seo.description}
         username={seo.twitterUsername}
       />
+      {/* Tracking */}
+      <meta
+        name="facebook-domain-verification"
+        content="57ino4t2jhfsu6jutr278ganty27yq"
+      />
     </>
   );
 };
