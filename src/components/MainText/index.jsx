@@ -6,7 +6,7 @@ const MainText = () => (
     <h1 className="h2">
       Ready to quit? <nobr>Join the club.</nobr>
     </h1>
-    <p className="b1">BLIP Club is coming. Sign up to be the first to know.</p>
+    <p className="b1">BLIP is coming. Sign up to be the first to know.</p>
   </div>
 );
 
