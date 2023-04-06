@@ -1,6 +1,6 @@
-# LAM Landingpage Template
+# Blip Landing Page
 
-Gatsby template for a simple landing page site.
+Simple landing page with newsletter signup.
 
 ## Features
 
@@ -17,41 +17,19 @@ Gatsby template for a simple landing page site.
   - Redirects generator for Netlify, Vercel, AWS and Gatsby Cloud
 - PWA
   - Offline Support
-  - - WebApp Manifest Support (Not yet implemented)
 - Brotli Compression
-- Configurable
-  - Use the `website.js` to easily change the most important information
-  - Use `.env.template` to generate `.env.development` and `.env.production` files containing ENV variables
 
 ## Installation + Repo Setup
 
 1. Clone and `yarn install`
-2. Create new repo on Github
-3. `git remote set-url origin <repo url>`
+2. Configure `.env.development`
+3. `yarn dev` to run locally
 
 ## Configuration
 
-### package.json
-Update all project info
-
-### config/website
-Add meta info
-
-### Create .env files
-
-Use `.env.template` to generate `.env.development` and `.env.production` files containing the included ENV variables.
-
-#### GATSBY_SITE_URL
-
-This is the frontend URL of your project, for development it will be http://localhost:8000 or similar
-
-#### IS_STAGING
-
-Specifies whether the site is in staging, setting this variable will ensure the site is not crawlable by search engines. Remove this variable if you are deploying to the production URL and you want the site indexed.
-
 #### HOST
 
-Generates relevant redirect files for your chosen hosting provider, following options are accepted:
+The `HOST` environment variable generates relevant redirect files for your chosen hosting provider, following options are accepted:
 
 - `netlify` - generates a `_redirects` file in the static directory based on contents in `/config/redirects.js` & `/config/rewrites.js`. Adds the `gatsby-plugin-netlify` and `gatsby-plugin-netlify-cache` plugins to the `gatsby-config.js` file.
 - `vercel` - generates a `vercel.json` file in the static directory based on contents in `/config/redirects.js` & `/config/rewrites.js`
@@ -59,10 +37,6 @@ Generates relevant redirect files for your chosen hosting provider, following op
 - `other` - uses the `createRedirect` function from the `createPages` lifecycle event inside `gatsby-node.js` to create redirects based on contents in `/config/redirects.js` & `/config/rewrites.js`
 
 By default the redirects manager (`/config/redirectsManager.js`) will create files for all three options if `HOST` is not set.
-
-#### KLAVIO
-
-For integration with Klaviyo CRM.
 
 ### Fonts
 
@@ -72,25 +46,9 @@ Add webfonts to `src/assets` and update imports + styling in `src/components/The
 
 Update color in `src/components/Theme/Colors`
 
-## Development
+### Website Config
 
-```shell
-yarn dev
-```
-
-### Adding new features/plugins
-
-You can add other features by having a look at the official [plugins page](https://www.gatsbyjs.org/plugins/)
-
-### Building your site
-
-```shell
-yarn build && yarn serve
-```
-
-## Configuration
-
-You can configure your setup in `/config/website`:
+You can configure many global site settings in `/config/website`:
 
 ```JS
 module.exports = {
