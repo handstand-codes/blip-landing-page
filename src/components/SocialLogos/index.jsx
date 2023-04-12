@@ -41,7 +41,7 @@ const SocialLogos = () => (
         </a>
       </li>
     </ul>
-    <div className={caption}>
+    <div className={[styles.copyright, `caption`].join(` `)}>
         &copy; 2023, Blip Products, Inc. All Rights Reserved
     </div>
   </>
