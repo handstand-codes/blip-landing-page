@@ -42,8 +42,7 @@ const SocialLogos = () => (
       </li>
     </ul>
     <div>
-        © 2023, Blip Products, Inc.<br>
-        All Rights Reserved
+        &copy; 2023, Blip Products, Inc. All Rights Reserved
     </div>
   </>
   
