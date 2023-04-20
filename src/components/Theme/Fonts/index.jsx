@@ -99,7 +99,7 @@ const Fonts = () => (
 
       .h2 {
         font-weight: 700;
-        font-size: 22px;
+        font-size: 16px;
         line-height: 120%;
         letter-spacing: -0.01em;
         font-variation-settings: "wght" 700, "wdth" 120;
@@ -165,7 +165,7 @@ const Fonts = () => (
         }
 
         .h2 {
-          font-size: 26px;
+          font-size: 24px;
         }
 
         .h3 {
@@ -199,7 +199,7 @@ const Fonts = () => (
         }
 
         .h2 {
-          font-size: 32px;
+          font-size: 28px;
         }
 
         .h3 {
