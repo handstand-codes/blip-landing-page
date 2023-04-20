@@ -20,7 +20,7 @@ const SocialLogos = () => (
       </li>
       <li className={styles.listItem}>
         <a
-          href="https://www.tiktok.com/@blipclub"
+          href="https://www.tiktok.com/@blip.nrt"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="TikTok"
